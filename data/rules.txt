@@ -1,0 +1,4 @@
+shortcut:{a:g;g:h,i;h:j}{a:j}
+delete:{i:j}
+replace:{b:c,d}{b:x;x:y,z;z:q}
+insert:{c:e;e:f}{c:e;e:x;x:f}

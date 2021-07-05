@@ -1,0 +1,4 @@
+﻿  Graph.cpp
+C:\WORK\RuleBasedGraph\RuleBasedGraph\Utils.hpp(29,20): warning C4244: 'initializing': conversion from '__int64' to 'unsigned int', possible loss of data
+C:\WORK\RuleBasedGraph\RuleBasedGraph\Graph\Graph.cpp(229,13): warning C4018: '<=': signed/unsigned mismatch
+  RuleBasedGraph.vcxproj -> C:\WORK\RuleBasedGraph\RuleBasedGraph\Debug\RuleBasedGraph.exe
