@@ -24,8 +24,9 @@ namespace Graph
             };
         private:
             std::vector<BaseRule*> rules;
+            std::vector<SubGraph*> subGraphs;
             Graph *graph_;
             RuleType parseRuleType(const std::string line);
-            std::vector<std::string> parseSubGraphDescriptor(std::string line);
+            std::vector<std::string> parseSubGraphDescriptors(std::string line);
     };
 }

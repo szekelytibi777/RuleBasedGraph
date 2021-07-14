@@ -1,7 +1,7 @@
 
 #pragma once
 #ifdef GRAPHVIZ_RENDERER
-	#include "gvpp.hpp"
+	#include "../gvpp/src/gvpp.hpp"
 	#include "Graph.hpp"
 
 
@@ -15,6 +15,7 @@ namespace Graph
 			gvpp::Node<char>* createRenderNode(const std::string &id, const std::string &label);
 			void renderEdge(gvpp::Node<> &n_from, gvpp::Node<> &n_to);
 			void show();
+			gvpp::Graph<> *getGvppGraphPtr(){ return &graph; }
 
 		private:
 			gvpp::Graph<> graph;

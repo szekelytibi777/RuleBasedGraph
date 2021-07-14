@@ -8,9 +8,9 @@
 #include "Edge.hpp"
 #include "Node.hpp"
 #include "Common.hpp"
-#ifdef GRAPHVIZ_RENDERER
-	#include "gvpp.hpp"
-#endif
+
+#include "../gvpp/src/gvpp.hpp"
+
 
 namespace Graph{	
 
@@ -18,8 +18,8 @@ namespace Graph{
 	{
 		public:
 
-			Graph(const std::string &file_name);
-			Graph(unsigned numberofNodes, unsigned numberOfEdges);
+			Graph(const std::string &file_name, gvpp::Graph<> *renderGraph = 0);
+			Graph(unsigned numberofNodes, unsigned numberOfEdges, gvpp::Graph<> *renderGraph = 0);
 			~Graph();
 			static Graph& instance();
 			
@@ -54,9 +54,9 @@ namespace Graph{
 
 			std::string  parseFromId(const std::string &line);
 			int parseToIdList(const std::string &line , std::vector<std::string> &outputTokens);
-		#ifdef GRAPHVIZ_RENDERER
-			gvpp::Graph<> gvpp_graph;
-		#endif
+	
+			gvpp::Graph<> *gvpp_graph_;
+
 	
 	};
 }

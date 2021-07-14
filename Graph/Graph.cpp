@@ -4,6 +4,7 @@
 #include "Graph.hpp"  
 #include "../Utils.hpp"
 #include "Renderer.hpp"
+#include "../gvpp/src/gvpp.hpp"
 
 
 
@@ -91,20 +92,16 @@ namespace Graph{
     }
 
 
-	Graph::Graph(unsigned numberofNodes, unsigned numberOfEdges)
-    #ifdef GRAPHVIZ_RENDERER
-        : gvpp_graph(true, "AIMOTIVE")
-    #endif
+	Graph::Graph(unsigned numberofNodes, unsigned numberOfEdges, gvpp::Graph<> *renderGraph)
+        : gvpp_graph_(renderGraph)
     {
         Graph::instance_ = this;
         node_map.reserve(numberofNodes);
         edge_pool.reserve(numberOfEdges);
     }
 
-    Graph::Graph(const  std::string &file_name)
-    #ifdef GRAPHVIZ_RENDERER
-        : gvpp_graph(true, "Rule based graph")
-    #endif
+    Graph::Graph(const  std::string &file_name, gvpp::Graph<> *renderGraph)
+        : gvpp_graph_(renderGraph)
     {
 
         Graph::instance_ = this;
@@ -125,9 +122,10 @@ namespace Graph{
             //edges_pool.reserve(num_of_peaks*2); // for pinputs and for outputs
             // ------------------------------------------------------
             std::string line;
-            do
+            while(!std::getline(input_stream, line).eof())
             {
-                std::getline(input_stream, line);
+                if(line.empty())
+                    continue;
                 std::string from_node_id = parseFromId(line);
                
                 NodePtr p = createNode(from_node_id);
@@ -139,7 +137,7 @@ namespace Graph{
                     createNode(to_node_id);
                     createEdge(getNodeById(from_node_id), getNodeById(to_node_id));
                 }
-            } while (!input_stream.eof());
+            };
        
             input_stream.close();
         }

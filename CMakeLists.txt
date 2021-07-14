@@ -13,8 +13,8 @@ if(BUILD_GRAPHVIZ)
 endif()
 
 set(PROJECT_ICLUDE_DIR "Graph")
-
-list(APPEND CXX_FLAGS "-std=c++17") 
+#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_GLIBCXX_DEBUG")
+list(APPEND CXX_FLAGS "-std=c++20 -g") 
 
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/gvpp/src)
 

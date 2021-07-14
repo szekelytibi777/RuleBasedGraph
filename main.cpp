@@ -4,12 +4,14 @@
 #include "Graph/Graph.hpp"
 #include "Graph/Renderer.hpp"
 #include "Graph/Rules/Rules.hpp"
+#include "gvpp/src/gvpp.hpp"
 
 using namespace std;
+gvpp::Graph<> * renderGraph  = 0;
 int main(int argc, char *argv[]){
 
-    std::string inputDataFilePath = "data/mintagráf.txt";
-    std::string rulesFilePath = "date/rules.txt";  
+    std::string inputDataFilePath = "data/input.txt";
+    std::string rulesFilePath = "data/graph_rules copy 2.txt";  
     if(argc == 3){
         inputDataFilePath = std::string(argv[1]);
         rulesFilePath = std::string(argv[2]);
@@ -24,23 +26,25 @@ int main(int argc, char *argv[]){
 
     std::cout << "Construct the graph according to the input file: " << inputDataFilePath << std::endl;
 
+    
     #ifdef GRAPHVIZ_RENDERER
-    Graph::Renderer renderer;
+        Graph::Renderer *renderer = new Graph::Renderer();
+        renderGraph =  renderer->getGvppGraphPtr();
     #endif
+
+
     cout << "Rule based graph" << endl;
     Graph::Graph * graph = 0;
     try{ 
-        graph = new Graph::Graph(inputDataFilePath);
+        graph = new Graph::Graph(inputDataFilePath, renderGraph);
         graph->logStatus();
         std::cout << "Execution was successful." << std::endl;
     }
     catch(std::exception e){
         std::cerr << "Failed to read data file! \n" << e.what() << std::endl;
     }
-    #ifdef GRAPHVIZ_RENDERER
-        renderer.show();
-    #endif
-    
+   
+   
     try{
         Graph::Rules rules(graph, rulesFilePath); 
         std::cout << "Rules are applied successfully." << std::endl;
@@ -48,6 +52,9 @@ int main(int argc, char *argv[]){
     catch(std::exception e){
         std::cerr << "Failed to read data file! \n" << e.what() << std::endl;
     }
+    #ifdef GRAPHVIZ_RENDERER
+        renderer->show();
+    #endif
     delete graph;
     return 0;
 }

@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/main",
-            "args": ["${workspaceFolder}/data/input2.txt"],
+            "args": ["${workspaceFolder}/data/mintagráf.txt"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

@@ -14,24 +14,31 @@ namespace Graph
     {
         if(file_name.empty())
             return;
-        std::ifstream input_stream;
-        input_stream.exceptions ( std::ifstream::failbit | std::ifstream::badbit );
-        try{
+        std::ifstream input_stream(file_name);
+       // input_stream.exceptions ( std::ifstream::failbit | std::ifstream::badbit );
+       try{
             input_stream.open(file_name, std::ifstream::in);
+
             unsigned num_of_rules = countLines(input_stream) + 1;
             std::string line;
-            do
+            input_stream.seekg(0);
+            while (!getline(input_stream, line).eof())
             {
-                std::getline(input_stream, line);
+                if(line.empty())
+                    continue;
                 RuleType rt = parseRuleType(line);
-                std::vector<std::string> subgraphDescriptors = parseSubGraphDescriptor(line);
-                assert((subgraphDescriptors.size() > 0 && subgraphDescriptors.size() < 2) && "Rule descriptor must contains one or two subgraphs");
+                std::vector<std::string> subgraphDescriptors = parseSubGraphDescriptors(line);
+                assert((subgraphDescriptors.size() > 0 && subgraphDescriptors.size() <= 2) && "Rule descriptor must contains one or two subgraphs");
                 SubGraph *oldSubGraph = 0;
                 SubGraph *newSubGraph = 0;
-                if(subgraphDescriptors.size() > 0)
+                if(subgraphDescriptors.size() > 0){
                     oldSubGraph = new SubGraph(graph, subgraphDescriptors[0]);
-                if(subgraphDescriptors.size() > 1)
+                    subGraphs.push_back(oldSubGraph);
+                }
+                if(subgraphDescriptors.size() > 1){
                     newSubGraph = new SubGraph(graph, subgraphDescriptors[1]);
+                    subGraphs.push_back(newSubGraph);
+                }
                 BaseRule *rulePtr = 0;
                 switch(rt){
                     case Replace:
@@ -52,9 +59,7 @@ namespace Graph
                 if(rulePtr)
                     rules.push_back(rulePtr);
 
-                assert(0 && "lifecicle of SubGraph instance is not implemented!");
-                //TODO: implement lifecicle of SubGraph instance is not implemented
-            } while (!input_stream.eof());
+            } ;
             input_stream.close();
         }
         catch(std::ifstream::failure e){
@@ -77,15 +82,18 @@ namespace Graph
         return Rules::RuleType::None;
     }
 
-    std::vector<std::string> Rules::parseSubGraphDescriptor(std::string line)
+    std::vector<std::string> Rules::parseSubGraphDescriptors(std::string line)
     {
         std::vector<std::string> descriptors;
         size_t pos = 0;
         do{
             size_t startIndex = line.find("{", pos);
+
             size_t endIndex = line.find("}", startIndex);
             pos = endIndex;
-            std::string descriptor = line.substr(startIndex, endIndex);
+            if( pos == std::string::npos)
+                break;
+            std::string descriptor = line.substr(startIndex+1, endIndex-startIndex-1);
             descriptors.push_back(descriptor);
         }while(pos != std::string::npos);        
         return descriptors;
@@ -107,6 +115,10 @@ namespace Graph
         for(BaseRule* rule : rules){
             if(rule)
                 delete rule;
+        }
+
+        for(SubGraph* subGraph : subGraphs){
+            delete subGraph;
         }
     }
 }
