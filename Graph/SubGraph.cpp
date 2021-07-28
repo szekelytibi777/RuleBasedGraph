@@ -20,29 +20,22 @@ namespace Graph{
             
             for(const std::string& to_node_id : tokens){
                 createNode(to_node_id);
-                createEdge(getNodeById(from_node_id), getNodeById(to_node_id));
+                Node *fn = getNodeById(from_node_id);
+                Node *tn = getNodeById(to_node_id);
+                Edge &e = createEdge( fn, tn);
+                fn->addOutputEdge(&e);
+                tn->addInputEdge(&e);
             }
         }
-        /*
-        for(const std::string &id : inputIds)
-        {
-            NodePtr np = graph->getNodeById(id);
-            assert(np);
-            if(np){
-                inputNodes.push_back(np);
-            }
+        //identify start and end nodes of this SubGraph
+        inputNodes.clear();
+        outputNodes.clear();
+        for(auto &p : node_map){
+            if(p.second->getInputEdges().empty())
+                inputNodes.push_back(p.second);
+            if(p.second->getOutputEdges().empty())
+                outputNodes.push_back(p.second);
         }
-
-        for(const std::string &id : outputIds)
-        {
-            NodePtr np = graph->getNodeById(id);
-            assert(np);
-            if(np){
-                outputNodes.push_back(np);
-            }
-        }
-        */
-
     }
         
     std::string SubGraph::parseFromId(const std::string &token)

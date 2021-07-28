@@ -7,6 +7,7 @@
 #include <string>
 #include <locale>
 #include <algorithm>
+
 #define CHECK_CALL(CODE) if (!(CODE)) throw runtime_error("Call to 'CODE' failed")
 
 #define ostreamtype std::basic_ostream<chartype>

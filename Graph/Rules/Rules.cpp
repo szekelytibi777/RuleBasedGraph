@@ -17,11 +17,10 @@ namespace Graph
         std::ifstream input_stream(file_name);
        // input_stream.exceptions ( std::ifstream::failbit | std::ifstream::badbit );
        try{
-            input_stream.open(file_name, std::ifstream::in);
-
             unsigned num_of_rules = countLines(input_stream) + 1;
             std::string line;
             input_stream.seekg(0);
+            std::size_t pos = input_stream.tellg();
             while (!getline(input_stream, line).eof())
             {
                 if(line.empty())
@@ -63,6 +62,7 @@ namespace Graph
             input_stream.close();
         }
         catch(std::ifstream::failure e){
+            input_stream.close();
             throw (e);
         }
     }
@@ -74,7 +74,7 @@ namespace Graph
             return Rules::RuleType::Replace;
         else if(name == "shortcut")
             return Rules::RuleType::Shortcut;
-        else if(name == "Delete")
+        else if(name == "delete")
             return Rules::RuleType::Delete;
         else if(name == "insert")
             return Rules::RuleType::Insert;

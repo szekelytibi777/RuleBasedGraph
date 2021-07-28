@@ -9,7 +9,9 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/main",
-            "args": ["${workspaceFolder}/data/mintagráf.txt" "${workspaceFolder}/data/graph_rules.txt"],
+
+            "args": ["${workspaceFolder}/data/mintagráf.txt" "${workspaceFolder}/data/the_rule.txt"],
+
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

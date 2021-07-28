@@ -10,7 +10,9 @@ namespace Graph{
     bool ReplaceRule::process()
     {
         // TODO: implement
+        #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS
         assert(0 && "ReplaceRule not implemented yet!");
+        #endif
         return false;
     }
             

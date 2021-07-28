@@ -55,6 +55,7 @@ namespace Graph{
 			int parseToIdList(const std::string &line , std::vector<std::string> &outputTokens);
 			bool walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp);
 
+
 			gvpp::Graph<> *gvpp_graph_;
 	};
 }
