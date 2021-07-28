@@ -18,6 +18,9 @@ namespace Graph{
 			Edge& createEdge(Node *fromNodePtr, Node *toNodePtr);
 			Node* getNodeById(const std::string &id);
 
+            NodePtrs &inputs(){return inputNodes;}
+            NodePtrs &outputs(){return outputNodes;}
+
         private:
 	        NodeMap node_map;
 			Edges edge_pool;

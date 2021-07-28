@@ -233,7 +233,8 @@ namespace Graph{
     {
         for(auto pair : node_map){
             Node *peak = pair.second;
-            std::string label = peak->getID()+"("+std::to_string(peak->getLevel())+")";
+            std::string marker = peak->marked() ? "***" : "";
+            std::string label = peak->getID()+marker+"("+std::to_string(peak->getLevel())+")";
             peak->setRenderNode(Renderer::instance().createRenderNode(peak->getID(), label));
         }
         for(auto pair : node_map){
@@ -243,6 +244,31 @@ namespace Graph{
                 Node* p2 = e->toNode();
                 Renderer::instance().renderEdge(*peak->getRenderNode(), *p2->getRenderNode());
             } 
+        }
+    }
+
+    bool Graph::findPathBetween(Node &startNode, Node &endNode, NodePtrs &path)
+    {
+        NodePtrs tmp;
+        bool res = walkTo(startNode, endNode, path, tmp);
+
+        return res;
+    }
+
+    
+    bool Graph::walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp)
+    {
+        if(node == endNode){
+            for(Node *n : pathTmp){
+                pathResult.push_back(n);
+            }
+            return true;
+        }
+        for(Edge* e : node.getOutputEdges()){
+            if(walkTo(*e->toNode(), endNode, pathResult, pathTmp))
+                return true;
+            else
+                return false;
         }
     }
 

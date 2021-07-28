@@ -41,6 +41,13 @@ namespace Graph{
 			void setRenderNode(gvpp::Node<char>* gvpp_node){display_node = gvpp_node;}
 		#endif
 
+		void setMarked(bool m = true){marked_ = true;}
+		bool marked() {return marked_;}
+
+		bool operator == (const Node& other){
+				return other.getID() == getID();
+		}
+
 		private:
 			EdgePtrs inputs;
 			EdgePtrs outputs;
@@ -52,6 +59,7 @@ namespace Graph{
 			int xPos = -1;
 			unsigned level_;
 			int  touched = 0;
+			bool marked_ = false;
 	};
 
 	typedef std::vector<Node> Nodes;

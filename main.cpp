@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include <iostream>
 #include <fstream>
 
@@ -25,6 +26,7 @@ int main(int argc, char *argv[]){
     }
 
     std::cout << "Construct the graph according to the input file: " << inputDataFilePath << std::endl;
+    std::cout << "Applying rule according to the input file: " << rulesFilePath << std::endl;
 
     
     #ifdef GRAPHVIZ_RENDERER
@@ -55,6 +57,7 @@ int main(int argc, char *argv[]){
     #ifdef GRAPHVIZ_RENDERER
         renderer->show();
     #endif
+    usleep(1000000);
     delete graph;
     return 0;
 }

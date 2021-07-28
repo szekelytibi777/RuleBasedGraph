@@ -34,9 +34,8 @@ namespace Graph{
 			bool createEdges(Node* fromNode, NodePtrs &toArray, EdgePtrs* outEdges = 0);
 			bool createEdges(NodePtrs& fromArray, Node* toNode, EdgePtrs* outEdges = 0);
 
+			bool findPathBetween(Node &startNode, Node &endNode, NodePtrs &path);
 			void logStatus();
-			
-
 			void buildRenderedGraph();
 			
 			void show();
@@ -54,9 +53,8 @@ namespace Graph{
 
 			std::string  parseFromId(const std::string &line);
 			int parseToIdList(const std::string &line , std::vector<std::string> &outputTokens);
-	
-			gvpp::Graph<> *gvpp_graph_;
+			bool walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp);
 
-	
+			gvpp::Graph<> *gvpp_graph_;
 	};
 }
