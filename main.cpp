@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include<unistd.h>
 
 #include "Graph/Graph.hpp"
 #include "Graph/Renderer.hpp"
@@ -55,6 +56,7 @@ int main(int argc, char *argv[]){
     #ifdef GRAPHVIZ_RENDERER
         renderer->show();
     #endif
+    usleep(1000000);
     delete graph;
     return 0;
 }
