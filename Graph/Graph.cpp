@@ -135,7 +135,17 @@ namespace Graph{
                 
                 for(const std::string& to_node_id : tokens){
                     createNode(to_node_id);
-                    createEdge(getNodeById(from_node_id), getNodeById(to_node_id));
+                    Node *fn = getNodeById(from_node_id);
+                    Node *tn = getNodeById(to_node_id);
+                 
+                    Edge &e = createEdge( fn, tn);
+                    fn->addOutputEdge(&e);
+                    tn->addInputEdge(&e);
+/*
+                    std::cout << "----------------" << std::endl;
+                    std::cout << fn->toString(true) << std::endl;
+                    std::cout << tn->toString(true) << std::endl;
+*/
                 }
             };
        
@@ -145,8 +155,8 @@ namespace Graph{
             throw (e);
         }
 
-        initEdges();
-        initNodes();
+        //initEdges();
+       //initNodes();
         calculateNodeLevels();
         buildRenderedGraph();
     }
@@ -218,7 +228,7 @@ namespace Graph{
             to_node_ptr->touch();
             int cur_level = to_node_ptr->getLevel(); 
            // std::cout << to_peak_ptr->getID() <<  " " <<to_peak_ptr->getInputEdges().size() << " " << to_peak_ptr->getTouched()<< std::endl;
-            assertm( to_node_ptr->getTouched()  <= to_node_ptr->getInputEdges().size()+10, "The descripted graph is circular");
+            assertm( to_node_ptr->getTouched()  <= to_node_ptr->getInputEdges().size()+100, "The descripted graph is circular");
             walk(to_node_ptr,level+1);
         }
     }
@@ -233,6 +243,7 @@ namespace Graph{
 
     bool Graph::walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp)
     {
+        std::cout << node.toString(true) << " "  << " "<< pathResult.size() << std::endl;
         if(node == endNode){
             for(Node *n : pathTmp){
                 pathResult.push_back(n);
@@ -240,6 +251,8 @@ namespace Graph{
             return true;
         }
         for(Edge* e : node.getOutputEdges()){
+            std::cout << "->"<<e->toNode()->getID() << std::endl;
+
             if(walkTo(*e->toNode(), endNode, pathResult, pathTmp))
                 return true;
             else

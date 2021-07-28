@@ -36,7 +36,7 @@ namespace Graph{
 			void setX(int x) { xPos = x; }
 			int getX() { return xPos; }
 			
-			std::string toString() const;
+			std::string toString(bool showEdges = false) const;
 		#ifdef GRAPHVIZ_RENDERER
 			gvpp::Node<char>* getRenderNode()const {return display_node;}
 			void setRenderNode(gvpp::Node<char>* gvpp_node){display_node = gvpp_node;}
@@ -48,6 +48,7 @@ namespace Graph{
 		bool operator == (const Node& other){
 			return other.getID() == getID();
 		}
+
 
 		private:
 			EdgePtrs inputs;

@@ -1,1 +1,1 @@
-delete:{g:j}
+delete:{a:h}

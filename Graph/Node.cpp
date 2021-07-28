@@ -45,9 +45,23 @@ namespace Graph{
         return id_;
     }
 
-    std::string Node::toString() const
+    std::string Node::toString(bool showEdges) const
     {
-        std::string s = "[" + id_ +"]";
+        std::string iNodes = "[]";
+        std::string oNodes = "[]";
+        if(showEdges){
+            iNodes = "[";
+            for(Edge* e:inputs){
+                iNodes += e->fromNode()->getID()+" ";
+            }
+            iNodes += "]";
+            oNodes = "[";
+            for(Edge* e:outputs){
+                oNodes += e->toNode()->getID()+" ";
+            }
+            oNodes += "]";
+        }
+        std::string s = iNodes+" <" + id_ +"> "+oNodes;
         return s;
     }   
     
