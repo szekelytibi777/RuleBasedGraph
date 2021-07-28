@@ -20,9 +20,6 @@ namespace Graph{
             NodePtrs &inputs(){return inputNodes;}
             NodePtrs &outputs(){return outputNodes;}
 
-            NodePtrs &inputs(){return inputNodes;}
-            NodePtrs &outputs(){return outputNodes;}
-
         private:
 	        NodeMap node_map;
 			Edges edge_pool;

@@ -19,7 +19,7 @@ namespace Graph{
                     NodePtrs path;
                     if(graph_.findPathBetween(*ns, *es, path)){
                         for(Node* n: path){
-                            n->setMarked();
+                            n->setMarked(true);
                         }
                     }
                 }
