@@ -250,6 +250,8 @@ namespace Graph{
             }
             return true;
         }
+        pathTmp.push_back(&node);
+
         for(Edge* e : node.getOutputEdges()){
             std::cout << "->"<<e->toNode()->getID() << std::endl;
 
