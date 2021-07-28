@@ -32,9 +32,14 @@ namespace Graph{
 			void touch(){touched++;}
 			int getTouched(){return touched;}
 
+			void setMarked() {marked = true;}
+
 			void setX(int x) { xPos = x; }
 			int getX() { return xPos; }
 			
+			bool operator == (const Node& other){
+				return other.getID() == getID();
+			}
 			std::string toString() const;
 		#ifdef GRAPHVIZ_RENDERER
 			gvpp::Node<char>* getRenderNode()const {return display_node;}
@@ -52,6 +57,7 @@ namespace Graph{
 			int xPos = -1;
 			unsigned level_;
 			int  touched = 0;
+			bool marked = false;
 	};
 
 	typedef std::vector<Node> Nodes;

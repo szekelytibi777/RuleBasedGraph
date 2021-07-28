@@ -26,8 +26,12 @@ namespace Graph
 
     gvpp::Node<char>* Renderer::createRenderNode(const std::string &id, const std::string &label)
     {
+    #ifndef _GLIBCXX_DEBUG
         gvpp::Node<char> &n = graph.addNode(id, label,false);
         return &n;
+    #else
+        return 0;
+    #endif
     }
 
     void Renderer::renderEdge(gvpp::Node<> &n_from, gvpp::Node<> &n_to)

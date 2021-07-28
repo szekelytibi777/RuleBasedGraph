@@ -223,6 +223,30 @@ namespace Graph{
         }
     }
 
+    bool Graph::findPathBetween(Node &startNode, Node &endNode, NodePtrs &path)
+    {
+        NodePtrs tmp;
+        bool res = walkTo(startNode, endNode, path, tmp);
+
+        return res;
+    }
+
+    bool Graph::walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp)
+    {
+        if(node == endNode){
+            for(Node *n : pathTmp){
+                pathResult.push_back(n);
+            }
+            return true;
+        }
+        for(Edge* e : node.getOutputEdges()){
+            if(walkTo(*e->toNode(), endNode, pathResult, pathTmp))
+                return true;
+            else
+                return false;
+        }
+    }
+
     void Graph::logStatus()
     {
         std::cout << "Number of peaks: " << node_map.size() << std::endl;

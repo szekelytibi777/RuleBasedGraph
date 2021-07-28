@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <unistd.h>
 
 #include "Graph/Graph.hpp"
 #include "Graph/Renderer.hpp"
@@ -11,7 +12,7 @@ gvpp::Graph<> * renderGraph  = 0;
 int main(int argc, char *argv[]){
 
     std::string inputDataFilePath = "data/input.txt";
-    std::string rulesFilePath = "data/graph_rules copy 2.txt";  
+    std::string rulesFilePath = "data/graph_rules copy.txt";  
     if(argc == 3){
         inputDataFilePath = std::string(argv[1]);
         rulesFilePath = std::string(argv[2]);
@@ -47,6 +48,7 @@ int main(int argc, char *argv[]){
    
     try{
         Graph::Rules rules(graph, rulesFilePath); 
+        rules.applyAll();
         std::cout << "Rules are applied successfully." << std::endl;
     }
     catch(std::exception e){
@@ -55,6 +57,7 @@ int main(int argc, char *argv[]){
     #ifdef GRAPHVIZ_RENDERER
         renderer->show();
     #endif
+    usleep(1000000);
     delete graph;
     return 0;
 }

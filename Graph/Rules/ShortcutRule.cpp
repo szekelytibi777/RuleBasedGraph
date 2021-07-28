@@ -10,7 +10,9 @@ namespace Graph{
     bool ShortCutRule::process()
     {
         // TODO: implement
+        #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS
         assert(0 && "ShortcutRule not implemented yet!");
+        #endif
         return false;
     }
             

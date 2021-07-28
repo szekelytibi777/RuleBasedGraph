@@ -10,7 +10,9 @@ namespace Graph{
     bool InsertRule::process()
     {
         // TODO: implement
+        #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS
         assert(0 && "InsertRule not implemented yet!");
+        #endif
         return false;
     }
             
