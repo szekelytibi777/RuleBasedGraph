@@ -15,6 +15,7 @@ namespace Graph{
 		public:
 			Node(std::string id = "x");
 			Node(const Node& other);
+			~Node();
 			
 			Node& operator = (const Node& other);
 

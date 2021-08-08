@@ -36,3 +36,28 @@ inline std::string getIdStr(int n, const std::string &pf = "A"){
     std::string id_str = pf+std::to_string(n);
     return id_str;
 }
+
+inline std::string intToHex(unsigned long i)
+{
+    std::stringstream ss;
+    ss <<"["<< std::hex << i<<"]";
+    return ss.str();
+}
+
+inline std::string arrayToString(const std::vector<std::string> &strVector)
+{
+    std::string res;
+    for(const std::string &s : strVector){
+        if(!s.empty()){
+            if(!res.empty())
+                res += ",";
+            res += s;
+        }
+    }
+    return res;
+}
+
+inline void fixText(std::string &text)
+{
+    text.erase(std::remove(text.begin(), text.end(), (char)13), text.end());
+}

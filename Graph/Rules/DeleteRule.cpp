@@ -9,6 +9,7 @@ namespace Graph{
 
     bool DeleteRule::process()
     {
+
         // TODO: implement
         #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS
         assert(0 && "DeleteRule not implemented yet!");
@@ -21,7 +22,7 @@ namespace Graph{
                     assert((nsMain && esMain) && "Subgraph of this rule is inappropriate!");              
                     NodePtrs path;
                     if(graph_.findPathBetween(*nsMain, *esMain, path)){
-                        std::cout << nsMain->getID() << " - " << esMain->getID() << " " << path.size() << std::endl;
+         //               std::cout << nsMain->getID() << " - " << esMain->getID() << " " << path.size() << std::endl;
                         for(Node* n: path){
                             n->setMarked(true);
                         }

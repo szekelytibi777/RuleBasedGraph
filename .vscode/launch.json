@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/main",
 
-            "args": ["${workspaceFolder}/data/mintagráf.txt", "${workspaceFolder}/data/the_rule.txt"],
+            "args": ["${workspaceFolder}/data/input2.txt", "${workspaceFolder}/data/the_rule.txt"],
 
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

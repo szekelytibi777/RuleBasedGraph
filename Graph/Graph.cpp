@@ -19,10 +19,22 @@ namespace Graph{
 
 	Node* Graph::createNode(const std::string id)
     {
-
-        if(node_map.count(id) == 0)
-            node_map[id] =  new Node(id);
-
+        const bool deb = false;
+        if(deb){
+            std::cout << "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv" << std::endl;
+            printNodes();
+        }
+        if(node_map.count(id) == 0){
+            Node * n = new Node(id);
+            if(deb)
+                std::cout << "new Node" <<  intToHex((unsigned long)n) << " " << id << std::endl;
+            node_map[id] =  n;
+        }
+        if(deb){
+            printNodes();
+            std::cout << "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii" << std::endl;
+        }
+            
         return node_map[id];
     }
 
@@ -86,6 +98,7 @@ namespace Graph{
 
 	int Graph::parseToIdList(const std::string &line, std::vector<std::string> &outputTokens)
     {
+        
         std::string other_peaks = std::string(line.substr(line.find(':')+1));
         splitString(outputTokens, other_peaks);
         return outputTokens.size();
@@ -96,8 +109,6 @@ namespace Graph{
         : gvpp_graph_(renderGraph)
     {
         Graph::instance_ = this;
-        node_map.reserve(numberofNodes);
-        edge_pool.reserve(numberOfEdges);
     }
 
     Graph::Graph(const  std::string &file_name, gvpp::Graph<> *renderGraph)
@@ -116,38 +127,35 @@ namespace Graph{
             // avoid unnecessary memory operations -----------------
             // The vector named _pool contains the instances of the object
             // during processing we only refer to them
-            node_map.reserve(num_of_peaks);
+           // node_map.reserve(num_of_peaks);
             edge_pool.reserve(num_of_peaks*edgeNodesMultiplyFactor);
            // edge_map.reserve(num_of_peaks*edgeNodesMultiplyFactor);
             //edges_pool.reserve(num_of_peaks*2); // for pinputs and for outputs
             // ------------------------------------------------------
             std::string line;
-            while(!std::getline(input_stream, line).eof())
+            do
             {
+                std::getline(input_stream, line);
                 if(line.empty())
                     continue;
+
+                fixText(line);
                 std::string from_node_id = parseFromId(line);
                
                 NodePtr p = createNode(from_node_id);
             
                 std::vector<std::string> tokens;
-                parseToIdList(line, tokens);
+
                 
+                parseToIdList(line, tokens);
+                Node *fn = getNodeById(from_node_id);
                 for(const std::string& to_node_id : tokens){
-                    createNode(to_node_id);
-                    Node *fn = getNodeById(from_node_id);
+                    Node *nn = createNode(to_node_id);
                     Node *tn = getNodeById(to_node_id);
-                 
                     Edge &e = createEdge( fn, tn);
-                    fn->addOutputEdge(&e);
-                    tn->addInputEdge(&e);
-/*
-                    std::cout << "----------------" << std::endl;
-                    std::cout << fn->toString(true) << std::endl;
-                    std::cout << tn->toString(true) << std::endl;
-*/
-                }
-            };
+                }             
+                
+            }while(!input_stream.eof());
        
             input_stream.close();
         }
@@ -155,8 +163,9 @@ namespace Graph{
             throw (e);
         }
 
-        //initEdges();
-       //initNodes();
+        initEdges();
+        initNodes();
+        //printNodes();
         calculateNodeLevels();
         buildRenderedGraph();
     }
@@ -171,6 +180,7 @@ namespace Graph{
     void Graph::initNodes()
     {
         for(Edge &e : edge_pool){
+            bool flag = false;
             Node* from_node = e.fromNode();
             Node* to_node = e.toNode();
             to_node->addInputEdge(&e);
@@ -227,7 +237,6 @@ namespace Graph{
             Node *to_node_ptr = edge_ptr->toNode();
             to_node_ptr->touch();
             int cur_level = to_node_ptr->getLevel(); 
-           // std::cout << to_peak_ptr->getID() <<  " " <<to_peak_ptr->getInputEdges().size() << " " << to_peak_ptr->getTouched()<< std::endl;
             assertm( to_node_ptr->getTouched()  <= to_node_ptr->getInputEdges().size()+100, "The descripted graph is circular");
             walk(to_node_ptr,level+1);
         }
@@ -235,37 +244,44 @@ namespace Graph{
 
     bool Graph::findPathBetween(Node &startNode, Node &endNode, NodePtrs &path)
     {
+        const bool deb = true;
         NodePtrs tmp;
-        bool res = walkTo(startNode, endNode, path, tmp);
+        bool res = walkTo(startNode, endNode, path, tmp, 0);
 
         return res;
     }
 
-    bool Graph::walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp)
+    bool Graph::walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp, int deepth)
     {
-        std::cout << node.toString(true) << " "  << " "<< pathResult.size() << std::endl;
-        if(node == endNode){
-            for(Node *n : pathTmp){
-                pathResult.push_back(n);
+        const bool deb = true;
+        std::string indentation(deepth, '\t');
+         std::string nextIndentation(deepth+1, '\t');
+        if(deb){
+            std::cout << indentation << node.getID() << intToHex((unsigned long)&node) << std::to_string(node.getOutputEdges().size()) << std::endl;
+        }
+        pathTmp.push_back(&node);
+        if(node.getID() == endNode.getID())
+        {
+            for(Node* n : pathTmp){
+                std::cout << "<" << n->getID()<< ">" << std::endl;
             }
             return true;
         }
-        pathTmp.push_back(&node);
+       
 
+        bool ret = false;
         for(Edge* e : node.getOutputEdges()){
-            std::cout << "->"<<e->toNode()->getID() << std::endl;
-
-            if(walkTo(*e->toNode(), endNode, pathResult, pathTmp))
-                return true;
-            else
-                return false;
+            if(deb)
+                std::cout << nextIndentation << ":=>" << e->toNode()->getID() << std::endl;
+            ret |= walkTo(*e->toNode(), endNode, pathResult, pathTmp, deepth+1);
         }
+        return ret;
     }
 
     void Graph::logStatus()
     {
-        std::cout << "Number of peaks: " << node_map.size() << std::endl;
-        std::cout << "Number of edges: " << edge_pool.size() << std::endl;
+  //      std::cout << "Number of peaks: " << node_map.size() << std::endl;
+  //      std::cout << "Number of edges: " << edge_pool.size() << std::endl;
     }
 
     void Graph::buildRenderedGraph()
@@ -286,7 +302,12 @@ namespace Graph{
         }
     }
 
-    
+    void Graph::printNodes()
+    {
+        for(auto p : node_map){
+              std::cout << p.first << ":" << intToHex((unsigned long)p.second) << std::endl;
+        }
+    }
     
 
     void Graph::show()

@@ -4,7 +4,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <unordered_map>
+#include <map>
 #include "Edge.hpp"
 #include "Node.hpp"
 #include "Common.hpp"
@@ -39,6 +39,7 @@ namespace Graph{
 			void buildRenderedGraph();
 			
 			void show();
+			void printNodes();
 		private:
 			static Graph *instance_;
 			NodeMap node_map;
@@ -53,7 +54,7 @@ namespace Graph{
 
 			std::string  parseFromId(const std::string &line);
 			int parseToIdList(const std::string &line , std::vector<std::string> &outputTokens);
-			bool walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp);
+			bool walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp, int deepth);
 
 
 			gvpp::Graph<> *gvpp_graph_;

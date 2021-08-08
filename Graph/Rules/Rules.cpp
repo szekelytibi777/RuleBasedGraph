@@ -21,8 +21,9 @@ namespace Graph
             std::string line;
             input_stream.seekg(0);
             std::size_t pos = input_stream.tellg();
-            while (!getline(input_stream, line).eof())
+            do
             {
+                getline(input_stream, line);
                 if(line.empty())
                     continue;
                 RuleType rt = parseRuleType(line);
@@ -58,7 +59,7 @@ namespace Graph
                 if(rulePtr)
                     rules.push_back(rulePtr);
 
-            } ;
+            }while(!input_stream.eof()) ;
             input_stream.close();
         }
         catch(std::ifstream::failure e){

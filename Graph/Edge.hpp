@@ -34,6 +34,6 @@ namespace Graph{
 
     typedef std::vector<Edge> Edges;
 	
-	typedef std::unordered_map<std::string, Edges*> EdgesMap;
+	typedef std::map<std::string, Edges*> EdgesMap;
 
 }	

@@ -36,7 +36,7 @@ namespace Graph
 
     void Renderer::renderEdge(gvpp::Node<> &n_from, gvpp::Node<> &n_to)
     {
-        graph.addEdge(n_from, n_to);
+       graph.addEdge(n_from, n_to);
     }
 }
 #endif

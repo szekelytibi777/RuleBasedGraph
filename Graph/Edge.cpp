@@ -2,6 +2,8 @@
 #include "Edge.hpp"
 #include "Common.hpp"
 #include "Renderer.hpp"
+#include "../Utils.hpp"
+#include "Graph.hpp"
 	
  namespace Graph{
 
@@ -13,6 +15,8 @@
     #ifdef GRAPHVIZ_RENDERER
 //        Renderer::instance().renderEdge(*from_peak->getRenderNode(), *to_peak->getRenderNode());
     #endif
+        from_node = Graph::instance().getNodeById(from_node_id);
+        to_node = Graph::instance().getNodeById(to_node_id);
     }
 
     Edge::Edge(Node* fromNodePtr, Node* toNodePtr)
@@ -36,7 +40,7 @@
 
 	std::string Edge::toString()
     {
-        std::string s = id_from + " -> " + id_to;
+        std::string s = intToHex((unsigned long)this) + " " + id_from + " -> " + id_to;
         return s;
     }
 

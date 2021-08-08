@@ -1,1 +1,1 @@
-delete:{a:h}
+delete:{w:c}
