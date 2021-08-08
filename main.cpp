@@ -56,6 +56,7 @@ int main(int argc, char *argv[]){
     catch(std::exception e){
         std::cerr << "Failed to read data file! \n" << e.what() << std::endl;
     }
+    graph->buildRenderedGraph();
     #ifdef GRAPHVIZ_RENDERER
         renderer->show();
     #endif

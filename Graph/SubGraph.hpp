@@ -8,6 +8,10 @@
 #include "Node.hpp"
 
 namespace Graph{
+//!  a SubGraph class. 
+/*!
+  This class descript a SubGraph
+*/
     class SubGraph{
         public:
             SubGraph(Graph *graph, std::string &subGrafDescriptor);
@@ -17,8 +21,19 @@ namespace Graph{
 			Edge& createEdge(const std::string id_from, const std::string id_to);
 			Edge& createEdge(Node *fromNodePtr, Node *toNodePtr);
 			Node* getNodeById(const std::string &id);
+            Node* startNode(){
+
+            }
+            Node* endNode(){
+
+            }
             NodePtrs &inputs(){return inputNodes;}
             NodePtrs &outputs(){return outputNodes;}
+            void setInputNodes(NodePtrs &newInputs, Graph &theGraph);
+           
+            void setOutputNodes(NodePtrs &newOutputs, Graph &theGraph);
+
+            NodeMap &getNodeMap(){return node_map;}
 
         private:
 	        NodeMap node_map;

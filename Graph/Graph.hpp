@@ -10,11 +10,16 @@
 #include "Node.hpp"
 #include "Common.hpp"
 
+
 #include "../gvpp/src/gvpp.hpp"
 
 
 namespace Graph{	
-
+	class SubGraph;
+//!  The Graph class. 
+/*!
+  This class descript the Graph
+*/
 	class Graph  
 	{
 		public:
@@ -31,6 +36,7 @@ namespace Graph{
 			Edge& createEdge(const std::string id_from, const std::string id_to);
 			Edge& createEdge(Node *fromNodePtr, Node *toNodePtr);
 			Node* getNodeById(const std::string &id);
+			Node* transFormedNodePtr(Node *nodePtr);
 
 			bool createEdges(Node* fromNode, NodePtrs &toArray, EdgePtrs* outEdges = 0);
 			bool createEdges(NodePtrs& fromArray, Node* toNode, EdgePtrs* outEdges = 0);
@@ -39,9 +45,10 @@ namespace Graph{
 			int shortestPathsBetween(Node &startNode, Node &endNode, NodePtrs &resultPath);
 			void logStatus();
 			void buildRenderedGraph();
-			
+			int deleteMarkedNodes();
 			void show();
 			void printNodes();
+			void addSubGraph(SubGraph &subGraph);
 		private:
 			static Graph *instance_;
 			NodeMap node_map;

@@ -4,6 +4,7 @@
 #include "Graph.hpp"  
 #include "../Utils.hpp"
 #include "Renderer.hpp"
+#include "SubGraph.hpp"
 #include "../gvpp/src/gvpp.hpp"
 
 
@@ -167,7 +168,6 @@ namespace Graph{
         initNodes();
         //printNodes();
         calculateNodeLevels();
-        buildRenderedGraph();
     }
 
     void Graph::initEdges()
@@ -324,7 +324,7 @@ namespace Graph{
     {
         for(auto pair : node_map){
             Node *peak = pair.second;
-            std::string marker = peak->marked() ? "***" : "";
+            std::string marker = peak->marked() ? "*" : "";
             std::string label = peak->getID()+marker+"("+std::to_string(peak->getLevel())+")";
             peak->setRenderNode(Renderer::instance().createRenderNode(peak->getID(), label));
         }
@@ -349,6 +349,32 @@ namespace Graph{
     void Graph::show()
     {
         assert(maxLevel >= 0);
+    }
+
+    int Graph::deleteMarkedNodes()
+    {
+        std::vector<std::string> keysToBeDeleted;
+        for(auto &p : node_map){
+            if(p.second->marked())
+                keysToBeDeleted.push_back(p.first);
+        }
+        for(std::string &key:keysToBeDeleted){
+            node_map.erase(key);
+        }
+    }
+
+    void Graph::addSubGraph(SubGraph &subGraph)
+    {
+        for(auto &n : subGraph.getNodeMap())
+        {
+            createNode(n.first);
+        }
+    }
+    Node* Graph::transFormedNodePtr(Node *nodePtr)
+    {
+        std::string id = nodePtr->getID();
+        Node* transformed = getNodeById(id);
+        return transformed;
     }
 
     Graph::~Graph(){

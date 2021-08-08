@@ -1,1 +1,1 @@
-delete:{y:n}
+replace:{a:b;b:c}{x:x}

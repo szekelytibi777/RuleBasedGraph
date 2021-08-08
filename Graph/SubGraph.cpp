@@ -84,6 +84,19 @@ namespace Graph{
         return edge_pool.back();
     }
 
+    void SubGraph::setInputNodes(NodePtrs &newInputs, Graph &theGraph){
+        inputNodes.clear();
+        for(Node*n : newInputs){
+            inputNodes.push_back(theGraph.transFormedNodePtr(n));
+        }
+    }
+    void SubGraph::setOutputNodes(NodePtrs &newOutputs, Graph &theGraph){
+        outputNodes.clear();
+        for(Node*n : newOutputs){
+            outputNodes.push_back(theGraph.transFormedNodePtr(n));
+        }
+    }
+
     SubGraph::~SubGraph()
     {
         
