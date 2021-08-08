@@ -9,6 +9,10 @@
 
 namespace Graph{
 	class Edge;
+//!  A Node class. 
+/*!
+  This class descript a Graph node
+*/
 	class Node
 	{
 
@@ -21,6 +25,15 @@ namespace Graph{
 
 			void addInputEdge(Edge *edge){inputs.push_back(edge);}
 			void addOutputEdge(Edge *edge){outputs.push_back(edge);}
+			/* 
+
+			bool isStartNode(){
+				return getInputEdges().size() == 0;
+			}
+
+			bool isEndNode(){
+				return getOutputEdges().size() == 0;
+			}
 
 			unsigned getLevel() const  {return level_;}
 			void setLevel(unsigned level) {level_ = level;}

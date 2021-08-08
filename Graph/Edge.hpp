@@ -6,7 +6,12 @@
 #include "Node.hpp"
 	
 namespace Graph{
-
+//!  An Edge class. 
+/*!
+  This class descript an Edge in the Graph
+  with two Nodes connected by each other:
+  fromNode and toNode
+*/
 	class Edge  
 	{
 		public:
