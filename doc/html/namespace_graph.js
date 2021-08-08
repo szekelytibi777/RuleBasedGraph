@@ -1,0 +1,26 @@
+var namespace_graph =
+[
+    [ "Creating elements", "md__c___w_o_r_k__g_i_t__rule_based_graph_gvpp__r_e_a_d_m_e.html#autotoc_md2", null ],
+    [ "Setting attributes", "md__c___w_o_r_k__g_i_t__rule_based_graph_gvpp__r_e_a_d_m_e.html#autotoc_md3", null ],
+    [ "Printing", "md__c___w_o_r_k__g_i_t__rule_based_graph_gvpp__r_e_a_d_m_e.html#autotoc_md4", null ],
+    [ "Edge", "class_graph_1_1_edge.html", "class_graph_1_1_edge" ],
+    [ "Graph", "class_graph_1_1_graph.html", "class_graph_1_1_graph" ],
+    [ "Node", "class_graph_1_1_node.html", "class_graph_1_1_node" ],
+    [ "BaseRule", "class_graph_1_1_base_rule.html", "class_graph_1_1_base_rule" ],
+    [ "DeleteRule", "class_graph_1_1_delete_rule.html", "class_graph_1_1_delete_rule" ],
+    [ "InsertRule", "class_graph_1_1_insert_rule.html", "class_graph_1_1_insert_rule" ],
+    [ "ReplaceRule", "class_graph_1_1_replace_rule.html", "class_graph_1_1_replace_rule" ],
+    [ "Rules", "class_graph_1_1_rules.html", "class_graph_1_1_rules" ],
+    [ "ShortCutRule", "class_graph_1_1_short_cut_rule.html", "class_graph_1_1_short_cut_rule" ],
+    [ "SubGraph", "class_graph_1_1_sub_graph.html", "class_graph_1_1_sub_graph" ],
+    [ "EdgePtrs", "namespace_graph.html#a4e78558cb3e474f50c223e06ef5f44b9", null ],
+    [ "Edges", "namespace_graph.html#af83b2ecb07f0fd556b30143dc617b57a", null ],
+    [ "EdgesMap", "namespace_graph.html#a11918b97577d1b9baf1dca20122e17d0", null ],
+    [ "NodeMap", "namespace_graph.html#a5b7e60e7a6b2a9724aa2aeb64d94f4b3", null ],
+    [ "NodePtr", "namespace_graph.html#a8c1fea8c2c40cf849a301fae84acc0b8", null ],
+    [ "NodePtrs", "namespace_graph.html#aa0203c2467084615a8516e5996599245", null ],
+    [ "NodeRefs", "namespace_graph.html#ad7ff07c8ab53468fb2bca426376c7350", null ],
+    [ "Nodes", "namespace_graph.html#ab685214bd610c0e3e2a8eadb5f6d5b52", null ],
+    [ "edgeNodesMultiplyFactor", "namespace_graph.html#a521264cd43f7742244d089a41e8ec8e3", null ],
+    [ "idDummy", "namespace_graph.html#a341658b04060708f91b9c8ecad0b2f13", null ]
+];

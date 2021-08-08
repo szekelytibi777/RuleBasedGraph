@@ -1,0 +1,7 @@
+<map id="Graph::BaseRule" name="Graph::BaseRule">
+<area shape="rect" id="node1" title=" " alt="" coords="235,5,357,32"/>
+<area shape="rect" id="node2" href="$class_graph_1_1_delete_rule.html" title=" " alt="" coords="5,80,133,107"/>
+<area shape="rect" id="node3" href="$class_graph_1_1_insert_rule.html" title=" " alt="" coords="157,80,280,107"/>
+<area shape="rect" id="node4" href="$class_graph_1_1_replace_rule.html" title=" " alt="" coords="304,80,443,107"/>
+<area shape="rect" id="node5" href="$class_graph_1_1_short_cut_rule.html" title=" " alt="" coords="467,80,610,107"/>
+</map>
