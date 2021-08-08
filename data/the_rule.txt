@@ -1,1 +1,1 @@
-delete:{w:k}
+delete:{y:n}

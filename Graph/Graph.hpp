@@ -1,5 +1,6 @@
 #pragma once
 
+#include <limits.h>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -34,7 +35,8 @@ namespace Graph{
 			bool createEdges(Node* fromNode, NodePtrs &toArray, EdgePtrs* outEdges = 0);
 			bool createEdges(NodePtrs& fromArray, Node* toNode, EdgePtrs* outEdges = 0);
 
-			bool findPathBetween(Node &startNode, Node &endNode, NodePtrs &path);
+			bool findPathsBetween(Node &startNode, Node &endNode, std::vector<NodePtrs> &path);
+			int shortestPathsBetween(Node &startNode, Node &endNode, NodePtrs &resultPath);
 			void logStatus();
 			void buildRenderedGraph();
 			
@@ -54,7 +56,7 @@ namespace Graph{
 
 			std::string  parseFromId(const std::string &line);
 			int parseToIdList(const std::string &line , std::vector<std::string> &outputTokens);
-			bool walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp, int deepth);
+			bool walkTo(Node& node,const Node &endNode, std::vector<NodePtrs> &resultPaths, NodePtrs pathTmp, int deepth);
 
 
 			gvpp::Graph<> *gvpp_graph_;

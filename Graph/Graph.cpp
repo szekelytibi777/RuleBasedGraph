@@ -241,19 +241,52 @@ namespace Graph{
             walk(to_node_ptr,level+1);
         }
     }
-
-    bool Graph::findPathBetween(Node &startNode, Node &endNode, NodePtrs &path)
+    int Graph::shortestPathsBetween(Node &startNode, Node &endNode, NodePtrs &resultPath)
     {
-        const bool deb = true;
+        static std::vector<NodePtrs> paths;
+        #pragma message ("pay attention to the life cycle of the result path. Save a copy of it as needed")
+        paths.clear();
+        if(findPathsBetween(startNode, endNode, paths)){
+            int minimumSteps = INT_MAX;
+            NodePtrs *shortestPath = 0;
+            for(NodePtrs &nptr : paths){
+                if(nptr.size() < minimumSteps){
+                    minimumSteps = nptr.size();
+                    shortestPath = &nptr;
+                }
+            }
+            resultPath = NodePtrs(*shortestPath);
+        }
+       
+        return paths.size();
+    }
+
+    bool Graph::findPathsBetween(Node &startNode, Node &endNode, std::vector<NodePtrs> &paths)
+    {
+        const bool deb = false;
         NodePtrs tmp;
-        bool res = walkTo(startNode, endNode, path, tmp, 0);
+        bool res = walkTo(startNode, endNode, paths, tmp, 0);
+        if(res){
+            if(deb){
+                int count = 0;
+                for(auto &p : paths){
+                    std::cout << "--------------" << count << "--------------------" << std::endl;
+                    for(Node* n : p){
+                        std::cout << "<" << n->getID()<< ">" << std::endl;
+                    }
+                    count ++;
+                }
+            }
+        }
 
         return res;
     }
 
-    bool Graph::walkTo(Node& node,const Node &endNode, NodePtrs &pathResult, NodePtrs pathTmp, int deepth)
+    bool Graph::walkTo(Node& node,const Node &endNode, std::vector<NodePtrs> &resultPaths, NodePtrs pathTmp, int deepth)
     {
-        const bool deb = true;
+        const bool deb = false;
+        int pathIndex = pathTmp.size();
+
         std::string indentation(deepth, '\t');
          std::string nextIndentation(deepth+1, '\t');
         if(deb){
@@ -262,18 +295,21 @@ namespace Graph{
         pathTmp.push_back(&node);
         if(node.getID() == endNode.getID())
         {
-            for(Node* n : pathTmp){
-                std::cout << "<" << n->getID()<< ">" << std::endl;
-            }
+            NodePtrs nptrs(pathTmp);
+
+//            std::copy(pathTmp.begin(), pathTmp.end(), back_inserter(nptrs));
+            resultPaths.push_back(nptrs);
+
             return true;
         }
+
        
 
         bool ret = false;
         for(Edge* e : node.getOutputEdges()){
             if(deb)
                 std::cout << nextIndentation << ":=>" << e->toNode()->getID() << std::endl;
-            ret |= walkTo(*e->toNode(), endNode, pathResult, pathTmp, deepth+1);
+             ret |= walkTo(*e->toNode(), endNode, resultPaths, pathTmp, deepth+1);
         }
         return ret;
     }

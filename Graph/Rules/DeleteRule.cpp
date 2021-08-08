@@ -21,10 +21,12 @@ namespace Graph{
                     Node* esMain = graph_.getNodeById(es->getID());
                     assert((nsMain && esMain) && "Subgraph of this rule is inappropriate!");              
                     NodePtrs path;
-                    if(graph_.findPathBetween(*nsMain, *esMain, path)){
+                    int numOfPaths = graph_.shortestPathsBetween(*nsMain, *esMain, path);
+                    if(numOfPaths > 0){
          //               std::cout << nsMain->getID() << " - " << esMain->getID() << " " << path.size() << std::endl;
                         for(Node* n: path){
-                            n->setMarked(true);
+                            std::cout << n->getID() << std::endl;
+                            //n->setMarked(true);
                         }
                     }
                 }
