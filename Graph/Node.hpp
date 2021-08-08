@@ -25,7 +25,6 @@ namespace Graph{
 
 			void addInputEdge(Edge *edge){inputs.push_back(edge);}
 			void addOutputEdge(Edge *edge){outputs.push_back(edge);}
-			/* 
 
 			bool isStartNode(){
 				return getInputEdges().size() == 0;
