@@ -425,6 +425,18 @@ namespace Graph{
         }
     }
 
+    void Graph::changeNodes(NodePtr oldNode, NodePtr newNode)
+    {
+        Node* oN = getNodeById(oldNode->getID());
+        Node* nN = createNode(newNode->getID());
+        for(Edge* e: oN->getInputEdges()){
+            e->setToNode(nN);
+        }
+        for(Edge* e: oN->getOutputEdges()){
+            e->setFromNode(nN);
+        }
+    }
+
     Node* Graph::transFormedNodePtr(Node *nodePtr)
     {
         std::string id = nodePtr->getID();

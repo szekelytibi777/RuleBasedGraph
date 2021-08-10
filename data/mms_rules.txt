@@ -2,6 +2,6 @@ insert:{d:e}{0:y;y:0}
 replace:{a:b;b:c}{0:x;x:0}
 #replace:{f:g,h;g:i,j;h:j;i:k,l}
 newnodes:{}{v:0,w:0,z:0}
-#replacenode(f,z)
+change:{f:0}{z:0}
 #replacenode(k,v)
 #replacenode(g,v)

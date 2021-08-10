@@ -24,6 +24,8 @@ namespace Graph{
 			const std::string & getSourceIdentifier(){return id_from;}
 			Node*fromNode(){return from_node;}
 			Node*toNode(){return to_node;}
+			void setToNode(Node* node){to_node = node;}
+			void setFromNode(Node* node){from_node = node;}
 			std::string toString();
 
 			void init(NodeMap &map);
