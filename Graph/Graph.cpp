@@ -414,7 +414,15 @@ namespace Graph{
         toEdge->init(node_map);
         startNodeOfInserted->addInputEdge(fromEdge);
         endNodeOfInserted->addOutputEdge(toEdge);
+    }
 
+    void Graph::addNewNodes(SubGraph &subGraph)
+    {
+        for(auto &p :subGraph.getNodeMap()){
+            if(p.first == "0")
+                continue;
+            createNode(p.first);
+        }
     }
 
     Node* Graph::transFormedNodePtr(Node *nodePtr)

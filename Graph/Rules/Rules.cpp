@@ -5,6 +5,7 @@
 #include "ReplaceRule.hpp"
 #include "DeleteRule.hpp"
 #include "InsertRule.hpp"
+#include "NewNodesRule.hpp"
 	
 namespace Graph
 {
@@ -55,6 +56,9 @@ namespace Graph
                     case Delete:
                         rulePtr = new DeleteRule(*graph, *oldSubGraph);
                     break;
+                    case NewNodes:
+                        rulePtr = new NewNodesRule(*graph, *oldSubGraph, newSubGraph);
+                    break;
                     default:
                     break;
                 }
@@ -81,6 +85,8 @@ namespace Graph
             return Rules::RuleType::Delete;
         else if(name == "insert")
             return Rules::RuleType::Insert;
+        else if(name == "newnodes")
+            return Rules::RuleType::NewNodes;
 
         return Rules::RuleType::None;
     }

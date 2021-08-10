@@ -20,7 +20,8 @@ namespace Graph
                 Replace,
                 Shortcut,
                 Insert,
-                Delete
+                Delete,
+                NewNodes
             };
         private:
             std::vector<BaseRule*> rules;

@@ -50,6 +50,7 @@ namespace Graph{
 			void printNodes();
 			void addSubGraph(SubGraph &subGraph, NodePtr fromNode = 0, NodePtr toNode = 0);
 			void insertSubGraph(SubGraph &subGraph, NodePtr fromNode = 0, NodePtr toNode = 0);
+			void addNewNodes(SubGraph &subGraph);
 			std::string toString();
 		private:
 			static Graph *instance_;
