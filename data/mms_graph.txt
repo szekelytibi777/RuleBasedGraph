@@ -1,3 +1,5 @@
+in1:a
+in2:d
 a:b
 b:c
 c:f
@@ -7,3 +9,6 @@ f:g,h
 h:j
 g:i,j
 i:l,k
+k:out1
+l:out2
+j:out3

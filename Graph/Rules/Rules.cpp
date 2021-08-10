@@ -26,6 +26,8 @@ namespace Graph
                 getline(input_stream, line);
                 if(line.empty())
                     continue;
+                if (line.at(0) == '#')
+                    continue;
                 RuleType rt = parseRuleType(line);
                 std::vector<std::string> subgraphDescriptors = parseSubGraphDescriptors(line);
                 assert((subgraphDescriptors.size() > 0 && subgraphDescriptors.size() <= 2) && "Rule descriptor must contains one or two subgraphs");

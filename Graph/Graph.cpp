@@ -332,10 +332,13 @@ namespace Graph{
         for(auto pair : node_map){
             Node *peak = pair.second;
             EdgePtrs &eptrs = peak->getOutputEdges();
+     
             for(Edge*e : eptrs){
                 Node* p2 = e->toNode();
          //       std::cout << peak->getID() << "-->" << p2->getID() << std::endl;
-                Renderer::instance().renderEdge(*peak->getRenderNode(), *p2->getRenderNode());
+                
+                if(p2->getRenderNode())
+                    Renderer::instance().renderEdge(*peak->getRenderNode(), *p2->getRenderNode());
             } 
         }
     }
@@ -379,9 +382,11 @@ namespace Graph{
 
         if(changeNode){
             if(fromNode){
-                Edge *inEdge = &createEdge(fromNode, changeNode);
-                inEdge->init(node_map);
-                changeNode->addInputEdge(inEdge);
+                Edge *edge = &createEdge(fromNode, changeNode);
+                edge->init(node_map);
+                changeNode->addInputEdge(edge);
+                fromNode->getOutputEdges().clear();
+                fromNode->addOutputEdge(edge);
             }
             if(toNode){
                 std::cout << "<" << toNode->toString(true) << std::endl;

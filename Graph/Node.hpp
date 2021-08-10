@@ -52,7 +52,10 @@ namespace Graph{
 			std::string toString(bool showEdges = false) const;
 		#ifdef GRAPHVIZ_RENDERER
 			gvpp::Node<char>* getRenderNode()const {return display_node;}
-			void setRenderNode(gvpp::Node<char>* gvpp_node){display_node = gvpp_node;}
+			void setRenderNode(gvpp::Node<char>* gvpp_node){
+				assert(gvpp_node);
+				display_node = gvpp_node;
+			}
 		#endif
 
 		void setMarked(bool m = true){marked_ = m;}

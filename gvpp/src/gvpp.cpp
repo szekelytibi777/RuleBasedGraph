@@ -49,8 +49,11 @@ namespace gvpp {
 
     template<class chartype>
     void EdgeI::printTo(printLineI pl) const {
+       
+//        const strtype tmp = '';//(unsigned long)&(getTo()) == 0 ? getTo().getId() : "";
         pl.os << pl.indent << getFrom().getId()
-            << (this->getParent().isDirected() ? "->" : "--") << getTo().getId()
+            << (this->getParent().isDirected() ? "->" : "--") 
+            << getTo().getId()
             <<" ";
             this->getAttributes().printTo(pl);
             pl.os <<";" << endl;
@@ -86,6 +89,7 @@ namespace gvpp {
             getAttributes(AttrType::NODE).printTo(npl);
             npl.os << endl;
         }
+        int count = 0;
         for (auto e : this->elements) {
             e->printTo(npl);
         }

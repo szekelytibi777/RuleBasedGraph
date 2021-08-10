@@ -6,7 +6,7 @@
 #include <iterator>
 #include <iostream>
 #include <iomanip>
-
+#define GRAPHVIZ_RENDERER 1
 namespace Graph{
     class Edge;
     class Node;
