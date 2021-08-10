@@ -8,7 +8,7 @@
 #include "Graph/Rules/Rules.hpp"
 #include "gvpp/src/gvpp.hpp"
 #define APPLY_RULES
-
+// 
 using namespace std;
 gvpp::Graph<> * renderGraph  = 0;
 int main(int argc, char *argv[]){

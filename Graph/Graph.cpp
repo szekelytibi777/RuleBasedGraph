@@ -370,6 +370,7 @@ namespace Graph{
 
     void Graph::addSubGraph(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode )
     {
+        subGraph.getNodeMap().erase("0");
         Node *changeNode = 0;
         for(auto &n : subGraph.getNodeMap())
         {
@@ -390,6 +391,27 @@ namespace Graph{
             }
         }
     }
+
+    void Graph::insertSubGraph(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode)
+    {
+        subGraph.getNodeMap().erase("0");
+        for(auto &p : subGraph.getNodeMap()){
+            createNode(p.second->getID());
+        }
+        
+        Node *startNodeOfInserted = transFormedNodePtr(subGraph.getNodeMap().begin()->second);
+        Node *endNodeOfInserted = transFormedNodePtr(std::prev(subGraph.getNodeMap().end())->second);
+        Edge *fromEdge = &createEdge(fromNode->getID(), startNodeOfInserted->getID());
+        fromEdge->init(node_map);
+        fromNode->getOutputEdges().clear();
+        fromNode->addOutputEdge(fromEdge);
+        Edge *toEdge = &createEdge(endNodeOfInserted->getID(), toNode->getID());
+        toEdge->init(node_map);
+        startNodeOfInserted->addInputEdge(fromEdge);
+        endNodeOfInserted->addOutputEdge(toEdge);
+
+    }
+
     Node* Graph::transFormedNodePtr(Node *nodePtr)
     {
         std::string id = nodePtr->getID();

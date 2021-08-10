@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/main",
 
-            "args": ["${workspaceFolder}/data/mms_graph.txt", "${workspaceFolder}/data/the_rule.txt"],
+            "args": ["${workspaceFolder}/data/mms_graph.txt", "${workspaceFolder}/data/mms_rules.txt"],
 
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

@@ -28,6 +28,7 @@ namespace Graph{
             void setOutputNodes(NodePtrs &newOutputs, Graph &theGraph);
 
             NodeMap &getNodeMap(){return node_map;}
+            std::string toString(); 
 
         private:
 	        NodeMap node_map;

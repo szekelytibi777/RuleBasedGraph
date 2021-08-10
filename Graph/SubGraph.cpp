@@ -96,6 +96,15 @@ namespace Graph{
             outputNodes.push_back(theGraph.transFormedNodePtr(n));
         }
     }
+    
+    std::string SubGraph::toString()
+    {
+        std::string ret;
+        for(auto &p : node_map){
+            ret += p.second->toString(true) + "\n";
+        }
+        return ret;
+    }
 
     SubGraph::~SubGraph()
     {

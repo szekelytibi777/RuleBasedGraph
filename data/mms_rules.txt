@@ -1,1 +1,2 @@
-replace{a:b;b:c;c:f}{a:x;x:f}
+insert:{d:e}{0:y;y:0}
+replace:{a:b;b:c}{0:x;x:0}
