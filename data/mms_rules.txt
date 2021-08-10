@@ -1,1 +1,1 @@
-replace{a:b;b:c}{x:x}
+replace{a:b;b:c;c:f}{a:x;x:f}

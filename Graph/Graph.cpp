@@ -316,8 +316,9 @@ namespace Graph{
 
     void Graph::logStatus()
     {
-  //      std::cout << "Number of peaks: " << node_map.size() << std::endl;
-  //      std::cout << "Number of edges: " << edge_pool.size() << std::endl;
+        std::cout << "--------------------" << std::endl;
+        std::cout << toString() << std::endl;
+        std::cout << "--------------------" << std::endl;
     }
 
     void Graph::buildRenderedGraph()
@@ -333,6 +334,7 @@ namespace Graph{
             EdgePtrs &eptrs = peak->getOutputEdges();
             for(Edge*e : eptrs){
                 Node* p2 = e->toNode();
+         //       std::cout << peak->getID() << "-->" << p2->getID() << std::endl;
                 Renderer::instance().renderEdge(*peak->getRenderNode(), *p2->getRenderNode());
             } 
         }
@@ -358,16 +360,34 @@ namespace Graph{
             if(p.second->marked())
                 keysToBeDeleted.push_back(p.first);
         }
+        int count = 0;
         for(std::string &key:keysToBeDeleted){
             node_map.erase(key);
+            count ++;
         }
+        return count;
     }
 
-    void Graph::addSubGraph(SubGraph &subGraph)
+    void Graph::addSubGraph(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode )
     {
+        Node *changeNode = 0;
         for(auto &n : subGraph.getNodeMap())
         {
-            createNode(n.first);
+            changeNode = createNode(n.first);
+        }
+
+        if(changeNode){
+            if(fromNode){
+                Edge *inEdge = &createEdge(fromNode, changeNode);
+                inEdge->init(node_map);
+                changeNode->addInputEdge(inEdge);
+            }
+            if(toNode){
+                std::cout << "<" << toNode->toString(true) << std::endl;
+                Edge *outEdge = &createEdge(changeNode, toNode);
+                outEdge->init(node_map);
+                changeNode->addOutputEdge(outEdge);
+            }
         }
     }
     Node* Graph::transFormedNodePtr(Node *nodePtr)
@@ -382,4 +402,14 @@ namespace Graph{
             delete e.second;
         }
     }
+
+	std::string Graph::toString()
+    {
+        std::string ret;
+        for(auto &p : node_map){
+            ret += p.second->toString(true) + "\n";
+        }
+        return ret;
+    }
+
 }

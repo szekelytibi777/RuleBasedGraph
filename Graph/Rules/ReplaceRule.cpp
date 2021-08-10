@@ -13,6 +13,7 @@ namespace Graph{
         #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS
         assert(0 && "ReplaceRule not implemented yet!");
         #endif
+
         if(!originalPart_.inputs().empty() && !originalPart_.outputs().empty()){
             for(Node* ns : originalPart_.inputs()){
                 for(Node* es : originalPart_.outputs()){
@@ -22,15 +23,23 @@ namespace Graph{
                     NodePtrs path;
                     int numOfPaths = graph_.shortestPathsBetween(*nsMain, *esMain, path);
                     if(numOfPaths > 0){
-         //               std::cout << nsMain->getID() << " - " << esMain->getID() << " " << path.size() << std::endl;
+                        for(Node* n : path){
+                            std::cout << n->toString() << std::endl;
+                        }
+         //               std::cout << nsMain->getID() << " - " << esMa((in->getID() << " " << path.size() << std::endl;
+                        Node* fromNode = path.front()->getInputEdges().empty() ? 0 : path.front()->getInputEdges().front()->fromNode();
+                        Node* toNode = path.back()->getOutputEdges().empty() ? 0 : path.back()->getOutputEdges().front()->toNode();
+                        if(fromNode)
+                            std::cout << fromNode->toString(true) << std::endl;
+                        if(toNode)
+                            std::cout << toNode->toString(true) << std::endl;                           
+
                         for(Node* n: path){
-                            std::cout << n->getID() << std::endl;
                             n->setMarked(true);
                         }
                         graph_.deleteMarkedNodes();
-                        modifiedPart_->setInputNodes(originalPart_.inputs(), graph_);
-                        modifiedPart_->setOutputNodes(originalPart_.outputs(), graph_);
-                        graph_.addSubGraph(*modifiedPart_);
+                       
+                        graph_.addSubGraph(*modifiedPart_, fromNode, toNode);
                     }
                 }
             }

@@ -21,12 +21,6 @@ namespace Graph{
 			Edge& createEdge(const std::string id_from, const std::string id_to);
 			Edge& createEdge(Node *fromNodePtr, Node *toNodePtr);
 			Node* getNodeById(const std::string &id);
-            Node* startNode(){
-
-            }
-            Node* endNode(){
-
-            }
             NodePtrs &inputs(){return inputNodes;}
             NodePtrs &outputs(){return outputNodes;}
             void setInputNodes(NodePtrs &newInputs, Graph &theGraph);
@@ -43,5 +37,7 @@ namespace Graph{
 			int parseToIdList(const std::string &token, std::vector<std::string> &outputTokens);
             NodePtrs inputNodes;
             NodePtrs outputNodes;
+            std::string inputNodeId = "";
+            std::string outputNodeId = "";
     };
 }
