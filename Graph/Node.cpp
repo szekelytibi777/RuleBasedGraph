@@ -57,12 +57,14 @@ namespace Graph{
         if(showEdges){
             iNodes = "[";
             for(Edge* e:inputs){
-                iNodes += e->fromNode()->getID()+" ";
+                if(e->fromNode())
+                    iNodes += e->fromNode()->getID()+" ";
             }
             iNodes += "]";
             oNodes = "[";
             for(Edge* e:outputs){
-                oNodes += e->toNode()->getID()+" ";
+                if(e->toNode())
+                    oNodes += e->toNode()->getID()+" ";
             }
             oNodes += "]";
         }

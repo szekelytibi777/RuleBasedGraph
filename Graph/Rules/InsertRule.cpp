@@ -9,11 +9,7 @@ namespace Graph{
 
     bool InsertRule::process()
     {
-        // TODO: implement
-        #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS
-        assert(0 && "InsertRule not implemented yet!");
-        #endif
-          if(!originalPart_.inputs().empty() && !originalPart_.outputs().empty()){
+        if(!originalPart_.inputs().empty() && !originalPart_.outputs().empty()){
             for(Node* ns : originalPart_.inputs()){
                 for(Node* es : originalPart_.outputs()){
                     Node* nsMain = graph_.getNodeById(ns->getID());
@@ -23,9 +19,9 @@ namespace Graph{
                     int numOfPaths = graph_.shortestPathsBetween(*nsMain, *esMain, path);
                     // TODO: Solve multiple paths
                     if(numOfPaths > 0){
-                        Node* fromNode = path.front();
-                        Node* toNode = path.back();
-                       
+                        Node* fromNode = graph_.transFormedNodePtr(path.front());
+                        Node* toNode = graph_.transFormedNodePtr(path.back());
+                
                         graph_.insertSubGraph(*modifiedPart_, fromNode, toNode);
                         return true;
                     }

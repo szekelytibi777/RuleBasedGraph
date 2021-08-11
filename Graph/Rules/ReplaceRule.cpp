@@ -37,12 +37,8 @@ namespace Graph{
                         for(Node* n: path){
                             n->setMarked(true);
                         }
-
                         graph_.deleteMarkedNodes();
-                       
-
-                        std::cout << std::endl<< modifiedPart_->toString() << std::endl;
-                        graph_.addSubGraph(*modifiedPart_, fromNode, toNode);
+                        graph_.insertSubGraph(*modifiedPart_, fromNode, toNode);
                         std::cout << std::endl<<graph_.toString() << std::endl;
                         return true;
                     }

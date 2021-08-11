@@ -33,6 +33,7 @@ namespace Graph{
 
 			void walk(Node* peak_ptr, int level=0);
 			Node* createNode(const std::string id);
+			void eraseNode(Node* node);
 			Edge& createEdge(const std::string id_from, const std::string id_to);
 			Edge& createEdge(Node *fromNodePtr, Node *toNodePtr);
 			Node* getNodeById(const std::string &id);
@@ -49,8 +50,11 @@ namespace Graph{
 			void show();
 			void printNodes();
 			void addSubGraph(SubGraph &subGraph, NodePtr fromNode = 0, NodePtr toNode = 0);
+			void addSubGraph2(SubGraph &subGraph, NodePtr fromNode = 0, NodePtr toNode = 0);
 			void insertSubGraph(SubGraph &subGraph, NodePtr fromNode = 0, NodePtr toNode = 0);
 			void addNewNodes(SubGraph &subGraph);
+			void deleteSubGraph(SubGraph &subGraph);
+			void transformSubGraph(SubGraph &subGraph);
 			void changeNodes(NodePtr oldNode, NodePtr newNode);
 			std::string toString();
 		private:
@@ -59,9 +63,9 @@ namespace Graph{
 			Edges edge_pool;
 			int maxLevel = -1;
 			int maxWidth = -1;
+
+			void createNododesForSubGraph(SubGraph &subGraph);
 			void calculateNodeLevels();
-			
-	
 			void initEdges();
 			void initNodes();
 

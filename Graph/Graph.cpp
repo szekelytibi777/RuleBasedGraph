@@ -7,6 +7,8 @@
 #include "SubGraph.hpp"
 #include "../gvpp/src/gvpp.hpp"
 
+#define DISPLAY_NODE_LEVELS 0
+
 
 
 namespace Graph{
@@ -20,6 +22,8 @@ namespace Graph{
 
 	Node* Graph::createNode(const std::string id)
     {
+        if(id == "y")
+            std::cout << id << std::endl;
         const bool deb = false;
         if(deb){
             std::cout << "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv" << std::endl;
@@ -37,6 +41,11 @@ namespace Graph{
         }
             
         return node_map[id];
+    }
+
+    void Graph::eraseNode(Node* node)
+    {
+        node_map.erase(node->getID());
     }
 
 	Node* Graph::getNodeById(const std::string &id)
@@ -167,7 +176,9 @@ namespace Graph{
         initEdges();
         initNodes();
         //printNodes();
-        calculateNodeLevels();
+        #if DISPLAY_NODE_LEVELS
+            calculateNodeLevels();
+        #endif
     }
 
     void Graph::initEdges()
@@ -325,19 +336,27 @@ namespace Graph{
     {
         for(auto pair : node_map){
             Node *peak = pair.second;
+            if(peak == 0)
+                continue;
             std::string marker = peak->marked() ? "*" : "";
-            std::string label = peak->getID()+marker+"("+std::to_string(peak->getLevel())+")";
+            #if DISPLAY_NODE_LEVELS
+                std::string label = peak->getID()+marker+"("+std::to_string(peak->getLevel())+")";
+            #else
+                std::string label = peak->getID()+marker;
+            #endif
             peak->setRenderNode(Renderer::instance().createRenderNode(peak->getID(), label));
         }
         for(auto pair : node_map){
             Node *peak = pair.second;
+            if(peak == 0)
+                continue;
             EdgePtrs &eptrs = peak->getOutputEdges();
      
             for(Edge*e : eptrs){
                 Node* p2 = e->toNode();
          //       std::cout << peak->getID() << "-->" << p2->getID() << std::endl;
                 
-                if(p2->getRenderNode())
+                if(p2 && p2->getRenderNode())
                     Renderer::instance().renderEdge(*peak->getRenderNode(), *p2->getRenderNode());
             } 
         }
@@ -385,7 +404,7 @@ namespace Graph{
                 Edge *edge = &createEdge(fromNode, changeNode);
                 edge->init(node_map);
                 changeNode->addInputEdge(edge);
-                fromNode->getOutputEdges().clear();
+               // fromNode->getOutputEdges().clear();
                 fromNode->addOutputEdge(edge);
             }
             if(toNode){
@@ -397,23 +416,88 @@ namespace Graph{
         }
     }
 
+    void Graph::addSubGraph2(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode )
+    {
+        Node *changeNode = 0;
+        for(auto &n : subGraph.getNodeMap())
+        {
+            changeNode = createNode(n.first);
+            for(Edge* e: n.second->getInputEdges()){
+                changeNode->addInputEdge(e);
+            }
+            for(Edge* e: n.second->getOutputEdges()){
+                changeNode->addOutputEdge(e);
+            }
+
+        }
+        std::cout << subGraph.toString() << std::endl;
+        transformSubGraph(subGraph);
+        std::cout << subGraph.toString() << std::endl;
+        Node *lastNode = transFormedNodePtr(subGraph.getNodeMap().begin()->second);
+        Node *firstNode = transFormedNodePtr(std::prev(subGraph.getNodeMap().end())->second);
+        if(fromNode){
+            Edge *edge = &createEdge(fromNode->getID(), firstNode->getID());
+            edge->init(node_map);
+            fromNode->addOutputEdge(edge);
+            firstNode->addInputEdge(edge);
+        }
+
+        if(toNode){
+            Edge *outEdge = &createEdge(lastNode, toNode);
+            outEdge->init(node_map);
+            lastNode->addOutputEdge(outEdge);
+        }    
+        std::cout << toString() << std::endl;
+    }
+
     void Graph::insertSubGraph(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode)
     {
+        std::cout << subGraph.toString() << std::endl;
         subGraph.getNodeMap().erase("0");
-        for(auto &p : subGraph.getNodeMap()){
-            createNode(p.second->getID());
-        }
+        transformSubGraph(subGraph);
         
-        Node *startNodeOfInserted = transFormedNodePtr(subGraph.getNodeMap().begin()->second);
-        Node *endNodeOfInserted = transFormedNodePtr(std::prev(subGraph.getNodeMap().end())->second);
-        Edge *fromEdge = &createEdge(fromNode->getID(), startNodeOfInserted->getID());
-        fromEdge->init(node_map);
-        fromNode->getOutputEdges().clear();
-        fromNode->addOutputEdge(fromEdge);
-        Edge *toEdge = &createEdge(endNodeOfInserted->getID(), toNode->getID());
-        toEdge->init(node_map);
-        startNodeOfInserted->addInputEdge(fromEdge);
-        endNodeOfInserted->addOutputEdge(toEdge);
+        node_map.erase("0");
+#if 0        
+        Node *lastNode = transFormedNodePtr(std::prev(subGraph.getNodeMap().end())->second);
+        Node *firstNode = transFormedNodePtr(subGraph.getNodeMap().begin()->second);
+#else
+        Node *lastNode = getNodeById(std::prev(subGraph.getNodeMap().end())->first);
+        Node *firstNode = getNodeById(subGraph.getNodeMap().begin()->first);
+#endif
+        std::cout << intToHex((unsigned long)firstNode) <<" " << intToHex((unsigned long)lastNode) << std::endl;
+        if(fromNode){
+           
+            Edge *fromEdge = &createEdge(fromNode->getID(), firstNode->getID());
+            fromEdge->init(node_map);
+            fromNode->getOutputEdges().clear();
+            fromNode->addOutputEdge(fromEdge);
+            firstNode->addInputEdge(fromEdge);
+
+        }
+        if(toNode){
+            Edge *toEdge = &createEdge(lastNode->getID(), toNode->getID());
+            toEdge->init(node_map);
+            toNode->addInputEdge(toEdge);
+            lastNode->addOutputEdge(toEdge);
+        }
+    }
+
+    void Graph::createNododesForSubGraph(SubGraph &subGraph)
+    {
+        for(auto &p : subGraph.getNodeMap()){
+            Node *n = p.second;
+            std::cout << n->getID() << std::endl;
+            createNode(n->getID());
+            for(Edge* e:n->getOutputEdges()){
+                e->init(node_map);
+                createNode(e->toNode()->getID());
+            }
+            for(Edge* e:n->getInputEdges()){
+                createNode(e->fromNode()->getID());
+                createNode(e->toNode()->getID());
+                e->init(node_map);
+            }
+        }
     }
 
     void Graph::addNewNodes(SubGraph &subGraph)
@@ -431,17 +515,63 @@ namespace Graph{
         Node* nN = createNode(newNode->getID());
         for(Edge* e: oN->getInputEdges()){
             e->setToNode(nN);
+            nN->addInputEdge(e);
         }
         for(Edge* e: oN->getOutputEdges()){
             e->setFromNode(nN);
+            nN->addOutputEdge(e);
+        }
+        eraseNode(oN);
+    }
+
+	void Graph::deleteSubGraph(SubGraph &subGraph)
+    {
+        for(auto &p:subGraph.getNodeMap())
+        {
+            Node *n = transFormedNodePtr(p.second);
+            eraseNode(n);
         }
     }
 
+
     Node* Graph::transFormedNodePtr(Node *nodePtr)
     {
+        if(!nodePtr)
+            return 0;
         std::string id = nodePtr->getID();
+        if(id == "y")
+            std::cout << id << " " << node_map.count(id) << std::endl;
+        if(node_map.count(id) == 0){
+            Node * n = new Node(id);
+            node_map[id] = n;
+        }
         Node* transformed = getNodeById(id);
         return transformed;
+    }
+
+    void Graph::transformSubGraph(SubGraph &subGraph)
+    {
+        for(auto &p: subGraph.getNodeMap()){
+            Node*tn = transFormedNodePtr(p.second);
+            node_map[p.first] = tn;
+            Node *n = node_map[p.first];
+            std::cout << n->getID() << " " << ((unsigned long)n) << std::endl ;
+  
+            if(n){
+                for(Edge *e : n->getInputEdges()){
+                    Edge *e2 = &createEdge(e->fromNode()->getID(), e->toNode()->getID());
+                    e2->init(node_map);
+                    e->toNode()->addInputEdge(e2);
+                    e->fromNode()->addOutputEdge(e2);
+                }    
+                for(Edge *e : n->getOutputEdges()){
+                    Edge *e2 = &createEdge(e->fromNode()->getID(), e->toNode()->getID());
+                    e2->init(node_map);
+                    e->toNode()->addInputEdge(e2);
+                    e->fromNode()->addOutputEdge(e2);
+                }
+            }
+        }
     }
 
     Graph::~Graph(){
@@ -454,7 +584,8 @@ namespace Graph{
     {
         std::string ret;
         for(auto &p : node_map){
-            ret += p.second->toString(true) + "\n";
+            if(p.second)
+                ret += p.second->toString(true) + "\n";
         }
         return ret;
     }

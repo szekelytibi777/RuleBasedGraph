@@ -25,7 +25,10 @@ namespace Graph{
 			Node*fromNode(){return from_node;}
 			Node*toNode(){return to_node;}
 			void setToNode(Node* node){to_node = node;}
-			void setFromNode(Node* node){from_node = node;}
+			void setFromNode(Node* node){
+				from_node = node;
+				id_from = node->getID();
+			}
 			std::string toString();
 
 			void init(NodeMap &map);
