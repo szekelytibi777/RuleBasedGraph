@@ -2,5 +2,6 @@ insert:{d:e}{0:y;y:0}
 replace:{a:b;b:c}{0:x;x:0}
 change:{f:0}{z:0}
 delete:{i:k,l;h:0;j:out3;l:out2}
+delete:{g:g}
 insert:{z:out1}{v:v}
 add:{z:z}{w:out2,out3}

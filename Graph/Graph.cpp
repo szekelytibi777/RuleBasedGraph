@@ -418,28 +418,46 @@ namespace Graph{
 
     void Graph::addSubGraph2(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode )
     {
+        /*
         Node *changeNode = 0;
+        Node * startNode = std::prev(subGraph.getNodeMap().end());
         for(auto &n : subGraph.getNodeMap())
         {
             changeNode = createNode(n.first);
+
             for(Edge* e: n.second->getInputEdges()){
                 changeNode->addInputEdge(e);
             }
             for(Edge* e: n.second->getOutputEdges()){
                 changeNode->addOutputEdge(e);
             }
-
         }
+        */
         std::cout << subGraph.toString() << std::endl;
-        transformSubGraph(subGraph);
+//        transformSubGraph(subGraph);
         std::cout << subGraph.toString() << std::endl;
         Node *lastNode = transFormedNodePtr(subGraph.getNodeMap().begin()->second);
-        Node *firstNode = transFormedNodePtr(std::prev(subGraph.getNodeMap().end())->second);
+        Node *firstNode = std::prev(subGraph.getNodeMap().end())->second;
+        Node *tfn = transFormedNodePtr(firstNode);
         if(fromNode){
+           
             Edge *edge = &createEdge(fromNode->getID(), firstNode->getID());
             edge->init(node_map);
             fromNode->addOutputEdge(edge);
-            firstNode->addInputEdge(edge);
+            tfn->addInputEdge(edge);
+        }
+        if(firstNode){
+            std::string fromId = firstNode->getID();
+            for(Edge* e : firstNode->getOutputEdges()){
+                if(e){
+                    std::string toId = e->getTargetIdentifier();
+                    Node* tn = createNode(toId);
+                    Edge *e = &createEdge(fromId, toId);
+                    tfn->addOutputEdge(e);
+                    tn->addInputEdge(e);
+
+                }
+            }
         }
 
         if(toNode){
@@ -584,6 +602,7 @@ namespace Graph{
     {
         std::string ret;
         for(auto &p : node_map){
+            std::cout << p.first << std::endl;
             if(p.second)
                 ret += p.second->toString(true) + "\n";
         }
