@@ -23,7 +23,8 @@ namespace Graph
                 Delete,
                 NewNodes,
                 Change,
-                Add
+                Add,
+                CreateEdge
             };
         private:
             std::vector<BaseRule*> rules;

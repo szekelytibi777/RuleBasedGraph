@@ -411,6 +411,16 @@ namespace Graph{
         }
     }
 
+    void Graph::connectNodes(NodePtr fromNode, NodePtr toNode)
+    {
+        if(fromNode && toNode){
+            Edge* e = createEdge(fromNode, toNode);
+            fromNode->addOutputEdge(e);
+            toNode->addInputEdge(e);
+
+        }
+    }
+
     void Graph::addSubGraph2(SubGraph &subGraph, bool delteOriginalEdges, NodePtr fromNode, NodePtr toNode )
     {
   
@@ -436,13 +446,15 @@ namespace Graph{
             firstNode_t->addInputEdge(edge);
         }
         if(toNode){
-            Edge *edge = createEdge(lastNode->getID(), toNode->getID());
-            edge->init(node_map);
-            lastNode_t->addOutputEdge(edge);
-            if(delteOriginalEdges)
-                toNode->getInputEdges().clear();
-            toNode->addInputEdge(edge);
-            
+            if(lastNode && toNode){
+                Edge *edge = createEdge(lastNode->getID(), toNode->getID());
+                edge->init(node_map);
+                lastNode_t->getOutputEdges().clear();
+                lastNode_t->addOutputEdge(edge);
+                if(delteOriginalEdges)
+                    toNode->getInputEdges().clear();
+                toNode->addInputEdge(edge);
+            }
         }
         std::cout << firstNode->toString() << std::endl;
         
@@ -536,7 +548,8 @@ namespace Graph{
             for(Edge* e: node->getOutputEdges()){
                  Edge *te = createEdge(e->getSourceIdentifier(), e->getTargetIdentifier());
                  tNode->addOutputEdge(te);
-                 transformNodeRecursive(e->toNode());
+                 if(e->toNode() != node)
+                    transformNodeRecursive(e->toNode());
             }
         }
     }
@@ -569,10 +582,12 @@ namespace Graph{
                     e->fromNode()->addOutputEdge(e2);
                 }    
                 for(Edge *e : n->getOutputEdges()){
-                    Edge *e2 = createEdge(e->fromNode()->getID(), e->toNode()->getID());
-                    e2->init(node_map);
-                    e->toNode()->addInputEdge(e2);
-                    e->fromNode()->addOutputEdge(e2);
+                    if(e->fromNode() && e->toNode()){
+                        Edge *e2 = createEdge(e->fromNode()->getID(), e->toNode()->getID());
+                        e2->init(node_map);
+                        e->toNode()->addInputEdge(e2);
+                        e->fromNode()->addOutputEdge(e2);
+                    }
                 }
             }
         }

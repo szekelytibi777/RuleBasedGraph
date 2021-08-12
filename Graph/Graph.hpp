@@ -56,6 +56,7 @@ namespace Graph{
 			void deleteSubGraph(SubGraph &subGraph);
 			void transformSubGraph(SubGraph &subGraph);
 			void changeNodes(NodePtr oldNode, NodePtr newNode);
+			void connectNodes(NodePtr fromNode, NodePtr toNode);
 			void transformNodeRecursive(NodePtr node);
 			std::string toString();
 

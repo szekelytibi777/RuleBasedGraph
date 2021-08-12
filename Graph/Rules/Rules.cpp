@@ -8,6 +8,7 @@
 #include "NewNodesRule.hpp"
 #include "ChangeRule.hpp"
 #include "AddRule.hpp"
+#include "EdgeRule.hpp"
 	
 namespace Graph
 {
@@ -67,6 +68,9 @@ namespace Graph
                     case Add:
                         rulePtr = new AddRule(*graph, *oldSubGraph, newSubGraph);
                     break;
+                    case CreateEdge:
+                        rulePtr = new EdgeRule(*graph, *oldSubGraph);
+                    break;
                     default:
                     break;
                 }
@@ -99,6 +103,9 @@ namespace Graph
             return Rules::RuleType::Change;
         else if(name == "add")
             return Rules::RuleType::Add;
+        else if(name == "edge")
+            return Rules::RuleType::CreateEdge;
+
 
         return Rules::RuleType::None;
     }

@@ -1,14 +1,14 @@
-#include "AddRule.hpp"  
+#include "EdgeRule.hpp"  
 #include "../../Utils.hpp"
 
 namespace Graph{
-    AddRule::AddRule(Graph &graph, SubGraph &original, SubGraph *modified)
+    EdgeRule::EdgeRule(Graph &graph, SubGraph &original, SubGraph *modified)
         : BaseRule(graph, original, modified)
     {
             
     }
 
-    bool AddRule::process()
+    bool EdgeRule::process()
     {
         // TODO: implement
         #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS
@@ -23,14 +23,13 @@ namespace Graph{
             fromNode = 0;
         originalPart_.getNodeMap().erase("0");
 
-              
-        graph_.addSubGraph2(*modifiedPart_, false, fromNode, toNode);
-
-         
+        graph_.connectNodes(fromNode, toNode);
+           
+             
         return false;
     }
             
-    AddRule::~AddRule()
+    EdgeRule::~EdgeRule()
     {
         
     }    

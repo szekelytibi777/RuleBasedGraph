@@ -28,10 +28,12 @@ namespace Graph{
            
                 Node *fn = getNodeById(from_node_id);
                 Node *tn = getNodeById(to_node_id);
-                Edge *e = createEdge( fn, tn);
-                e->init(node_map);
-                fn->addOutputEdge(e);
-                tn->addInputEdge(e);
+                if(tn && fn){
+                    Edge *e = createEdge( fn, tn);
+                    e->init(node_map);
+                    fn->addOutputEdge(e);
+                    tn->addInputEdge(e);
+                }
             } 
         }
         //identify start and end nodes of this SubGraph
@@ -69,6 +71,8 @@ namespace Graph{
 
 	Node* SubGraph::getNodeById(const std::string &id)
     {
+        if(id == "0")
+            return 0;
         int count = node_map.count(id);
         if(count ==  0)
             node_map[id] = new Node(id);

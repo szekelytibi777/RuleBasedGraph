@@ -4,7 +4,28 @@ Given a defined graph and a ruleset, the application shall be able to modify ori
 Developed in a docker environment, the source code is compiled with the latest version of gcc
 This application uses graphwiz next to x terminal for visual representation:
 ### executable use:
-**main** _<graph_descriptor_file_path> <modifier_rules_file_path>_
+**main** _<graph_descriptor_file_path> <modifier_rules_file_path>
+
+### example content of the graph descriptor file: _(mms sample graph)_
+
+<div style='background: #eea; padding: 10px 15px; line-height'> 
+in1:a
+in2:d
+a:b
+b:c
+c:f
+d:e
+e:f
+f:g,h
+h:j
+g:i,j
+i:l,k
+k:out1
+l:out2
+j:out3
+</div>
+
+
 
 ##### subgraph descriptor
 {<start_node>:<comma_separated_list_of_end_nodes>}
