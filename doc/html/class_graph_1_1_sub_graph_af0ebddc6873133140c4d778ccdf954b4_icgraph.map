@@ -1,5 +1,14 @@
 <map id="Graph::SubGraph::getNodeMap" name="Graph::SubGraph::getNodeMap">
-<area shape="rect" id="node1" title=" " alt="" coords="427,13,631,39"/>
-<area shape="rect" id="node2" href="$class_graph_1_1_graph.html#a6d2211181692baa681bd2556f27252f9" title=" " alt="" coords="192,13,379,39"/>
-<area shape="rect" id="node3" href="$class_graph_1_1_replace_rule.html#af553ce709ae3be6148157f0fcc830ba5" title=" " alt="" coords="5,5,144,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="456,190,660,217"/>
+<area shape="rect" id="node2" href="$class_graph_1_1_graph.html#a3d95d1d6ffffa15b8c3fdbbfb1312a0e" title=" " alt="" coords="212,13,403,39"/>
+<area shape="rect" id="node4" href="$class_graph_1_1_graph.html#a3472fa99ef0dcb955a74f4489b37d11c" title=" " alt="" coords="214,63,401,90"/>
+<area shape="rect" id="node5" href="$class_graph_1_1_graph.html#a13bc7f1d5dd22415afb96c849aadf53a" title=" " alt="" coords="207,114,408,141"/>
+<area shape="rect" id="node7" href="$class_graph_1_1_graph.html#a5952f6f96df812b1d1efc2a112e4c856" title=" " alt="" coords="208,165,407,191"/>
+<area shape="rect" id="node9" href="$class_graph_1_1_add_rule.html#ae7bf0dff340e6daccd624a017d3ac3be" title=" " alt="" coords="223,215,391,242"/>
+<area shape="rect" id="node10" href="$class_graph_1_1_change_rule.html#aeb45b5c0828446eb661c8e6ccd6d1cb5" title=" " alt="" coords="236,267,379,308"/>
+<area shape="rect" id="node11" href="$class_graph_1_1_edge_rule.html#a0393aa7cceb797811d3f2fc161c11dbb" title=" " alt="" coords="220,333,395,359"/>
+<area shape="rect" id="node12" href="$class_graph_1_1_graph.html#abe0efeefa998aa57a568999d336b7be2" title=" " alt="" coords="215,384,400,425"/>
+<area shape="rect" id="node3" href="$class_graph_1_1_new_nodes_rule.html#ab74b3a6d378d1e6fb5dac8c94e93d653" title=" " alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node6" href="$class_graph_1_1_delete_rule.html#a835a6886c71ce71613d3a3145d3b6059" title=" " alt="" coords="14,100,150,141"/>
+<area shape="rect" id="node8" href="$class_graph_1_1_replace_rule.html#af553ce709ae3be6148157f0fcc830ba5" title=" " alt="" coords="13,165,151,207"/>
 </map>

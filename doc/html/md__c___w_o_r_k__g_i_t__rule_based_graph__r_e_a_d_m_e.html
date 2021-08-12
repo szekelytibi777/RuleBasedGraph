@@ -85,7 +85,34 @@ $(document).ready(function(){initNavTree('md__c___w_o_r_k__g_i_t__rule_based_gra
 <div class="title">RuleBasedGraph </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Given a defined graph and a ruleset, the application shall be able to modify original graph. </p>
+<div class="textblock"><p>Given a defined graph and a ruleset, the application shall be able to modify original graph.</p>
+<p>Developed in a docker environment, the source code is compiled with the latest version of gcc This application uses graphwiz next to x terminal for visual representation: </p>
+<h2><a class="anchor" id="autotoc_md6"></a>
+executable use:</h2>
+<p><b>main</b> _&lt;graph_descriptor_file_path&gt; &lt;modifier_rules_file_path&gt;</p>
+<h2><a class="anchor" id="autotoc_md7"></a>
+example content of the graph descriptor file: _(mms sample graph)_</h2>
+<div style="background: #eea; padding: 10px 15px; line-height"> in1:a in2:d a:b b:c c:f d:e e:f f:g,h h:j g:i,j i:l,k k:out1 l:out2 j:out3 </div><h4><a class="anchor" id="autotoc_md8"></a>
+subgraph descriptor</h4>
+<p>{&lt;start_node&gt;:&lt;comma_separated_list_of_end_nodes&gt;} "0" node_id in a subgraph means that node is null in the implementation </p>
+<h1><a class="anchor" id="autotoc_md9"></a>
+rules usable:</h1>
+<h2><a class="anchor" id="autotoc_md10"></a>
+add</h2>
+<p>add subgraph to the graph: modifier subgraph can be started from an existing node in the graph or can be ends on an allready existing node</p>
+<p><b>add</b> :{&lt;existing_node_started_from&gt;:&lt;existing_node_ends_with&gt;}{&lt;modifier_subgraph&gt;}</p>
+<h2><a class="anchor" id="autotoc_md11"></a>
+insert</h2>
+<p>insert subgraph between connected nodes (node1 and node2)</p>
+<p><b>insert</b>:{&lt;node1_id&gt;:&lt;node2_id&gt;}{&lt;subgraph descriptor&gt;}</p>
+<h2><a class="anchor" id="autotoc_md12"></a>
+delete</h2>
+<p>delete subgraph from the graph</p>
+<p><b>delete</b>:{&lt;descriptor_of_original_subgraph_to_delete&gt;}</p>
+<h2><a class="anchor" id="autotoc_md13"></a>
+edge</h2>
+<p>connect two nodes in the graph</p>
+<p><b>edge</b>:{&lt;from_node_id&gt;:&lt;to_node_id&gt;} </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

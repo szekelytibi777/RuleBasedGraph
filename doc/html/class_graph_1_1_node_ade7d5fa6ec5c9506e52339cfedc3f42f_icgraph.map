@@ -1,9 +1,19 @@
 <map id="Graph::Node::getID" name="Graph::Node::getID">
-<area shape="rect" id="node1" title=" " alt="" coords="343,122,476,149"/>
-<area shape="rect" id="node2" href="$class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782" title=" " alt="" coords="104,5,295,47"/>
-<area shape="rect" id="node4" href="$class_graph_1_1_edge.html#ab160f0a395aad138c29c547ad7dc7881" title=" " alt="" coords="133,71,266,98"/>
-<area shape="rect" id="node5" href="$class_graph_1_1_node.html#afbd2f96e4ea0cb0b7c12e8f0369ce1be" title=" " alt="" coords="116,122,283,149"/>
-<area shape="rect" id="node6" href="$class_graph_1_1_graph.html#a7949be895b6ea6980a61ce6deef63663" title=" " alt="" coords="109,173,290,215"/>
-<area shape="rect" id="node7" href="$class_graph_1_1_graph.html#a3696e51ba4e6c6d6285cf1866bd4257c" title=" " alt="" coords="132,239,267,266"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,56,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="475,309,608,336"/>
+<area shape="rect" id="node2" href="$class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a" title=" " alt="" coords="230,49,425,76"/>
+<area shape="rect" id="node3" href="$class_graph_1_1_add_rule.html#ae7bf0dff340e6daccd624a017d3ac3be" title=" " alt="" coords="9,49,177,76"/>
+<area shape="rect" id="node5" href="$class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782" title=" " alt="" coords="232,218,423,259"/>
+<area shape="rect" id="node7" href="$class_graph_1_1_graph.html#a6993ed85dd9b34b9fd857910d1c41b5d" title=" " alt="" coords="234,284,421,310"/>
+<area shape="rect" id="node9" href="$class_graph_1_1_edge.html#ab160f0a395aad138c29c547ad7dc7881" title=" " alt="" coords="261,334,394,361"/>
+<area shape="rect" id="node10" href="$class_graph_1_1_graph.html#a359d48ec12cd1175b1f792a0100306e1" title=" " alt="" coords="242,385,413,412"/>
+<area shape="rect" id="node11" href="$class_graph_1_1_graph.html#a5952f6f96df812b1d1efc2a112e4c856" title=" " alt="" coords="228,436,427,462"/>
+<area shape="rect" id="node13" href="$class_graph_1_1_node.html#afbd2f96e4ea0cb0b7c12e8f0369ce1be" title=" " alt="" coords="244,486,411,513"/>
+<area shape="rect" id="node14" href="$class_graph_1_1_edge_rule.html#a0393aa7cceb797811d3f2fc161c11dbb" title=" " alt="" coords="5,166,180,193"/>
+<area shape="rect" id="node15" href="$class_graph_1_1_edge.html#ab7e8d4ea792d32d16e3b155b9d027fcc" title=" " alt="" coords="237,537,418,564"/>
+<area shape="rect" id="node16" href="$class_graph_1_1_graph.html#a7949be895b6ea6980a61ce6deef63663" title=" " alt="" coords="237,100,418,142"/>
+<area shape="rect" id="node17" href="$class_graph_1_1_graph.html#a3696e51ba4e6c6d6285cf1866bd4257c" title=" " alt="" coords="260,588,395,614"/>
+<area shape="rect" id="node4" href="$class_graph_1_1_insert_rule.html#ad7582f627a50cccbd5be529a060c1700" title=" " alt="" coords="27,100,158,142"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="67,225,118,252"/>
+<area shape="rect" id="node8" href="$class_graph_1_1_change_rule.html#aeb45b5c0828446eb661c8e6ccd6d1cb5" title=" " alt="" coords="21,276,164,318"/>
+<area shape="rect" id="node12" href="$class_graph_1_1_replace_rule.html#af553ce709ae3be6148157f0fcc830ba5" title=" " alt="" coords="23,428,162,470"/>
 </map>

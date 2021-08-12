@@ -82,6 +82,7 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -110,17 +111,17 @@ Include dependency graph for main.cpp:</div>
 <area shape="rect" title=" " alt="" coords="1307,95,1432,121"/>
 <area shape="rect" title=" " alt="" coords="245,393,309,420"/>
 <area shape="rect" title=" " alt="" coords="586,468,641,495"/>
-<area shape="rect" title=" " alt="" coords="67,617,123,644"/>
-<area shape="rect" title=" " alt="" coords="167,617,214,644"/>
+<area shape="rect" title=" " alt="" coords="53,617,109,644"/>
+<area shape="rect" title=" " alt="" coords="141,617,251,644"/>
 <area shape="rect" href="_edge_8hpp.html" title=" " alt="" coords="699,393,776,420"/>
-<area shape="rect" href="_common_8hpp.html" title=" " alt="" coords="335,543,433,569"/>
+<area shape="rect" href="_common_8hpp.html" title=" " alt="" coords="360,543,459,569"/>
 <area shape="rect" href="_node_8hpp.html" title=" " alt="" coords="775,468,852,495"/>
 <area shape="rect" title=" " alt="" coords="334,393,471,420"/>
 <area shape="rect" title=" " alt="" coords="705,543,770,569"/>
-<area shape="rect" title=" " alt="" coords="521,617,596,644"/>
-<area shape="rect" title=" " alt="" coords="249,617,319,644"/>
-<area shape="rect" title=" " alt="" coords="343,617,406,644"/>
-<area shape="rect" title=" " alt="" coords="431,617,497,644"/>
+<area shape="rect" title=" " alt="" coords="552,617,627,644"/>
+<area shape="rect" title=" " alt="" coords="280,617,349,644"/>
+<area shape="rect" title=" " alt="" coords="374,617,437,644"/>
+<area shape="rect" title=" " alt="" coords="461,617,528,644"/>
 <area shape="rect" title=" " alt="" coords="794,543,859,569"/>
 <area shape="rect" href="_base_rule_8hpp.html" title=" " alt="" coords="470,169,573,196"/>
 <area shape="rect" href="_sub_graph_8hpp.html" title=" " alt="" coords="651,244,768,271"/>
@@ -129,6 +130,11 @@ Include dependency graph for main.cpp:</div>
 </div>
 <p><a href="main_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1e45cb3af2218a2209a1378df8578949"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1e45cb3af2218a2209a1378df8578949">APPLY_RULES</a></td></tr>
+<tr class="separator:a1e45cb3af2218a2209a1378df8578949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
@@ -139,6 +145,23 @@ Variables</h2></td></tr>
 <tr class="memitem:a85bf75fe2c404c2d6be1607ef4c91249"><td class="memItemLeft" align="right" valign="top">gvpp::Graph *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a85bf75fe2c404c2d6be1607ef4c91249">renderGraph</a> = 0</td></tr>
 <tr class="separator:a85bf75fe2c404c2d6be1607ef4c91249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a1e45cb3af2218a2209a1378df8578949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e45cb3af2218a2209a1378df8578949">&#9670;&nbsp;</a></span>APPLY_RULES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define APPLY_RULES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00010">10</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
@@ -166,79 +189,87 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00013">13</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                                {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::string inputDataFilePath = <span class="stringliteral">&quot;data/input.txt&quot;</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::string rulesFilePath = <span class="stringliteral">&quot;data/graph_rules copy.txt&quot;</span>;  </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span>(argc == 3){</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        inputDataFilePath = std::string(argv[1]);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        rulesFilePath = std::string(argv[2]);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(argc == 2){</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        inputDataFilePath = std::string(argv[1]);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Usage:&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\tmain &lt;input_data_file_path&gt; &lt;rules_file_path&gt;&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Construct the graph according to the input file: &quot;</span> &lt;&lt; inputDataFilePath &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Applying rule according to the input file: &quot;</span> &lt;&lt; rulesFilePath &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">    #ifdef GRAPHVIZ_RENDERER</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        Graph::Renderer *renderer = <span class="keyword">new</span> Graph::Renderer();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="main_8cpp.html#a85bf75fe2c404c2d6be1607ef4c91249">renderGraph</a> =  renderer-&gt;getGvppGraphPtr();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00014">14</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                                {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::string inputDataFilePath = <span class="stringliteral">&quot;data/input.txt&quot;</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::string rulesFilePath = <span class="stringliteral">&quot;data/graph_rules copy.txt&quot;</span>;  </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span>(argc == 3){</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        inputDataFilePath = std::string(argv[1]);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        rulesFilePath = std::string(argv[2]);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(argc == 2){</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        inputDataFilePath = std::string(argv[1]);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Usage:&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\tmain &lt;input_data_file_path&gt; &lt;rules_file_path&gt;&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Construct the graph according to the input file: &quot;</span> &lt;&lt; inputDataFilePath &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Applying rule according to the input file: &quot;</span> &lt;&lt; rulesFilePath &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">    #ifdef GRAPHVIZ_RENDERER</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        Graph::Renderer *renderer = <span class="keyword">new</span> Graph::Renderer();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="main_8cpp.html#a85bf75fe2c404c2d6be1607ef4c91249">renderGraph</a> =  renderer-&gt;getGvppGraphPtr();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">    #endif</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Rule based graph&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_graph_1_1_graph.html">Graph::Graph</a> * graph = 0;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">try</span>{ </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        graph = <span class="keyword">new</span> <a class="code" href="class_graph_1_1_graph.html">Graph::Graph</a>(inputDataFilePath, <a class="code" href="main_8cpp.html#a85bf75fe2c404c2d6be1607ef4c91249">renderGraph</a>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        graph-&gt;<a class="code" href="class_graph_1_1_graph.html#ade81c86d42a96eefb7e0bd0d413d02c0">logStatus</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Rule based graph&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_graph_1_1_graph.html">Graph::Graph</a> * graph = 0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">try</span>{ </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        graph = <span class="keyword">new</span> <a class="code" href="class_graph_1_1_graph.html">Graph::Graph</a>(inputDataFilePath, <a class="code" href="main_8cpp.html#a85bf75fe2c404c2d6be1607ef4c91249">renderGraph</a>);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Execution was successful.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">catch</span>(std::exception e){</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to read data file! \n&quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;   </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        graph-&gt;<a class="code" href="class_graph_1_1_graph.html#ade81c86d42a96eefb7e0bd0d413d02c0">logStatus</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">catch</span>(std::exception e){</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to read data file! \n&quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;   </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">try</span>{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="class_graph_1_1_rules.html">Graph::Rules</a> rules(graph, rulesFilePath); </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        rules.applyAll();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Rules are applied successfully.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">catch</span>(std::exception e){</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to read data file! \n&quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#ifdef APPLY_RULES</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">try</span>{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="class_graph_1_1_rules.html">Graph::Rules</a> rules(graph, rulesFilePath); </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        rules.applyAll();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Rules are applied successfully.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        graph-&gt;<a class="code" href="class_graph_1_1_graph.html#ade81c86d42a96eefb7e0bd0d413d02c0">logStatus</a>();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    graph-&gt;<a class="code" href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782">buildRenderedGraph</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">    #ifdef GRAPHVIZ_RENDERER</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        renderer-&gt;show();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    usleep(1000000);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">delete</span> graph;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">catch</span>(std::exception e){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to read data file! \n&quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;----------------------&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    graph-&gt;<a class="code" href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782">buildRenderedGraph</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    graph-&gt;<a class="code" href="class_graph_1_1_graph.html#ade81c86d42a96eefb7e0bd0d413d02c0">logStatus</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">    #ifdef GRAPHVIZ_RENDERER</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        renderer-&gt;show();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;----------------------&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    usleep(1000000);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">delete</span> graph;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 <div class="ttc" id="aclass_graph_1_1_graph_html"><div class="ttname"><a href="class_graph_1_1_graph.html">Graph::Graph</a></div><div class="ttdoc">The Graph class.</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8hpp_source.html#l00023">Graph.hpp:24</a></div></div>
-<div class="ttc" id="aclass_graph_1_1_graph_html_ade81c86d42a96eefb7e0bd0d413d02c0"><div class="ttname"><a href="class_graph_1_1_graph.html#ade81c86d42a96eefb7e0bd0d413d02c0">Graph::Graph::logStatus</a></div><div class="ttdeci">void logStatus()</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00317">Graph.cpp:317</a></div></div>
-<div class="ttc" id="aclass_graph_1_1_graph_html_ae46f206d9b52d2c55fda885493a38782"><div class="ttname"><a href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782">Graph::Graph::buildRenderedGraph</a></div><div class="ttdeci">void buildRenderedGraph()</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00323">Graph.cpp:323</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_graph_html_ade81c86d42a96eefb7e0bd0d413d02c0"><div class="ttname"><a href="class_graph_1_1_graph.html#ade81c86d42a96eefb7e0bd0d413d02c0">Graph::Graph::logStatus</a></div><div class="ttdeci">void logStatus()</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00324">Graph.cpp:324</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_graph_html_ae46f206d9b52d2c55fda885493a38782"><div class="ttname"><a href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782">Graph::Graph::buildRenderedGraph</a></div><div class="ttdeci">void buildRenderedGraph()</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00331">Graph.cpp:331</a></div></div>
 <div class="ttc" id="aclass_graph_1_1_rules_html"><div class="ttname"><a href="class_graph_1_1_rules.html">Graph::Rules</a></div><div class="ttdef"><b>Definition:</b> <a href="_rules_8hpp_source.html#l00011">Rules.hpp:11</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a85bf75fe2c404c2d6be1607ef4c91249"><div class="ttname"><a href="main_8cpp.html#a85bf75fe2c404c2d6be1607ef4c91249">renderGraph</a></div><div class="ttdeci">gvpp::Graph * renderGraph</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00012">main.cpp:12</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a85bf75fe2c404c2d6be1607ef4c91249"><div class="ttname"><a href="main_8cpp.html#a85bf75fe2c404c2d6be1607ef4c91249">renderGraph</a></div><div class="ttdeci">gvpp::Graph * renderGraph</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00013">main.cpp:13</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#amain_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="amain_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="amain_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title=" " alt="" coords="5,81,56,108"/>
-<area shape="rect" href="class_graph_1_1_rules.html#a5ebf578212ac271cd5540c018816aece" title=" " alt="" coords="123,23,275,49"/>
-<area shape="rect" href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782" title=" " alt="" coords="104,74,295,115"/>
-<area shape="rect" href="class_graph_1_1_graph.html#ade81c86d42a96eefb7e0bd0d413d02c0" title=" " alt="" coords="118,140,281,167"/>
+<area shape="rect" title=" " alt="" coords="5,132,56,159"/>
+<area shape="rect" href="class_graph_1_1_rules.html#a5ebf578212ac271cd5540c018816aece" title=" " alt="" coords="123,73,275,100"/>
+<area shape="rect" href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782" title=" " alt="" coords="104,125,295,166"/>
+<area shape="rect" href="class_graph_1_1_graph.html#ade81c86d42a96eefb7e0bd0d413d02c0" title=" " alt="" coords="118,191,281,217"/>
 <area shape="rect" href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f" title=" " alt="" coords="375,5,508,32"/>
 <area shape="rect" href="class_graph_1_1_node.html#a66dd2aeb73fe2a65ea046c2e007e0711" title=" " alt="" coords="366,56,517,83"/>
 <area shape="rect" href="class_graph_1_1_node.html#a05086c110a67f1a0c63d73cb6be04e06" title=" " alt="" coords="343,107,540,133"/>
-<area shape="rect" href="class_graph_1_1_node.html#abab51b62fc753c575d8db0868d9b5897" title=" " alt="" coords="368,157,515,184"/>
+<area shape="rect" href="class_graph_1_1_node.html#a4a7bfbad025068f4909823cdfd0f6137" title=" " alt="" coords="345,157,537,184"/>
+<area shape="rect" href="class_graph_1_1_node.html#abab51b62fc753c575d8db0868d9b5897" title=" " alt="" coords="368,208,515,235"/>
+<area shape="rect" href="class_graph_1_1_node.html#afc3c3a558eb5c2e9807c1208ef45bae8" title=" " alt="" coords="345,259,537,285"/>
 </map>
 </div>
 
@@ -257,7 +288,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00012">12</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00013">13</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>

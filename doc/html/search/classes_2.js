@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['edge_148',['Edge',['../class_graph_1_1_edge.html',1,'Graph']]]
+  ['changerule_188',['ChangeRule',['../class_graph_1_1_change_rule.html',1,'Graph']]]
 ];

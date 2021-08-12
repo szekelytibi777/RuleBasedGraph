@@ -101,72 +101,72 @@ $(document).ready(function(){initNavTree('_node_8cpp_source.html',''); initResiz
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        : inputs(0)</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        , outputs(0)</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        , id_(id)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    #ifdef GRAPHVIZ_RENDERER</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    #ifdef <a class="code" href="_common_8hpp.html#ab9ac45595299802c6ad6a3433da7dd92">GRAPHVIZ_RENDERER</a></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        , display_node(0)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    #endif</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        , level_(0)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;       </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">//    std::cout &lt;&lt; getID() &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;   }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#a275afdca83ca2c524db2f9d793edcca3">   26</a></span>&#160;    <a class="code" href="class_graph_1_1_node.html#ae3c039be3cb2b808ff8d603b0b1cad55">Node::Node</a>(<span class="keyword">const</span> <a class="code" href="class_graph_1_1_node.html">Node</a>&amp; other)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="preprocessor">#ifdef GRAPHVIZ_RENDERER</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        : display_node(other.display_node)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        *<span class="keyword">this</span> = other; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#a9c92c2ca0932fe4cb4a240cea11e8eb5">   34</a></span>&#160;    <a class="code" href="class_graph_1_1_node.html#a9c92c2ca0932fe4cb4a240cea11e8eb5">Node::~Node</a>()</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="comment">//       std::cout &lt;&lt; &quot;destructed: &quot;+getID() &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#a41ee1f747f82bd085a68724d7155c746">   38</a></span>&#160;    <a class="code" href="class_graph_1_1_node.html">Node</a>&amp; <a class="code" href="class_graph_1_1_node.html#a41ee1f747f82bd085a68724d7155c746">Node::operator = </a>(<span class="keyword">const</span> <a class="code" href="class_graph_1_1_node.html">Node</a>&amp;other)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        level_ = other.level_;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        inputs = other.inputs;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        outputs = other.outputs;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        id_ = other.id_;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">   48</a></span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">Node::getID</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> id_;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413">   53</a></span>&#160;    std::string <a class="code" href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413">Node::toString</a>(<span class="keywordtype">bool</span> showEdges)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::string iNodes = <span class="stringliteral">&quot;[]&quot;</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        std::string oNodes = <span class="stringliteral">&quot;[]&quot;</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span>(showEdges){</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            iNodes = <span class="stringliteral">&quot;[&quot;</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">for</span>(<a class="code" href="class_graph_1_1_edge.html">Edge</a>* e:inputs){</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                iNodes += e-&gt;fromNode()-&gt;getID()+<span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            iNodes += <span class="stringliteral">&quot;]&quot;</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            oNodes = <span class="stringliteral">&quot;[&quot;</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">for</span>(<a class="code" href="class_graph_1_1_edge.html">Edge</a>* e:outputs){</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                oNodes += e-&gt;toNode()-&gt;getID()+<span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            oNodes += <span class="stringliteral">&quot;]&quot;</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        std::string s = iNodes+<span class="stringliteral">&quot; &lt;&quot;</span> + id_ +<span class="stringliteral">&quot;&gt; &quot;</span>+oNodes;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }   </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#a275afdca83ca2c524db2f9d793edcca3">   24</a></span>&#160;    <a class="code" href="class_graph_1_1_node.html#ae3c039be3cb2b808ff8d603b0b1cad55">Node::Node</a>(<span class="keyword">const</span> <a class="code" href="class_graph_1_1_node.html">Node</a>&amp; other)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="preprocessor">#ifdef GRAPHVIZ_RENDERER</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        : display_node(other.display_node)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        *<span class="keyword">this</span> = other; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#a9c92c2ca0932fe4cb4a240cea11e8eb5">   32</a></span>&#160;    <a class="code" href="class_graph_1_1_node.html#a9c92c2ca0932fe4cb4a240cea11e8eb5">Node::~Node</a>()</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#a41ee1f747f82bd085a68724d7155c746">   35</a></span>&#160;    <a class="code" href="class_graph_1_1_node.html">Node</a>&amp; <a class="code" href="class_graph_1_1_node.html#a41ee1f747f82bd085a68724d7155c746">Node::operator = </a>(<span class="keyword">const</span> <a class="code" href="class_graph_1_1_node.html">Node</a>&amp;other)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        level_ = other.level_;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        inputs = other.inputs;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        outputs = other.outputs;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        id_ = other.id_;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">   45</a></span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">Node::getID</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> id_;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413">   50</a></span>&#160;    std::string <a class="code" href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413">Node::toString</a>(<span class="keywordtype">bool</span> showEdges)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::string iNodes = <span class="stringliteral">&quot;[]&quot;</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        std::string oNodes = <span class="stringliteral">&quot;[]&quot;</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span>(showEdges){</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            iNodes = <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">for</span>(<a class="code" href="class_graph_1_1_edge.html">Edge</a>* e:inputs){</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">if</span>(e-&gt;fromNode())</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    iNodes += e-&gt;fromNode()-&gt;getID()+<span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            iNodes += <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            oNodes = <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">for</span>(<a class="code" href="class_graph_1_1_edge.html">Edge</a>* e:outputs){</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">if</span>(e-&gt;toNode())</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    oNodes += e-&gt;toNode()-&gt;getID()+<span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            oNodes += <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::string s = iNodes+<span class="stringliteral">&quot; &lt;&quot;</span> + id_ +<span class="stringliteral">&quot;&gt; &quot;</span>+oNodes;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }   </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
 <div class="ttc" id="a_common_8hpp_html"><div class="ttname"><a href="_common_8hpp.html">Common.hpp</a></div></div>
+<div class="ttc" id="a_common_8hpp_html_ab9ac45595299802c6ad6a3433da7dd92"><div class="ttname"><a href="_common_8hpp.html#ab9ac45595299802c6ad6a3433da7dd92">GRAPHVIZ_RENDERER</a></div><div class="ttdeci">#define GRAPHVIZ_RENDERER</div><div class="ttdef"><b>Definition:</b> <a href="_common_8hpp_source.html#l00009">Common.hpp:9</a></div></div>
 <div class="ttc" id="a_node_8hpp_html"><div class="ttname"><a href="_node_8hpp.html">Node.hpp</a></div></div>
 <div class="ttc" id="a_renderer_8hpp_html"><div class="ttname"><a href="_renderer_8hpp.html">Renderer.hpp</a></div></div>
 <div class="ttc" id="aclass_graph_1_1_edge_html"><div class="ttname"><a href="class_graph_1_1_edge.html">Graph::Edge</a></div><div class="ttdoc">An Edge class.</div><div class="ttdef"><b>Definition:</b> <a href="_edge_8hpp_source.html#l00015">Edge.hpp:16</a></div></div>
 <div class="ttc" id="aclass_graph_1_1_node_html"><div class="ttname"><a href="class_graph_1_1_node.html">Graph::Node</a></div><div class="ttdoc">A Node class.</div><div class="ttdef"><b>Definition:</b> <a href="_node_8hpp_source.html#l00016">Node.hpp:17</a></div></div>
-<div class="ttc" id="aclass_graph_1_1_node_html_a0ed456c8cae29ebc6acad3eb7af9c413"><div class="ttname"><a href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413">Graph::Node::toString</a></div><div class="ttdeci">std::string toString(bool showEdges=false) const</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00053">Node.cpp:53</a></div></div>
-<div class="ttc" id="aclass_graph_1_1_node_html_a41ee1f747f82bd085a68724d7155c746"><div class="ttname"><a href="class_graph_1_1_node.html#a41ee1f747f82bd085a68724d7155c746">Graph::Node::operator=</a></div><div class="ttdeci">Node &amp; operator=(const Node &amp;other)</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00038">Node.cpp:38</a></div></div>
-<div class="ttc" id="aclass_graph_1_1_node_html_a9c92c2ca0932fe4cb4a240cea11e8eb5"><div class="ttname"><a href="class_graph_1_1_node.html#a9c92c2ca0932fe4cb4a240cea11e8eb5">Graph::Node::~Node</a></div><div class="ttdeci">~Node()</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00034">Node.cpp:34</a></div></div>
-<div class="ttc" id="aclass_graph_1_1_node_html_ade7d5fa6ec5c9506e52339cfedc3f42f"><div class="ttname"><a href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">Graph::Node::getID</a></div><div class="ttdeci">const std::string &amp; getID() const</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00048">Node.cpp:48</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_node_html_a0ed456c8cae29ebc6acad3eb7af9c413"><div class="ttname"><a href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413">Graph::Node::toString</a></div><div class="ttdeci">std::string toString(bool showEdges=false) const</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00050">Node.cpp:50</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_node_html_a41ee1f747f82bd085a68724d7155c746"><div class="ttname"><a href="class_graph_1_1_node.html#a41ee1f747f82bd085a68724d7155c746">Graph::Node::operator=</a></div><div class="ttdeci">Node &amp; operator=(const Node &amp;other)</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00035">Node.cpp:35</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_node_html_a9c92c2ca0932fe4cb4a240cea11e8eb5"><div class="ttname"><a href="class_graph_1_1_node.html#a9c92c2ca0932fe4cb4a240cea11e8eb5">Graph::Node::~Node</a></div><div class="ttdeci">~Node()</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00032">Node.cpp:32</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_node_html_ade7d5fa6ec5c9506e52339cfedc3f42f"><div class="ttname"><a href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">Graph::Node::getID</a></div><div class="ttdeci">const std::string &amp; getID() const</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00045">Node.cpp:45</a></div></div>
 <div class="ttc" id="aclass_graph_1_1_node_html_ae3c039be3cb2b808ff8d603b0b1cad55"><div class="ttname"><a href="class_graph_1_1_node.html#ae3c039be3cb2b808ff8d603b0b1cad55">Graph::Node::Node</a></div><div class="ttdeci">Node(std::string id=&quot;x&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00013">Node.cpp:13</a></div></div>
 <div class="ttc" id="anamespace_graph_html"><div class="ttname"><a href="namespace_graph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> <a href="_common_8hpp_source.html#l00010">Common.hpp:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

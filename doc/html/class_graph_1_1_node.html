@@ -132,6 +132,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a39647cdad3b1f3ddab4ee3c56bcd0fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed456c8cae29ebc6acad3eb7af9c413"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413">toString</a> (bool showEdges=false) const</td></tr>
 <tr class="separator:a0ed456c8cae29ebc6acad3eb7af9c413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7bfbad025068f4909823cdfd0f6137"><td class="memItemLeft" align="right" valign="top">gvpp::Node&lt; char &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_node.html#a4a7bfbad025068f4909823cdfd0f6137">getRenderNode</a> () const</td></tr>
+<tr class="separator:a4a7bfbad025068f4909823cdfd0f6137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3c3a558eb5c2e9807c1208ef45bae8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_node.html#afc3c3a558eb5c2e9807c1208ef45bae8">setRenderNode</a> (gvpp::Node&lt; char &gt; *gvpp_node)</td></tr>
+<tr class="separator:afc3c3a558eb5c2e9807c1208ef45bae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30918a2f1d2255ea85de3bcda36d14e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_node.html#a30918a2f1d2255ea85de3bcda36d14e9">setMarked</a> (bool m=true)</td></tr>
 <tr class="separator:a30918a2f1d2255ea85de3bcda36d14e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abab51b62fc753c575d8db0868d9b5897"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_node.html#abab51b62fc753c575d8db0868d9b5897">marked</a> ()</td></tr>
@@ -170,9 +174,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        , level_(0)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;       </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">//    std::cout &lt;&lt; getID() &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;   }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -192,12 +194,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00026">26</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        : display_node(other.display_node)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        *<span class="keyword">this</span> = other; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00024">24</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        : display_node(other.display_node)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        *<span class="keyword">this</span> = other; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -216,10 +218,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00034">34</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="comment">//       std::cout &lt;&lt; &quot;destructed: &quot;+getID() &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00032">32</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -255,8 +256,19 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graph_1_1_node_a5d9805f7ac344f92b907a1b301a00649_icgraph.png" border="0" usemap="#aclass_graph_1_1_node_a5d9805f7ac344f92b907a1b301a00649_icgraph" alt=""/></div>
 <map name="aclass_graph_1_1_node_a5d9805f7ac344f92b907a1b301a00649_icgraph" id="aclass_graph_1_1_node_a5d9805f7ac344f92b907a1b301a00649_icgraph">
-<area shape="rect" title=" " alt="" coords="243,5,425,32"/>
-<area shape="rect" href="class_graph_1_1_sub_graph.html#a61cdb5b8bd3e171b24d89d13bdbc49ec" title=" " alt="" coords="5,5,195,32"/>
+<area shape="rect" title=" " alt="" coords="475,180,657,207"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3472fa99ef0dcb955a74f4489b37d11c" title=" " alt="" coords="234,21,421,48"/>
+<area shape="rect" href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a" title=" " alt="" coords="230,72,425,99"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a6993ed85dd9b34b9fd857910d1c41b5d" title=" " alt="" coords="234,129,421,156"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a5483df2639981583fd026f8e509d2b30" title=" " alt="" coords="232,180,423,207"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a5952f6f96df812b1d1efc2a112e4c856" title=" " alt="" coords="228,231,427,257"/>
+<area shape="rect" href="class_graph_1_1_sub_graph.html#a61cdb5b8bd3e171b24d89d13bdbc49ec" title=" " alt="" coords="233,281,422,308"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3890360e6f916cae08b67f4e0d4c543b" title=" " alt="" coords="231,333,423,374"/>
+<area shape="rect" href="class_graph_1_1_add_rule.html#ae7bf0dff340e6daccd624a017d3ac3be" title=" " alt="" coords="9,5,177,32"/>
+<area shape="rect" href="class_graph_1_1_insert_rule.html#ad7582f627a50cccbd5be529a060c1700" title=" " alt="" coords="27,57,158,98"/>
+<area shape="rect" href="class_graph_1_1_change_rule.html#aeb45b5c0828446eb661c8e6ccd6d1cb5" title=" " alt="" coords="21,122,164,163"/>
+<area shape="rect" href="class_graph_1_1_edge_rule.html#a0393aa7cceb797811d3f2fc161c11dbb" title=" " alt="" coords="5,188,180,215"/>
+<area shape="rect" href="class_graph_1_1_replace_rule.html#af553ce709ae3be6148157f0fcc830ba5" title=" " alt="" coords="23,239,162,281"/>
 </map>
 </div>
 
@@ -293,8 +305,19 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graph_1_1_node_aa06b99d9acbba79842a756dbd30ca56c_icgraph.png" border="0" usemap="#aclass_graph_1_1_node_aa06b99d9acbba79842a756dbd30ca56c_icgraph" alt=""/></div>
 <map name="aclass_graph_1_1_node_aa06b99d9acbba79842a756dbd30ca56c_icgraph" id="aclass_graph_1_1_node_aa06b99d9acbba79842a756dbd30ca56c_icgraph">
-<area shape="rect" title=" " alt="" coords="243,5,436,32"/>
-<area shape="rect" href="class_graph_1_1_sub_graph.html#a61cdb5b8bd3e171b24d89d13bdbc49ec" title=" " alt="" coords="5,5,195,32"/>
+<area shape="rect" title=" " alt="" coords="475,180,668,207"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3472fa99ef0dcb955a74f4489b37d11c" title=" " alt="" coords="234,21,421,48"/>
+<area shape="rect" href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a" title=" " alt="" coords="230,72,425,99"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a6993ed85dd9b34b9fd857910d1c41b5d" title=" " alt="" coords="234,129,421,156"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a5483df2639981583fd026f8e509d2b30" title=" " alt="" coords="232,180,423,207"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a5952f6f96df812b1d1efc2a112e4c856" title=" " alt="" coords="228,231,427,257"/>
+<area shape="rect" href="class_graph_1_1_sub_graph.html#a61cdb5b8bd3e171b24d89d13bdbc49ec" title=" " alt="" coords="233,281,422,308"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3890360e6f916cae08b67f4e0d4c543b" title=" " alt="" coords="231,333,423,374"/>
+<area shape="rect" href="class_graph_1_1_add_rule.html#ae7bf0dff340e6daccd624a017d3ac3be" title=" " alt="" coords="9,5,177,32"/>
+<area shape="rect" href="class_graph_1_1_insert_rule.html#ad7582f627a50cccbd5be529a060c1700" title=" " alt="" coords="27,57,158,98"/>
+<area shape="rect" href="class_graph_1_1_change_rule.html#aeb45b5c0828446eb661c8e6ccd6d1cb5" title=" " alt="" coords="21,122,164,163"/>
+<area shape="rect" href="class_graph_1_1_edge_rule.html#a0393aa7cceb797811d3f2fc161c11dbb" title=" " alt="" coords="5,188,180,215"/>
+<area shape="rect" href="class_graph_1_1_replace_rule.html#af553ce709ae3be6148157f0fcc830ba5" title=" " alt="" coords="23,239,162,281"/>
 </map>
 </div>
 
@@ -315,22 +338,32 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00048">48</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> id_;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00045">45</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> id_;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graph_1_1_node_ade7d5fa6ec5c9506e52339cfedc3f42f_icgraph.png" border="0" usemap="#aclass_graph_1_1_node_ade7d5fa6ec5c9506e52339cfedc3f42f_icgraph" alt=""/></div>
 <map name="aclass_graph_1_1_node_ade7d5fa6ec5c9506e52339cfedc3f42f_icgraph" id="aclass_graph_1_1_node_ade7d5fa6ec5c9506e52339cfedc3f42f_icgraph">
-<area shape="rect" title=" " alt="" coords="343,122,476,149"/>
-<area shape="rect" href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782" title=" " alt="" coords="104,5,295,47"/>
-<area shape="rect" href="class_graph_1_1_edge.html#ab160f0a395aad138c29c547ad7dc7881" title=" " alt="" coords="133,71,266,98"/>
-<area shape="rect" href="class_graph_1_1_node.html#afbd2f96e4ea0cb0b7c12e8f0369ce1be" title=" " alt="" coords="116,122,283,149"/>
-<area shape="rect" href="class_graph_1_1_graph.html#a7949be895b6ea6980a61ce6deef63663" title=" " alt="" coords="109,173,290,215"/>
-<area shape="rect" href="class_graph_1_1_graph.html#a3696e51ba4e6c6d6285cf1866bd4257c" title=" " alt="" coords="132,239,267,266"/>
-<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,56,39"/>
+<area shape="rect" title=" " alt="" coords="475,309,608,336"/>
+<area shape="rect" href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a" title=" " alt="" coords="230,49,425,76"/>
+<area shape="rect" href="class_graph_1_1_add_rule.html#ae7bf0dff340e6daccd624a017d3ac3be" title=" " alt="" coords="9,49,177,76"/>
+<area shape="rect" href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782" title=" " alt="" coords="232,218,423,259"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a6993ed85dd9b34b9fd857910d1c41b5d" title=" " alt="" coords="234,284,421,310"/>
+<area shape="rect" href="class_graph_1_1_edge.html#ab160f0a395aad138c29c547ad7dc7881" title=" " alt="" coords="261,334,394,361"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a359d48ec12cd1175b1f792a0100306e1" title=" " alt="" coords="242,385,413,412"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a5952f6f96df812b1d1efc2a112e4c856" title=" " alt="" coords="228,436,427,462"/>
+<area shape="rect" href="class_graph_1_1_node.html#afbd2f96e4ea0cb0b7c12e8f0369ce1be" title=" " alt="" coords="244,486,411,513"/>
+<area shape="rect" href="class_graph_1_1_edge_rule.html#a0393aa7cceb797811d3f2fc161c11dbb" title=" " alt="" coords="5,166,180,193"/>
+<area shape="rect" href="class_graph_1_1_edge.html#ab7e8d4ea792d32d16e3b155b9d027fcc" title=" " alt="" coords="237,537,418,564"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a7949be895b6ea6980a61ce6deef63663" title=" " alt="" coords="237,100,418,142"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3696e51ba4e6c6d6285cf1866bd4257c" title=" " alt="" coords="260,588,395,614"/>
+<area shape="rect" href="class_graph_1_1_insert_rule.html#ad7582f627a50cccbd5be529a060c1700" title=" " alt="" coords="27,100,158,142"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="67,225,118,252"/>
+<area shape="rect" href="class_graph_1_1_change_rule.html#aeb45b5c0828446eb661c8e6ccd6d1cb5" title=" " alt="" coords="21,276,164,318"/>
+<area shape="rect" href="class_graph_1_1_replace_rule.html#af553ce709ae3be6148157f0fcc830ba5" title=" " alt="" coords="23,428,162,470"/>
 </map>
 </div>
 
@@ -366,9 +399,17 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graph_1_1_node_a01e446ef9702e7ae670dfb1813a22d8b_icgraph.png" border="0" usemap="#aclass_graph_1_1_node_a01e446ef9702e7ae670dfb1813a22d8b_icgraph" alt=""/></div>
 <map name="aclass_graph_1_1_node_a01e446ef9702e7ae670dfb1813a22d8b_icgraph" id="aclass_graph_1_1_node_a01e446ef9702e7ae670dfb1813a22d8b_icgraph">
-<area shape="rect" title=" " alt="" coords="224,31,411,57"/>
-<area shape="rect" href="class_graph_1_1_node.html#ae9761901971f68852bfe98aa4aaed3e9" title=" " alt="" coords="5,5,176,32"/>
-<area shape="rect" href="class_graph_1_1_graph.html#a3696e51ba4e6c6d6285cf1866bd4257c" title=" " alt="" coords="23,56,158,83"/>
+<area shape="rect" title=" " alt="" coords="464,231,651,257"/>
+<area shape="rect" href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a" title=" " alt="" coords="221,64,416,91"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a6993ed85dd9b34b9fd857910d1c41b5d" title=" " alt="" coords="225,121,412,148"/>
+<area shape="rect" href="class_graph_1_1_node.html#ae9761901971f68852bfe98aa4aaed3e9" title=" " alt="" coords="233,172,404,199"/>
+<area shape="rect" href="class_graph_1_1_replace_rule.html#af553ce709ae3be6148157f0fcc830ba5" title=" " alt="" coords="249,223,388,265"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3890360e6f916cae08b67f4e0d4c543b" title=" " alt="" coords="223,289,415,330"/>
+<area shape="rect" href="class_graph_1_1_graph.html#abe0efeefa998aa57a568999d336b7be2" title=" " alt="" coords="226,354,411,395"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3696e51ba4e6c6d6285cf1866bd4257c" title=" " alt="" coords="251,420,386,447"/>
+<area shape="rect" href="class_graph_1_1_add_rule.html#ae7bf0dff340e6daccd624a017d3ac3be" title=" " alt="" coords="5,5,173,32"/>
+<area shape="rect" href="class_graph_1_1_insert_rule.html#ad7582f627a50cccbd5be529a060c1700" title=" " alt="" coords="24,57,155,98"/>
+<area shape="rect" href="class_graph_1_1_change_rule.html#aeb45b5c0828446eb661c8e6ccd6d1cb5" title=" " alt="" coords="18,122,161,163"/>
 </map>
 </div>
 
@@ -443,10 +484,56 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_graph_1_1_node_a05086c110a67f1a0c63d73cb6be04e06_icgraph.png" border="0" usemap="#aclass_graph_1_1_node_a05086c110a67f1a0c63d73cb6be04e06_icgraph" alt=""/></div>
 <map name="aclass_graph_1_1_node_a05086c110a67f1a0c63d73cb6be04e06_icgraph" id="aclass_graph_1_1_node_a05086c110a67f1a0c63d73cb6be04e06_icgraph">
-<area shape="rect" title=" " alt="" coords="343,71,540,98"/>
+<area shape="rect" title=" " alt="" coords="464,261,661,288"/>
+<area shape="rect" href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a" title=" " alt="" coords="221,64,416,91"/>
+<area shape="rect" href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782" title=" " alt="" coords="223,115,414,157"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a6993ed85dd9b34b9fd857910d1c41b5d" title=" " alt="" coords="225,181,412,208"/>
+<area shape="rect" href="class_graph_1_1_node.html#a6ccd9444ba8491f758cd0c44b06e99df" title=" " alt="" coords="235,232,402,259"/>
+<area shape="rect" href="class_graph_1_1_replace_rule.html#af553ce709ae3be6148157f0fcc830ba5" title=" " alt="" coords="249,283,388,325"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3890360e6f916cae08b67f4e0d4c543b" title=" " alt="" coords="223,349,415,390"/>
+<area shape="rect" href="class_graph_1_1_graph.html#abe0efeefa998aa57a568999d336b7be2" title=" " alt="" coords="226,414,411,455"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3696e51ba4e6c6d6285cf1866bd4257c" title=" " alt="" coords="251,480,386,507"/>
+<area shape="rect" href="class_graph_1_1_add_rule.html#ae7bf0dff340e6daccd624a017d3ac3be" title=" " alt="" coords="5,5,173,32"/>
+<area shape="rect" href="class_graph_1_1_insert_rule.html#ad7582f627a50cccbd5be529a060c1700" title=" " alt="" coords="24,57,155,98"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="64,123,115,149"/>
+<area shape="rect" href="class_graph_1_1_change_rule.html#aeb45b5c0828446eb661c8e6ccd6d1cb5" title=" " alt="" coords="18,174,161,215"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4a7bfbad025068f4909823cdfd0f6137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a7bfbad025068f4909823cdfd0f6137">&#9670;&nbsp;</a></span>getRenderNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gvpp::Node&lt;char&gt;* Graph::Node::getRenderNode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_node_8hpp_source.html#l00054">54</a> of file <a class="el" href="_node_8hpp_source.html">Node.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{<span class="keywordflow">return</span> display_node;}</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graph_1_1_node_a4a7bfbad025068f4909823cdfd0f6137_icgraph.png" border="0" usemap="#aclass_graph_1_1_node_a4a7bfbad025068f4909823cdfd0f6137_icgraph" alt=""/></div>
+<map name="aclass_graph_1_1_node_a4a7bfbad025068f4909823cdfd0f6137_icgraph" id="aclass_graph_1_1_node_a4a7bfbad025068f4909823cdfd0f6137_icgraph">
+<area shape="rect" title=" " alt="" coords="343,13,535,39"/>
 <area shape="rect" href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782" title=" " alt="" coords="104,5,295,47"/>
-<area shape="rect" href="class_graph_1_1_node.html#a6ccd9444ba8491f758cd0c44b06e99df" title=" " alt="" coords="116,71,283,98"/>
-<area shape="rect" href="class_graph_1_1_graph.html#a3696e51ba4e6c6d6285cf1866bd4257c" title=" " alt="" coords="132,122,267,149"/>
 <area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,56,39"/>
 </map>
 </div>
@@ -621,8 +708,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_node_8hpp_source.html#l00059">59</a> of file <a class="el" href="_node_8hpp_source.html">Node.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{<span class="keywordflow">return</span> marked_;}</div>
+<p class="definition">Definition at line <a class="el" href="_node_8hpp_source.html#l00062">62</a> of file <a class="el" href="_node_8hpp_source.html">Node.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{<span class="keywordflow">return</span> marked_;}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -652,14 +739,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00038">38</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        level_ = other.level_;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        inputs = other.inputs;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        outputs = other.outputs;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        id_ = other.id_;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00035">35</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        level_ = other.level_;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        inputs = other.inputs;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        outputs = other.outputs;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        id_ = other.id_;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -687,11 +774,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_node_8hpp_source.html#l00061">61</a> of file <a class="el" href="_node_8hpp_source.html">Node.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                            {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> other.getID() == <a class="code" href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">getID</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="ttc" id="aclass_graph_1_1_node_html_ade7d5fa6ec5c9506e52339cfedc3f42f"><div class="ttname"><a href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">Graph::Node::getID</a></div><div class="ttdeci">const std::string &amp; getID() const</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00048">Node.cpp:48</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_node_8hpp_source.html#l00064">64</a> of file <a class="el" href="_node_8hpp_source.html">Node.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                            {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> other.getID() == <a class="code" href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">getID</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="ttc" id="aclass_graph_1_1_node_html_ade7d5fa6ec5c9506e52339cfedc3f42f"><div class="ttname"><a href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">Graph::Node::getID</a></div><div class="ttdeci">const std::string &amp; getID() const</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00045">Node.cpp:45</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -766,9 +853,51 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_node_8hpp_source.html#l00058">58</a> of file <a class="el" href="_node_8hpp_source.html">Node.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{marked_ = m;}</div>
+<p class="definition">Definition at line <a class="el" href="_node_8hpp_source.html#l00061">61</a> of file <a class="el" href="_node_8hpp_source.html">Node.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{marked_ = m;}</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="afc3c3a558eb5c2e9807c1208ef45bae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc3c3a558eb5c2e9807c1208ef45bae8">&#9670;&nbsp;</a></span>setRenderNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Graph::Node::setRenderNode </td>
+          <td>(</td>
+          <td class="paramtype">gvpp::Node&lt; char &gt; *&#160;</td>
+          <td class="paramname"><em>gvpp_node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_node_8hpp_source.html#l00055">55</a> of file <a class="el" href="_node_8hpp_source.html">Node.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                                         {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                assert(gvpp_node);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                display_node = gvpp_node;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graph_1_1_node_afc3c3a558eb5c2e9807c1208ef45bae8_icgraph.png" border="0" usemap="#aclass_graph_1_1_node_afc3c3a558eb5c2e9807c1208ef45bae8_icgraph" alt=""/></div>
+<map name="aclass_graph_1_1_node_afc3c3a558eb5c2e9807c1208ef45bae8_icgraph" id="aclass_graph_1_1_node_afc3c3a558eb5c2e9807c1208ef45bae8_icgraph">
+<area shape="rect" title=" " alt="" coords="343,13,535,39"/>
+<area shape="rect" href="class_graph_1_1_graph.html#ae46f206d9b52d2c55fda885493a38782" title=" " alt="" coords="104,5,295,47"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,56,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a87c72b06aa2826eebc4e98aec570baa3"></a>
@@ -816,26 +945,39 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00053">53</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::string iNodes = <span class="stringliteral">&quot;[]&quot;</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        std::string oNodes = <span class="stringliteral">&quot;[]&quot;</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span>(showEdges){</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            iNodes = <span class="stringliteral">&quot;[&quot;</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">for</span>(Edge* e:inputs){</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                iNodes += e-&gt;fromNode()-&gt;getID()+<span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            iNodes += <span class="stringliteral">&quot;]&quot;</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            oNodes = <span class="stringliteral">&quot;[&quot;</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">for</span>(Edge* e:outputs){</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                oNodes += e-&gt;toNode()-&gt;getID()+<span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            oNodes += <span class="stringliteral">&quot;]&quot;</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        std::string s = iNodes+<span class="stringliteral">&quot; &lt;&quot;</span> + id_ +<span class="stringliteral">&quot;&gt; &quot;</span>+oNodes;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }   </div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_node_8cpp_source.html#l00050">50</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::string iNodes = <span class="stringliteral">&quot;[]&quot;</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        std::string oNodes = <span class="stringliteral">&quot;[]&quot;</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span>(showEdges){</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            iNodes = <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">for</span>(Edge* e:inputs){</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">if</span>(e-&gt;fromNode())</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    iNodes += e-&gt;fromNode()-&gt;getID()+<span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            iNodes += <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            oNodes = <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">for</span>(Edge* e:outputs){</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">if</span>(e-&gt;toNode())</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    oNodes += e-&gt;toNode()-&gt;getID()+<span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            oNodes += <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::string s = iNodes+<span class="stringliteral">&quot; &lt;&quot;</span> + id_ +<span class="stringliteral">&quot;&gt; &quot;</span>+oNodes;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }   </div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graph_1_1_node_a0ed456c8cae29ebc6acad3eb7af9c413_icgraph.png" border="0" usemap="#aclass_graph_1_1_node_a0ed456c8cae29ebc6acad3eb7af9c413_icgraph" alt=""/></div>
+<map name="aclass_graph_1_1_node_a0ed456c8cae29ebc6acad3eb7af9c413_icgraph" id="aclass_graph_1_1_node_a0ed456c8cae29ebc6acad3eb7af9c413_icgraph">
+<area shape="rect" title=" " alt="" coords="464,39,612,65"/>
+<area shape="rect" href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a" title=" " alt="" coords="221,13,416,40"/>
+<area shape="rect" href="class_graph_1_1_insert_rule.html#ad7582f627a50cccbd5be529a060c1700" title=" " alt="" coords="24,57,155,98"/>
+<area shape="rect" href="class_graph_1_1_add_rule.html#ae7bf0dff340e6daccd624a017d3ac3be" title=" " alt="" coords="5,5,173,32"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="aa2f62597df3ff94f7b1954d4e2c175d6"></a>

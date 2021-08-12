@@ -9,6 +9,7 @@ var class_graph_1_1_node =
     [ "getInputEdges", "class_graph_1_1_node.html#a01e446ef9702e7ae670dfb1813a22d8b", null ],
     [ "getLevel", "class_graph_1_1_node.html#a66dd2aeb73fe2a65ea046c2e007e0711", null ],
     [ "getOutputEdges", "class_graph_1_1_node.html#a05086c110a67f1a0c63d73cb6be04e06", null ],
+    [ "getRenderNode", "class_graph_1_1_node.html#a4a7bfbad025068f4909823cdfd0f6137", null ],
     [ "getTouched", "class_graph_1_1_node.html#a47b493c631e189b4718d00d94356ce66", null ],
     [ "getX", "class_graph_1_1_node.html#a39647cdad3b1f3ddab4ee3c56bcd0fe0", null ],
     [ "isEndNode", "class_graph_1_1_node.html#a6ccd9444ba8491f758cd0c44b06e99df", null ],
@@ -18,6 +19,7 @@ var class_graph_1_1_node =
     [ "operator==", "class_graph_1_1_node.html#afbd2f96e4ea0cb0b7c12e8f0369ce1be", null ],
     [ "setLevel", "class_graph_1_1_node.html#abf768e872b533ac62742f151fcd8a224", null ],
     [ "setMarked", "class_graph_1_1_node.html#a30918a2f1d2255ea85de3bcda36d14e9", null ],
+    [ "setRenderNode", "class_graph_1_1_node.html#afc3c3a558eb5c2e9807c1208ef45bae8", null ],
     [ "setX", "class_graph_1_1_node.html#a87c72b06aa2826eebc4e98aec570baa3", null ],
     [ "toString", "class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413", null ],
     [ "touch", "class_graph_1_1_node.html#aa2f62597df3ff94f7b1954d4e2c175d6", null ]

@@ -4,7 +4,7 @@ var dir_45814856f36e01cbe959f35071d50d5a =
     [ "Common.hpp", "_common_8hpp.html", "_common_8hpp" ],
     [ "Edge.cpp", "_edge_8cpp.html", null ],
     [ "Edge.hpp", "_edge_8hpp.html", "_edge_8hpp" ],
-    [ "Graph.cpp", "_graph_8cpp.html", null ],
+    [ "Graph.cpp", "_graph_8cpp.html", "_graph_8cpp" ],
     [ "Graph.hpp", "_graph_8hpp.html", [
       [ "Graph", "class_graph_1_1_graph.html", "class_graph_1_1_graph" ]
     ] ],

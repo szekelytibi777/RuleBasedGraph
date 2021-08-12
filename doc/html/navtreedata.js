@@ -28,7 +28,22 @@ var NAVTREE =
     [ "Graphviz ++", "md__c___w_o_r_k__g_i_t__rule_based_graph_gvpp__r_e_a_d_m_e.html", [
       [ "Usage", "md__c___w_o_r_k__g_i_t__rule_based_graph_gvpp__r_e_a_d_m_e.html#autotoc_md1", null ]
     ] ],
-    [ "RuleBasedGraph", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html", null ],
+    [ "RuleBasedGraph", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html", [
+      [ "rules usable:", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html#autotoc_md9", [
+        [ "executable use:", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html#autotoc_md6", null ],
+        [ "example content of the graph descriptor file: _(mms sample graph)_", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html#autotoc_md7", [
+          [ "Creating elements", "md__c___w_o_r_k__g_i_t__rule_based_graph_gvpp__r_e_a_d_m_e.html#autotoc_md2", null ],
+          [ "Setting attributes", "md__c___w_o_r_k__g_i_t__rule_based_graph_gvpp__r_e_a_d_m_e.html#autotoc_md3", null ],
+          [ "Printing", "md__c___w_o_r_k__g_i_t__rule_based_graph_gvpp__r_e_a_d_m_e.html#autotoc_md4", [
+            [ "subgraph descriptor", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html#autotoc_md8", null ]
+          ] ]
+        ] ],
+        [ "add", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html#autotoc_md10", null ],
+        [ "insert", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html#autotoc_md11", null ],
+        [ "delete", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html#autotoc_md12", null ],
+        [ "edge", "md__c___w_o_r_k__g_i_t__rule_based_graph__r_e_a_d_m_e.html#autotoc_md13", null ]
+      ] ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -63,8 +78,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_base_rule_8cpp.html",
-"namespacemembers_type.html"
+"_add_rule_8cpp.html",
+"class_graph_1_1_sub_graph.html#a8b8d2f538bc2eed11446e2ed89ed2a55"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

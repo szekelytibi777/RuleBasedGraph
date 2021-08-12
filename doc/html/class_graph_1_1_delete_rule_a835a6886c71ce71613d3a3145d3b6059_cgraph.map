@@ -1,7 +1,5 @@
 <map id="Graph::DeleteRule::process" name="Graph::DeleteRule::process">
-<area shape="rect" id="node1" title=" " alt="" coords="5,74,141,115"/>
-<area shape="rect" id="node2" href="$class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb" title=" " alt="" coords="193,5,375,32"/>
-<area shape="rect" id="node3" href="$class_graph_1_1_sub_graph.html#ab76136c13938843a43aae40f5a28d14c" title=" " alt="" coords="201,56,367,83"/>
-<area shape="rect" id="node4" href="$class_graph_1_1_sub_graph.html#a8475d55674b20600a050deadd91bf9fc" title=" " alt="" coords="197,107,371,133"/>
-<area shape="rect" id="node5" href="$class_graph_1_1_graph.html#ab74cd4b887fd5facd062441f596298d2" title=" " alt="" coords="189,158,379,199"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,141,47"/>
+<area shape="rect" id="node2" href="$class_graph_1_1_graph.html#a13bc7f1d5dd22415afb96c849aadf53a" title=" " alt="" coords="189,13,391,39"/>
+<area shape="rect" id="node3" href="$class_graph_1_1_sub_graph.html#af0ebddc6873133140c4d778ccdf954b4" title=" " alt="" coords="439,13,643,39"/>
 </map>

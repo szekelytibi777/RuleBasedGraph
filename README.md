@@ -48,6 +48,12 @@ delete subgraph from the graph
 
 **delete**:{<descriptor_of_original_subgraph_to_delete>}
 
+##  edge
+connect two nodes in the graph
+
+**edge**:{<from_node_id>:<to_node_id>}
+
+
 
 
 

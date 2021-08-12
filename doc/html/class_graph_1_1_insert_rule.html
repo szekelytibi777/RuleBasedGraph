@@ -195,10 +195,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insert_rule_8cpp_source.html#l00019">19</a> of file <a class="el" href="_insert_rule_8cpp_source.html">InsertRule.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }    </div>
+<p class="definition">Definition at line <a class="el" href="_insert_rule_8cpp_source.html#l00038">38</a> of file <a class="el" href="_insert_rule_8cpp_source.html">InsertRule.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }    </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -230,13 +230,66 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_insert_rule_8cpp_source.html#l00010">10</a> of file <a class="el" href="_insert_rule_8cpp_source.html">InsertRule.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="comment">// TODO: implement</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">        #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        assert(0 &amp;&amp; <span class="stringliteral">&quot;InsertRule not implemented yet!&quot;</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">        #endif</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
-</div><!-- fragment -->
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">if</span>(!<a class="code" href="class_graph_1_1_base_rule.html#ad8b3a8fad92fccea7e931fc5b99ae3c1">originalPart_</a>.<a class="code" href="class_graph_1_1_sub_graph.html#ab76136c13938843a43aae40f5a28d14c">inputs</a>().empty() &amp;&amp; !<a class="code" href="class_graph_1_1_base_rule.html#ad8b3a8fad92fccea7e931fc5b99ae3c1">originalPart_</a>.<a class="code" href="class_graph_1_1_sub_graph.html#a8475d55674b20600a050deadd91bf9fc">outputs</a>().empty()){</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <span class="keywordflow">for</span>(Node* ns : <a class="code" href="class_graph_1_1_base_rule.html#ad8b3a8fad92fccea7e931fc5b99ae3c1">originalPart_</a>.<a class="code" href="class_graph_1_1_sub_graph.html#ab76136c13938843a43aae40f5a28d14c">inputs</a>()){</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                <span class="keywordflow">for</span>(Node* es : <a class="code" href="class_graph_1_1_base_rule.html#ad8b3a8fad92fccea7e931fc5b99ae3c1">originalPart_</a>.<a class="code" href="class_graph_1_1_sub_graph.html#a8475d55674b20600a050deadd91bf9fc">outputs</a>()){</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                    Node* nsMain = <a class="code" href="class_graph_1_1_base_rule.html#a74da05ddfe49c2edcbe8750648b4a230">graph_</a>.<a class="code" href="class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb">getNodeById</a>(ns-&gt;getID());</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                    Node* esMain = <a class="code" href="class_graph_1_1_base_rule.html#a74da05ddfe49c2edcbe8750648b4a230">graph_</a>.<a class="code" href="class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb">getNodeById</a>(es-&gt;getID());</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                    assert((nsMain &amp;&amp; esMain) &amp;&amp; <span class="stringliteral">&quot;Subgraph of this rule is inappropriate!&quot;</span>);              </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                    <a class="code" href="namespace_graph.html#aa0203c2467084615a8516e5996599245">NodePtrs</a> path;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                    <span class="keywordtype">int</span> numOfPaths = <a class="code" href="class_graph_1_1_base_rule.html#a74da05ddfe49c2edcbe8750648b4a230">graph_</a>.<a class="code" href="class_graph_1_1_graph.html#ab74cd4b887fd5facd062441f596298d2">shortestPathsBetween</a>(*nsMain, *esMain, path);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                    <span class="comment">// TODO: Solve multiple paths</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                    <span class="keywordflow">if</span>(numOfPaths &gt; 0){</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                        Node* n = <a class="code" href="class_graph_1_1_base_rule.html#a74da05ddfe49c2edcbe8750648b4a230">graph_</a>.<a class="code" href="class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb">getNodeById</a>(path.front()-&gt;getID()); </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                        </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                        Node* fromNode = <a class="code" href="class_graph_1_1_base_rule.html#a74da05ddfe49c2edcbe8750648b4a230">graph_</a>.<a class="code" href="class_graph_1_1_graph.html#a7949be895b6ea6980a61ce6deef63663">transFormedNodePtr</a>(path.front());</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                        Node* toNode = <a class="code" href="class_graph_1_1_base_rule.html#a74da05ddfe49c2edcbe8750648b4a230">graph_</a>.<a class="code" href="class_graph_1_1_graph.html#a7949be895b6ea6980a61ce6deef63663">transFormedNodePtr</a>(path.back());</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                        std::cout &lt;&lt; fromNode-&gt;<a class="code" href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413">toString</a>(<span class="keyword">true</span>) &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                        <a class="code" href="class_graph_1_1_base_rule.html#a74da05ddfe49c2edcbe8750648b4a230">graph_</a>.<a class="code" href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a">addSubGraph2</a>(*<a class="code" href="class_graph_1_1_base_rule.html#ac61973d0cb5765107a8a382037c5b732">modifiedPart_</a>, <span class="keyword">true</span>,fromNode, toNode);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="ttc" id="aclass_graph_1_1_base_rule_html_a74da05ddfe49c2edcbe8750648b4a230"><div class="ttname"><a href="class_graph_1_1_base_rule.html#a74da05ddfe49c2edcbe8750648b4a230">Graph::BaseRule::graph_</a></div><div class="ttdeci">Graph &amp; graph_</div><div class="ttdef"><b>Definition:</b> <a href="_base_rule_8hpp_source.html#l00011">BaseRule.hpp:11</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_base_rule_html_ac61973d0cb5765107a8a382037c5b732"><div class="ttname"><a href="class_graph_1_1_base_rule.html#ac61973d0cb5765107a8a382037c5b732">Graph::BaseRule::modifiedPart_</a></div><div class="ttdeci">SubGraph * modifiedPart_</div><div class="ttdef"><b>Definition:</b> <a href="_base_rule_8hpp_source.html#l00013">BaseRule.hpp:13</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_base_rule_html_ad8b3a8fad92fccea7e931fc5b99ae3c1"><div class="ttname"><a href="class_graph_1_1_base_rule.html#ad8b3a8fad92fccea7e931fc5b99ae3c1">Graph::BaseRule::originalPart_</a></div><div class="ttdeci">SubGraph &amp; originalPart_</div><div class="ttdef"><b>Definition:</b> <a href="_base_rule_8hpp_source.html#l00012">BaseRule.hpp:12</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_graph_html_a2d6711b0b890e378e913cec3df7f16cb"><div class="ttname"><a href="class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb">Graph::Graph::getNodeById</a></div><div class="ttdeci">Node * getNodeById(const std::string &amp;id)</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00051">Graph.cpp:51</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_graph_html_a7949be895b6ea6980a61ce6deef63663"><div class="ttname"><a href="class_graph_1_1_graph.html#a7949be895b6ea6980a61ce6deef63663">Graph::Graph::transFormedNodePtr</a></div><div class="ttdeci">Node * transFormedNodePtr(Node *nodePtr)</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00557">Graph.cpp:557</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_graph_html_ab74cd4b887fd5facd062441f596298d2"><div class="ttname"><a href="class_graph_1_1_graph.html#ab74cd4b887fd5facd062441f596298d2">Graph::Graph::shortestPathsBetween</a></div><div class="ttdeci">int shortestPathsBetween(Node &amp;startNode, Node &amp;endNode, NodePtrs &amp;resultPath)</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00251">Graph.cpp:251</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_graph_html_aee66e026902772f93fa5d0315937df1a"><div class="ttname"><a href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a">Graph::Graph::addSubGraph2</a></div><div class="ttdeci">void addSubGraph2(SubGraph &amp;subGraph, bool delteOriginalEdges=false, NodePtr fromNode=0, NodePtr toNode=0)</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00424">Graph.cpp:424</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_node_html_a0ed456c8cae29ebc6acad3eb7af9c413"><div class="ttname"><a href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413">Graph::Node::toString</a></div><div class="ttdeci">std::string toString(bool showEdges=false) const</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00050">Node.cpp:50</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_sub_graph_html_a8475d55674b20600a050deadd91bf9fc"><div class="ttname"><a href="class_graph_1_1_sub_graph.html#a8475d55674b20600a050deadd91bf9fc">Graph::SubGraph::outputs</a></div><div class="ttdeci">NodePtrs &amp; outputs()</div><div class="ttdef"><b>Definition:</b> <a href="_sub_graph_8hpp_source.html#l00025">SubGraph.hpp:25</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_sub_graph_html_ab76136c13938843a43aae40f5a28d14c"><div class="ttname"><a href="class_graph_1_1_sub_graph.html#ab76136c13938843a43aae40f5a28d14c">Graph::SubGraph::inputs</a></div><div class="ttdeci">NodePtrs &amp; inputs()</div><div class="ttdef"><b>Definition:</b> <a href="_sub_graph_8hpp_source.html#l00024">SubGraph.hpp:24</a></div></div>
+<div class="ttc" id="anamespace_graph_html_aa0203c2467084615a8516e5996599245"><div class="ttname"><a href="namespace_graph.html#aa0203c2467084615a8516e5996599245">Graph::NodePtrs</a></div><div class="ttdeci">std::vector&lt; Node * &gt; NodePtrs</div><div class="ttdef"><b>Definition:</b> <a href="_node_8hpp_source.html#l00085">Node.hpp:85</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graph_1_1_insert_rule_ad7582f627a50cccbd5be529a060c1700_cgraph.png" border="0" usemap="#aclass_graph_1_1_insert_rule_ad7582f627a50cccbd5be529a060c1700_cgraph" alt=""/></div>
+<map name="aclass_graph_1_1_insert_rule_ad7582f627a50cccbd5be529a060c1700_cgraph" id="aclass_graph_1_1_insert_rule_ad7582f627a50cccbd5be529a060c1700_cgraph">
+<area shape="rect" title=" " alt="" coords="5,302,136,343"/>
+<area shape="rect" href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a" title=" " alt="" coords="184,208,379,235"/>
+<area shape="rect" href="class_graph_1_1_node.html#a0ed456c8cae29ebc6acad3eb7af9c413" title=" " alt="" coords="451,411,599,437"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb" title=" " alt="" coords="190,309,373,336"/>
+<area shape="rect" href="class_graph_1_1_sub_graph.html#ab76136c13938843a43aae40f5a28d14c" title=" " alt="" coords="198,360,365,387"/>
+<area shape="rect" href="class_graph_1_1_sub_graph.html#a8475d55674b20600a050deadd91bf9fc" title=" " alt="" coords="194,411,369,437"/>
+<area shape="rect" href="class_graph_1_1_graph.html#ab74cd4b887fd5facd062441f596298d2" title=" " alt="" coords="187,462,376,503"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a7949be895b6ea6980a61ce6deef63663" title=" " alt="" coords="191,70,372,111"/>
+<area shape="rect" href="class_graph_1_1_node.html#a5d9805f7ac344f92b907a1b301a00649" title=" " alt="" coords="434,56,617,83"/>
+<area shape="rect" href="class_graph_1_1_node.html#aa06b99d9acbba79842a756dbd30ca56c" title=" " alt="" coords="429,107,622,133"/>
+<area shape="rect" href="class_graph_1_1_sub_graph.html#a2b5ed628883ea2fa1c4024121a1b75ef" title=" " alt="" coords="434,157,617,184"/>
+<area shape="rect" href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f" title=" " alt="" coords="459,5,592,32"/>
+<area shape="rect" href="class_graph_1_1_node.html#a01e446ef9702e7ae670dfb1813a22d8b" title=" " alt="" coords="432,208,619,235"/>
+<area shape="rect" href="class_graph_1_1_node.html#a05086c110a67f1a0c63d73cb6be04e06" title=" " alt="" coords="427,259,624,285"/>
+<area shape="rect" href="class_graph_1_1_edge.html#a1b808b3e9d3138c81df30a77455eb193" title=" " alt="" coords="465,309,585,336"/>
+<area shape="rect" href="class_graph_1_1_sub_graph.html#a481f43c95ea30ae4bdcf1d90ce325e45" title=" " alt="" coords="434,360,617,387"/>
+</map>
+</div>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

@@ -110,9 +110,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac836b9aa981b021c79094572b6da0bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1678df80cfc5e356df884a569a9746b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_graph_1_1_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_edge.html#ad1678df80cfc5e356df884a569a9746b">toNode</a> ()</td></tr>
 <tr class="separator:ad1678df80cfc5e356df884a569a9746b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b20d2d6c20e55980eea2aab5799e85b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_edge.html#a8b20d2d6c20e55980eea2aab5799e85b">fromId</a> ()</td></tr>
+<tr class="separator:a8b20d2d6c20e55980eea2aab5799e85b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0c3864c55ab815b4e6ab92a9bb92dfd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_edge.html#ab0c3864c55ab815b4e6ab92a9bb92dfd">toId</a> ()</td></tr>
+<tr class="separator:ab0c3864c55ab815b4e6ab92a9bb92dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee23b8322c2dc481f8841ff77fa3b965"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_edge.html#aee23b8322c2dc481f8841ff77fa3b965">setToNode</a> (<a class="el" href="class_graph_1_1_node.html">Node</a> *node)</td></tr>
+<tr class="separator:aee23b8322c2dc481f8841ff77fa3b965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e8d4ea792d32d16e3b155b9d027fcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_edge.html#ab7e8d4ea792d32d16e3b155b9d027fcc">setFromNode</a> (<a class="el" href="class_graph_1_1_node.html">Node</a> *node)</td></tr>
+<tr class="separator:ab7e8d4ea792d32d16e3b155b9d027fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c7a63fbec0628a943fe5d83fa89f7df"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_edge.html#a3c7a63fbec0628a943fe5d83fa89f7df">toString</a> ()</td></tr>
 <tr class="separator:a3c7a63fbec0628a943fe5d83fa89f7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b808b3e9d3138c81df30a77455eb193"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_edge.html#a1b808b3e9d3138c81df30a77455eb193">init</a> (<a class="el" href="namespace_graph.html#a5b7e60e7a6b2a9724aa2aeb64d94f4b3">NodeMap</a> &amp;map)</td></tr>
+<tr class="memitem:a1b808b3e9d3138c81df30a77455eb193"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_1_1_edge.html#a1b808b3e9d3138c81df30a77455eb193">init</a> (<a class="el" href="namespace_graph.html#a7b61c98c5e66ef60ce971ff8882ea62b">NodeMap</a> &amp;map)</td></tr>
 <tr class="separator:a1b808b3e9d3138c81df30a77455eb193"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -157,8 +165,8 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        from_node = <a class="code" href="class_graph_1_1_graph.html#a1377485d2a4674a011310b1a68e697ba">Graph::instance</a>().<a class="code" href="class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb">getNodeById</a>(from_node_id);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        to_node = <a class="code" href="class_graph_1_1_graph.html#a1377485d2a4674a011310b1a68e697ba">Graph::instance</a>().<a class="code" href="class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb">getNodeById</a>(to_node_id);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
-<div class="ttc" id="aclass_graph_1_1_graph_html_a1377485d2a4674a011310b1a68e697ba"><div class="ttname"><a href="class_graph_1_1_graph.html#a1377485d2a4674a011310b1a68e697ba">Graph::Graph::instance</a></div><div class="ttdeci">static Graph &amp; instance()</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00015">Graph.cpp:15</a></div></div>
-<div class="ttc" id="aclass_graph_1_1_graph_html_a2d6711b0b890e378e913cec3df7f16cb"><div class="ttname"><a href="class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb">Graph::Graph::getNodeById</a></div><div class="ttdeci">Node * getNodeById(const std::string &amp;id)</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00042">Graph.cpp:42</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_graph_html_a1377485d2a4674a011310b1a68e697ba"><div class="ttname"><a href="class_graph_1_1_graph.html#a1377485d2a4674a011310b1a68e697ba">Graph::Graph::instance</a></div><div class="ttdeci">static Graph &amp; instance()</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00017">Graph.cpp:17</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_graph_html_a2d6711b0b890e378e913cec3df7f16cb"><div class="ttname"><a href="class_graph_1_1_graph.html#a2d6711b0b890e378e913cec3df7f16cb">Graph::Graph::getNodeById</a></div><div class="ttdeci">Node * getNodeById(const std::string &amp;id)</div><div class="ttdef"><b>Definition:</b> <a href="_graph_8cpp_source.html#l00051">Graph.cpp:51</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -210,7 +218,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;     <span class="comment">//   Renderer::instance().renderEdge(*from_peak-&gt;getRenderNode(), *to_peak-&gt;getRenderNode());</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">    #endif</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="ttc" id="aclass_graph_1_1_node_html_ade7d5fa6ec5c9506e52339cfedc3f42f"><div class="ttname"><a href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">Graph::Node::getID</a></div><div class="ttdeci">const std::string &amp; getID() const</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00048">Node.cpp:48</a></div></div>
+<div class="ttc" id="aclass_graph_1_1_node_html_ade7d5fa6ec5c9506e52339cfedc3f42f"><div class="ttname"><a href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f">Graph::Node::getID</a></div><div class="ttdeci">const std::string &amp; getID() const</div><div class="ttdef"><b>Definition:</b> <a href="_node_8cpp_source.html#l00045">Node.cpp:45</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -224,6 +232,34 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8b20d2d6c20e55980eea2aab5799e85b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b20d2d6c20e55980eea2aab5799e85b">&#9670;&nbsp;</a></span>fromId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Graph::Edge::fromId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_edge_8hpp_source.html#l00027">27</a> of file <a class="el" href="_edge_8hpp_source.html">Edge.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{<span class="keywordflow">return</span> id_from;}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="ac836b9aa981b021c79094572b6da0bde"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac836b9aa981b021c79094572b6da0bde">&#9670;&nbsp;</a></span>fromNode()</h2>
 
@@ -317,19 +353,35 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void Graph::Edge::init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespace_graph.html#a5b7e60e7a6b2a9724aa2aeb64d94f4b3">NodeMap</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_graph.html#a7b61c98c5e66ef60ce971ff8882ea62b">NodeMap</a> &amp;&#160;</td>
           <td class="paramname"><em>map</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_edge_8cpp_source.html#l00035">35</a> of file <a class="el" href="_edge_8cpp_source.html">Edge.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        from_node = map.at(id_from);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        to_node = map.at(id_to);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_edge_8cpp_source.html#l00042">42</a> of file <a class="el" href="_edge_8cpp_source.html">Edge.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        from_node = getNode(map, id_from);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        to_node = getNode(map, id_to);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graph_1_1_edge_a1b808b3e9d3138c81df30a77455eb193_icgraph.png" border="0" usemap="#aclass_graph_1_1_edge_a1b808b3e9d3138c81df30a77455eb193_icgraph" alt=""/></div>
+<map name="aclass_graph_1_1_edge_a1b808b3e9d3138c81df30a77455eb193_icgraph" id="aclass_graph_1_1_edge_a1b808b3e9d3138c81df30a77455eb193_icgraph">
+<area shape="rect" title=" " alt="" coords="468,115,588,141"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a3472fa99ef0dcb955a74f4489b37d11c" title=" " alt="" coords="227,13,414,40"/>
+<area shape="rect" href="class_graph_1_1_graph.html#aee66e026902772f93fa5d0315937df1a" title=" " alt="" coords="223,64,418,91"/>
+<area shape="rect" href="class_graph_1_1_graph.html#a5952f6f96df812b1d1efc2a112e4c856" title=" " alt="" coords="221,115,420,141"/>
+<area shape="rect" href="class_graph_1_1_sub_graph.html#a61cdb5b8bd3e171b24d89d13bdbc49ec" title=" " alt="" coords="226,165,415,192"/>
+<area shape="rect" href="class_graph_1_1_graph.html#abe0efeefa998aa57a568999d336b7be2" title=" " alt="" coords="228,217,413,258"/>
+<area shape="rect" href="class_graph_1_1_add_rule.html#ae7bf0dff340e6daccd624a017d3ac3be" title=" " alt="" coords="5,5,173,32"/>
+<area shape="rect" href="class_graph_1_1_insert_rule.html#ad7582f627a50cccbd5be529a060c1700" title=" " alt="" coords="24,57,155,98"/>
+<area shape="rect" href="class_graph_1_1_replace_rule.html#af553ce709ae3be6148157f0fcc830ba5" title=" " alt="" coords="20,122,159,163"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="afa68f10cd2b53c353c0b2963d061cbc8"></a>
@@ -358,6 +410,104 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_edge_8hpp_source.html#l00022">22</a> of file <a class="el" href="_edge_8hpp_source.html">Edge.hpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{ memcpy(<span class="keyword">this</span>, &amp;other, <span class="keyword">sizeof</span>(other)); <span class="keywordflow">return</span> *<span class="keyword">this</span>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab7e8d4ea792d32d16e3b155b9d027fcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e8d4ea792d32d16e3b155b9d027fcc">&#9670;&nbsp;</a></span>setFromNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Graph::Edge::setFromNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_graph_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_edge_8hpp_source.html#l00030">30</a> of file <a class="el" href="_edge_8hpp_source.html">Edge.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                from_node = node;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                id_from = node-&gt;getID();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_graph_1_1_edge_ab7e8d4ea792d32d16e3b155b9d027fcc_cgraph.png" border="0" usemap="#aclass_graph_1_1_edge_ab7e8d4ea792d32d16e3b155b9d027fcc_cgraph" alt=""/></div>
+<map name="aclass_graph_1_1_edge_ab7e8d4ea792d32d16e3b155b9d027fcc_cgraph" id="aclass_graph_1_1_edge_ab7e8d4ea792d32d16e3b155b9d027fcc_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,187,32"/>
+<area shape="rect" href="class_graph_1_1_node.html#ade7d5fa6ec5c9506e52339cfedc3f42f" title=" " alt="" coords="235,5,368,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aee23b8322c2dc481f8841ff77fa3b965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee23b8322c2dc481f8841ff77fa3b965">&#9670;&nbsp;</a></span>setToNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Graph::Edge::setToNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_graph_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_edge_8hpp_source.html#l00029">29</a> of file <a class="el" href="_edge_8hpp_source.html">Edge.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{to_node = node;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab0c3864c55ab815b4e6ab92a9bb92dfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0c3864c55ab815b4e6ab92a9bb92dfd">&#9670;&nbsp;</a></span>toId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Graph::Edge::toId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_edge_8hpp_source.html#l00028">28</a> of file <a class="el" href="_edge_8hpp_source.html">Edge.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{<span class="keywordflow">return</span> id_to;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -404,12 +554,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_edge_8cpp_source.html#l00041">41</a> of file <a class="el" href="_edge_8cpp_source.html">Edge.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::string s = <a class="code" href="_utils_8hpp.html#a3b4a2dac46a83ad600ac094795003e26">intToHex</a>((<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>)<span class="keyword">this</span>) + <span class="stringliteral">&quot; &quot;</span> + id_from + <span class="stringliteral">&quot; -&gt; &quot;</span> + id_to;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="ttc" id="a_utils_8hpp_html_a3b4a2dac46a83ad600ac094795003e26"><div class="ttname"><a href="_utils_8hpp.html#a3b4a2dac46a83ad600ac094795003e26">intToHex</a></div><div class="ttdeci">std::string intToHex(unsigned long i)</div><div class="ttdef"><b>Definition:</b> <a href="_utils_8hpp_source.html#l00040">Utils.hpp:40</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_edge_8cpp_source.html#l00048">48</a> of file <a class="el" href="_edge_8cpp_source.html">Edge.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        std::string s = <a class="code" href="_utils_8hpp.html#a3b4a2dac46a83ad600ac094795003e26">intToHex</a>((<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>)<span class="keyword">this</span>) + <span class="stringliteral">&quot; &quot;</span> + id_from + <span class="stringliteral">&quot; -&gt; &quot;</span> + id_to;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="ttc" id="a_utils_8hpp_html_a3b4a2dac46a83ad600ac094795003e26"><div class="ttname"><a href="_utils_8hpp.html#a3b4a2dac46a83ad600ac094795003e26">intToHex</a></div><div class="ttdeci">std::string intToHex(unsigned long i)</div><div class="ttdef"><b>Definition:</b> <a href="_utils_8hpp_source.html#l00054">Utils.hpp:54</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
