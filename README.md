@@ -8,7 +8,7 @@ This application uses graphwiz next to x terminal for visual representation:
 
 ### example content of the graph descriptor file: _(mms sample graph)_
 
-<div style='background: #eea; padding: 10px 15px; line-height'> 
+<div style='background: lightgreen; padding: 10px 15px; line-height'> 
 in1:a
 in2:d
 a:b
@@ -27,7 +27,7 @@ j:out3
 
 ### example content of the modifier rules file: _(mms sample graph)_
 
-<div style='background: #eea; padding: 10px 15px; line-height'> 
+<div style='background: lightgreen; padding: 10px 15px; line-height'> 
 delete:{a:b;b:c}
 insert:{in1:f}{x:x}
 insert:{d:e}{y:y}
