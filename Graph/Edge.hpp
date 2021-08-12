@@ -41,6 +41,7 @@ namespace Graph{
 			std::string id_to; 
 			NodePtr from_node = 0;
 			NodePtr to_node = 0;
+			Node* getNode(NodeMap& map, std::string id);
 			
 	};
 

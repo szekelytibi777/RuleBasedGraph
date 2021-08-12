@@ -12,20 +12,27 @@ namespace Graph{
         while(getline(ss, token, ';'))
         {
             std::string from_node_id = parseFromId(token);
-            
+            std::cout << from_node_id << std::endl;
+            if(!first_node)
+                first_node = createNode(from_node_id);
+
+ 
             NodePtr p = createNode(from_node_id);
         
             std::vector<std::string> tokens;
             parseToIdList(token, tokens);
             
             for(const std::string& to_node_id : tokens){
-                createNode(to_node_id);
+                Node* to_node = getNodeById(to_node_id);
+                last_node = to_node;
+           
                 Node *fn = getNodeById(from_node_id);
                 Node *tn = getNodeById(to_node_id);
                 Edge &e = createEdge( fn, tn);
+                e.init(node_map);
                 fn->addOutputEdge(&e);
                 tn->addInputEdge(&e);
-            }
+            } 
         }
         //identify start and end nodes of this SubGraph
         inputNodes.clear();
@@ -63,10 +70,9 @@ namespace Graph{
 	Node* SubGraph::getNodeById(const std::string &id)
     {
         int count = node_map.count(id);
-        if(count ==  1)
-            return node_map[id];
-        else
-            return 0;//dummyPeak;
+        if(count ==  0)
+            node_map[id] = new Node(id);
+        return node_map[id];
     }
 
 

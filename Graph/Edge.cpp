@@ -32,10 +32,17 @@
     #endif
     }
 
+	Node* Edge::getNode(NodeMap& map, std::string id)
+    {
+        if(map.count(id) == 0)
+            map[id] = new Node(id);
+        return map[id];
+    }
+
 	void Edge::init(NodeMap &map)
     {
-        from_node = map.at(id_from);
-        to_node = map.at(id_to);
+        from_node = getNode(map, id_from);
+        to_node = getNode(map, id_to);
     }
 
 	std::string Edge::toString()

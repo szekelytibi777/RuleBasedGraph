@@ -1,1 +1,2 @@
-replace:{a:b;b:c}{x:x}
+add:{b:0}{t:r,s,q}
+#insert:{a:b}{q:z;z:r}

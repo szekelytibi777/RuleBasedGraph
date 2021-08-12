@@ -19,9 +19,7 @@ namespace Graph{
     #endif
         , level_(0)
     {
-       
-        //    std::cout << getID() << std::endl;
-   }
+    }
 
     Node::Node(const Node& other)
     #ifdef GRAPHVIZ_RENDERER
@@ -33,7 +31,6 @@ namespace Graph{
 
 	Node::~Node()
     {
- //       std::cout << "destructed: "+getID() << std::endl;
     }
     Node& Node::operator = (const Node&other)
     {

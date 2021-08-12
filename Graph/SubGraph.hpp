@@ -29,6 +29,8 @@ namespace Graph{
 
             NodeMap &getNodeMap(){return node_map;}
             std::string toString(); 
+            Node *firstNode() {return first_node;}
+            Node *lastNode() {return last_node;}
 
         private:
 	        NodeMap node_map;
@@ -40,5 +42,7 @@ namespace Graph{
             NodePtrs outputNodes;
             std::string inputNodeId = "";
             std::string outputNodeId = "";
+            Node *first_node = 0;
+            Node *last_node = 0;
     };
 }

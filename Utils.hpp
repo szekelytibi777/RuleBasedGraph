@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <unordered_map>
 
 #define assertm(exp, msg) assert(((void)msg, exp))
 
@@ -23,6 +24,19 @@ inline unsigned splitString(std::vector<std::string> &tokens, const std::string 
     } while (i1 != std::string::npos);
 
     return tokens.size();
+}
+
+template <typename T>
+inline T& firstElementOf(std::unordered_map<std::string, T> &map){
+    return map.begin()->second;
+}
+
+template <typename T>
+inline T& lastElementOf(std::unordered_map<std::string, T> &map){
+    int n = 0;
+    auto it = map.begin();
+    std::advance(it, map.size()-1);
+    return it->second;
 }
 
 inline unsigned countLines(std::ifstream &stream){

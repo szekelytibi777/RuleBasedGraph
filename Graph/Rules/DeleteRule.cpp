@@ -14,7 +14,6 @@ namespace Graph{
         #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS
         assert(0 && "DeleteRule not implemented yet!");
         #endif
-        std::cout << originalPart_.toString() << std::endl;
         graph_.deleteSubGraph(originalPart_);
         return true;
     }

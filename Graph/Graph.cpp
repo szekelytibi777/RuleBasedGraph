@@ -129,25 +129,19 @@ namespace Graph{
         if(file_name.empty())
             return;
         std::ifstream input_stream;
-        input_stream.exceptions ( std::ifstream::failbit | std::ifstream::badbit );
+        //input_stream.exceptions ( std::ifstream::failbit | std::ifstream::badbit );
         try{
         
             input_stream.open(file_name, std::ifstream::in);
             unsigned num_of_peaks = countLines(input_stream) + 1;
-            // avoid unnecessary memory operations -----------------
-            // The vector named _pool contains the instances of the object
-            // during processing we only refer to them
-           // node_map.reserve(num_of_peaks);
             edge_pool.reserve(num_of_peaks*edgeNodesMultiplyFactor);
-           // edge_map.reserve(num_of_peaks*edgeNodesMultiplyFactor);
-            //edges_pool.reserve(num_of_peaks*2); // for pinputs and for outputs
-            // ------------------------------------------------------
             std::string line;
             do
             {
                 std::getline(input_stream, line);
                 if(line.empty())
                     continue;
+                std::cout << line << std::endl;
 
                 fixText(line);
                 std::string from_node_id = parseFromId(line);
@@ -408,7 +402,6 @@ namespace Graph{
                 fromNode->addOutputEdge(edge);
             }
             if(toNode){
-                std::cout << "<" << toNode->toString(true) << std::endl;
                 Edge *outEdge = &createEdge(changeNode, toNode);
                 outEdge->init(node_map);
                 changeNode->addOutputEdge(outEdge);
@@ -418,34 +411,19 @@ namespace Graph{
 
     void Graph::addSubGraph2(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode )
     {
-        /*
-        Node *changeNode = 0;
-        Node * startNode = std::prev(subGraph.getNodeMap().end());
-        for(auto &n : subGraph.getNodeMap())
-        {
-            changeNode = createNode(n.first);
-
-            for(Edge* e: n.second->getInputEdges()){
-                changeNode->addInputEdge(e);
-            }
-            for(Edge* e: n.second->getOutputEdges()){
-                changeNode->addOutputEdge(e);
-            }
-        }
-        */
+        node_map.erase("0");
         std::cout << subGraph.toString() << std::endl;
-//        transformSubGraph(subGraph);
-        std::cout << subGraph.toString() << std::endl;
-        Node *lastNode = transFormedNodePtr(subGraph.getNodeMap().begin()->second);
-        Node *firstNode = std::prev(subGraph.getNodeMap().end())->second;
-        Node *tfn = transFormedNodePtr(firstNode);
+        Node *lastNode = subGraph.lastNode();
+        Node *firstNode = subGraph.firstNode();
+        Node *firstNode_t = transFormedNodePtr(firstNode);
+       
         if(fromNode){
-           
             Edge *edge = &createEdge(fromNode->getID(), firstNode->getID());
             edge->init(node_map);
             fromNode->addOutputEdge(edge);
-            tfn->addInputEdge(edge);
+            firstNode->addInputEdge(edge);
         }
+        std::cout << firstNode->toString() << std::endl;
         if(firstNode){
             std::string fromId = firstNode->getID();
             for(Edge* e : firstNode->getOutputEdges()){
@@ -453,8 +431,10 @@ namespace Graph{
                     std::string toId = e->getTargetIdentifier();
                     Node* tn = createNode(toId);
                     Edge *e = &createEdge(fromId, toId);
-                    tfn->addOutputEdge(e);
+                    e->init(node_map);
+                    firstNode_t->addOutputEdge(e);
                     tn->addInputEdge(e);
+                    std::cout << e->toString() << std::endl;
 
                 }
             }
@@ -465,12 +445,10 @@ namespace Graph{
             outEdge->init(node_map);
             lastNode->addOutputEdge(outEdge);
         }    
-        std::cout << toString() << std::endl;
     }
 
     void Graph::insertSubGraph(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode)
     {
-        std::cout << subGraph.toString() << std::endl;
         subGraph.getNodeMap().erase("0");
         transformSubGraph(subGraph);
         
@@ -482,15 +460,12 @@ namespace Graph{
         Node *lastNode = getNodeById(std::prev(subGraph.getNodeMap().end())->first);
         Node *firstNode = getNodeById(subGraph.getNodeMap().begin()->first);
 #endif
-        std::cout << intToHex((unsigned long)firstNode) <<" " << intToHex((unsigned long)lastNode) << std::endl;
         if(fromNode){
-           
             Edge *fromEdge = &createEdge(fromNode->getID(), firstNode->getID());
             fromEdge->init(node_map);
             fromNode->getOutputEdges().clear();
             fromNode->addOutputEdge(fromEdge);
             firstNode->addInputEdge(fromEdge);
-
         }
         if(toNode){
             Edge *toEdge = &createEdge(lastNode->getID(), toNode->getID());
@@ -504,7 +479,6 @@ namespace Graph{
     {
         for(auto &p : subGraph.getNodeMap()){
             Node *n = p.second;
-            std::cout << n->getID() << std::endl;
             createNode(n->getID());
             for(Edge* e:n->getOutputEdges()){
                 e->init(node_map);
@@ -557,8 +531,6 @@ namespace Graph{
         if(!nodePtr)
             return 0;
         std::string id = nodePtr->getID();
-        if(id == "y")
-            std::cout << id << " " << node_map.count(id) << std::endl;
         if(node_map.count(id) == 0){
             Node * n = new Node(id);
             node_map[id] = n;
@@ -573,7 +545,6 @@ namespace Graph{
             Node*tn = transFormedNodePtr(p.second);
             node_map[p.first] = tn;
             Node *n = node_map[p.first];
-            std::cout << n->getID() << " " << ((unsigned long)n) << std::endl ;
   
             if(n){
                 for(Edge *e : n->getInputEdges()){
@@ -602,7 +573,6 @@ namespace Graph{
     {
         std::string ret;
         for(auto &p : node_map){
-            std::cout << p.first << std::endl;
             if(p.second)
                 ret += p.second->toString(true) + "\n";
         }

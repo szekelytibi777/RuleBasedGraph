@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include "Edge.hpp"
 #include "Node.hpp"
 #include "Common.hpp"

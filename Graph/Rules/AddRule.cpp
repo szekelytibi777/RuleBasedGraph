@@ -1,4 +1,5 @@
 #include "AddRule.hpp"  
+#include "../../Utils.hpp"
 
 namespace Graph{
     AddRule::AddRule(Graph &graph, SubGraph &original, SubGraph *modified)
@@ -13,9 +14,14 @@ namespace Graph{
         #ifdef ASSERT_UNIMPLEMENTED_FUNCTIONS
         assert(0 && "AddRule not implemented yet!");
         #endif
-        NodePtr origNode = graph_.transFormedNodePtr(std::prev(originalPart_.getNodeMap().end())->second);
-        
-        graph_.addSubGraph2(*modifiedPart_, origNode, 0);
+
+        NodePtr fromMode = graph_.transFormedNodePtr(originalPart_.firstNode());
+        NodePtr toNode = graph_.transFormedNodePtr(originalPart_.lastNode());
+        if(toNode->getID() == "0")
+            toNode = 0;
+
+              
+        graph_.addSubGraph2(*modifiedPart_, fromMode, toNode);
 
          
         return false;
