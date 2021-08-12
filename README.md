@@ -25,7 +25,7 @@ l:out2
 j:out3
 </div>
 
-example content of the modifier rules file: _(mms sample graph)_
+### example content of the modifier rules file: _(mms sample graph)_
 
 <div style='background: #eea; padding: 10px 15px; line-height'> 
 delete:{a:b;b:c}
