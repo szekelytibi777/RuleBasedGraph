@@ -8,34 +8,35 @@ This application uses graphwiz next to x terminal for visual representation:
 
 ### example content of the graph descriptor file: _(mms sample graph)_
 
-<div style='background: lightgreen; padding: 10px 15px; line-height'> 
-in1:a
-in2:d
-a:b
-b:c
-c:f
-d:e
-e:f
-f:g,h
-h:j
-g:i,j
-i:l,k
-k:out1
-l:out2
-j:out3
-</div>
+    in1:a
+    in2:d
+    a:b
+    b:c
+    c:f
+    d:e
+    e:f
+    f:g,h
+    h:j
+    g:i,j
+    i:l,k
+    k:out1
+    l:out2
+    j:out3
+
+
+
 
 ### example content of the modifier rules file: _(mms sample graph)_
 
-<div style='background: lightgreen; padding: 10px 15px; line-height'> 
-delete:{a:b;b:c}
-insert:{in1:f}{x:x}
-insert:{d:e}{y:y}
-delete:{f:h,g;h:i;g:i,j;i:k,l;k:out1;l:out2;j:out3}
-add:{x:0}{z:v;v:out1}
-add:{z:0}{w:out2,out3}
-edge:{e:z}
-</div>
+
+    delete:{a:b;b:c}
+    insert:{in1:f}{x:x}
+    insert:{d:e}{y:y}
+    delete:{f:h,g;h:i;g:i,j;i:k,l;k:out1;l:out2;j:out3}
+    add:{x:0}{z:v;v:out1}
+    add:{z:0}{w:out2,out3}
+    edge:{e:z}
+
 
 
 ##### subgraph descriptor
