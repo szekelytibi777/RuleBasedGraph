@@ -1,6 +1,18 @@
 # RuleBasedGraph
 Given a defined graph and a ruleset, the application shall be able to modify original graph.
+# 
+##### subgraph descriptor
+{<start_node>:<comma_separated_list_of_end_nodes>}
+"0" node_id in a subgraph means that node is null in the implementation
 # rules usable:
+## add
+add subgraph to the graph:
+modifier subgraph can be started from an existing node in the graph
+or can be ends on an allready existing node
+
+**add** :{<existing_node_started_from>:<existing_node_ends_with>}{<modifier_subgraph>}
+
+
 ## insert
 insert subgraph between connected nodes (node1 and node2)
 
@@ -20,9 +32,5 @@ delete subgraph from the graph
 
 **delete**:{<original_subgraph_descriptor_to_delete>}
 
-## add
-add subgraph to the graph
-
-**add**:{<node_id>:<node_id>}{<added_subgraph_descriptor>}
-
+## 
 

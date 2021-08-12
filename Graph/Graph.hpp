@@ -34,8 +34,8 @@ namespace Graph{
 			void walk(Node* peak_ptr, int level=0);
 			Node* createNode(const std::string id);
 			void eraseNode(Node* node);
-			Edge& createEdge(const std::string id_from, const std::string id_to);
-			Edge& createEdge(Node *fromNodePtr, Node *toNodePtr);
+			Edge* createEdge(const std::string id_from, const std::string id_to);
+			Edge* createEdge(Node *fromNodePtr, Node *toNodePtr);
 			Node* getNodeById(const std::string &id);
 			Node* transFormedNodePtr(Node *nodePtr);
 
@@ -50,13 +50,15 @@ namespace Graph{
 			void show();
 			void printNodes();
 			void addSubGraph(SubGraph &subGraph, NodePtr fromNode = 0, NodePtr toNode = 0);
-			void addSubGraph2(SubGraph &subGraph, NodePtr fromNode = 0, NodePtr toNode = 0);
+			void addSubGraph2(SubGraph &subGraph, bool delteOriginalEdges = false, NodePtr fromNode = 0, NodePtr toNode = 0);
 			void insertSubGraph(SubGraph &subGraph, NodePtr fromNode = 0, NodePtr toNode = 0);
 			void addNewNodes(SubGraph &subGraph);
 			void deleteSubGraph(SubGraph &subGraph);
 			void transformSubGraph(SubGraph &subGraph);
 			void changeNodes(NodePtr oldNode, NodePtr newNode);
+			void transformNodeRecursive(NodePtr node);
 			std::string toString();
+
 		private:
 			static Graph *instance_;
 			NodeMap node_map;

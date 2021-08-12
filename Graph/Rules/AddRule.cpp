@@ -15,13 +15,16 @@ namespace Graph{
         assert(0 && "AddRule not implemented yet!");
         #endif
 
-        NodePtr fromMode = graph_.transFormedNodePtr(originalPart_.firstNode());
+        NodePtr fromNode = graph_.transFormedNodePtr(originalPart_.firstNode());
         NodePtr toNode = graph_.transFormedNodePtr(originalPart_.lastNode());
         if(toNode->getID() == "0")
             toNode = 0;
+        if(fromNode->getID() == "0")
+            fromNode = 0;
+        originalPart_.getNodeMap().erase("0");
 
               
-        graph_.addSubGraph2(*modifiedPart_, fromMode, toNode);
+        graph_.addSubGraph2(*modifiedPart_, false, fromNode, toNode);
 
          
         return false;

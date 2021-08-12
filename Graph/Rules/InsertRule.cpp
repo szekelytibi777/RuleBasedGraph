@@ -19,10 +19,13 @@ namespace Graph{
                     int numOfPaths = graph_.shortestPathsBetween(*nsMain, *esMain, path);
                     // TODO: Solve multiple paths
                     if(numOfPaths > 0){
+                        Node* n = graph_.getNodeById(path.front()->getID()); 
+                        
                         Node* fromNode = graph_.transFormedNodePtr(path.front());
                         Node* toNode = graph_.transFormedNodePtr(path.back());
+                        std::cout << fromNode->toString(true) << std::endl;
                 
-                        graph_.insertSubGraph(*modifiedPart_, fromNode, toNode);
+                        graph_.addSubGraph2(*modifiedPart_, true,fromNode, toNode);
                         return true;
                     }
                 }

@@ -28,10 +28,10 @@ namespace Graph{
            
                 Node *fn = getNodeById(from_node_id);
                 Node *tn = getNodeById(to_node_id);
-                Edge &e = createEdge( fn, tn);
-                e.init(node_map);
-                fn->addOutputEdge(&e);
-                tn->addInputEdge(&e);
+                Edge *e = createEdge( fn, tn);
+                e->init(node_map);
+                fn->addOutputEdge(e);
+                tn->addInputEdge(e);
             } 
         }
         //identify start and end nodes of this SubGraph
@@ -76,18 +76,20 @@ namespace Graph{
     }
 
 
-	Edge& SubGraph::createEdge(const std::string id_from, const std::string id_to)
+	Edge* SubGraph::createEdge(const std::string id_from, const std::string id_to)
     {
-        edge_pool.emplace(edge_pool.end(),Edge(id_from, id_to));
-        return edge_pool.back();
+        Edge *e = new Edge(id_from,id_to);
+        edge_pool.push_back(e);
+        return e;
     }
 
-	Edge& SubGraph::createEdge(Node *fromNodePtr, Node *toNodePtr)
+	Edge* SubGraph::createEdge(Node *fromNodePtr, Node *toNodePtr)
     {
         assert(fromNodePtr != 0);
         assert(toNodePtr != 0);
-        edge_pool.emplace(edge_pool.end(),Edge(fromNodePtr, toNodePtr));
-        return edge_pool.back();
+        Edge *e = new Edge(fromNodePtr,toNodePtr);
+        edge_pool.push_back(e);
+        return e;
     }
 
     void SubGraph::setInputNodes(NodePtrs &newInputs, Graph &theGraph){

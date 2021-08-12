@@ -37,15 +37,15 @@ namespace Graph{
 
 
 		private:
-			std::string id_from;
-			std::string id_to; 
+			std::string id_from = "";
+			std::string id_to = ""; 
 			NodePtr from_node = 0;
 			NodePtr to_node = 0;
 			Node* getNode(NodeMap& map, std::string id);
 			
 	};
 
-    typedef std::vector<Edge> Edges;
+    typedef std::vector<Edge *> Edges;
 	
 	typedef std::map<std::string, Edges*> EdgesMap;
 

@@ -58,18 +58,20 @@ namespace Graph{
     }
 
 
-	Edge& Graph::createEdge(const std::string id_from, const std::string id_to)
+	Edge* Graph::createEdge(const std::string id_from, const std::string id_to)
     {
-        edge_pool.emplace(edge_pool.end(),Edge(id_from, id_to));
-        return edge_pool.back();
+        Edge *e = new Edge(id_from,id_to);
+        edge_pool.push_back(e);
+        return e;
     }
 
-	Edge& Graph::createEdge(Node *fromNodePtr, Node *toNodePtr)
+	Edge* Graph::createEdge(Node *fromNodePtr, Node *toNodePtr)
     {
         assert(fromNodePtr != 0);
         assert(toNodePtr != 0);
-        edge_pool.emplace(edge_pool.end(),Edge(fromNodePtr, toNodePtr));
-        return edge_pool.back();
+        Edge *e = new Edge(fromNodePtr,toNodePtr);
+        edge_pool.push_back(e);
+        return e;
     }
 
     bool Graph::createEdges(Node* fromNode, NodePtrs &toArray, EdgePtrs* outEdges)
@@ -80,7 +82,7 @@ namespace Graph{
         outEdges->reserve(toArray.size());
 
         for(Node* node : toArray){
-            Edge *e = &createEdge(fromNode, node);
+            Edge *e = createEdge(fromNode, node);
             outEdges->push_back(e);
         }
         return outEdges->size() > 0;
@@ -94,7 +96,7 @@ namespace Graph{
         outEdges->reserve(fromArray.size());
 
         for(Node* node : fromArray){
-            Edge *e = &createEdge(node, toNode);
+            Edge *e = createEdge(node, toNode);
             outEdges->push_back(e);
         }
         return outEdges->size() > 0;
@@ -156,7 +158,7 @@ namespace Graph{
                 for(const std::string& to_node_id : tokens){
                     Node *nn = createNode(to_node_id);
                     Node *tn = getNodeById(to_node_id);
-                    Edge &e = createEdge( fn, tn);
+                    Edge *e = createEdge( fn, tn);
                 }             
                 
             }while(!input_stream.eof());
@@ -177,19 +179,19 @@ namespace Graph{
 
     void Graph::initEdges()
     {
-        for(Edge &e : edge_pool){
-            e.init(getNodeMap());
+        for(Edge *e : edge_pool){
+            e->init(getNodeMap());
         }
     }
 
     void Graph::initNodes()
     {
-        for(Edge &e : edge_pool){
+        for(Edge *e : edge_pool){
             bool flag = false;
-            Node* from_node = e.fromNode();
-            Node* to_node = e.toNode();
-            to_node->addInputEdge(&e);
-            from_node->addOutputEdge(&e);
+            Node* from_node = e->fromNode();
+            Node* to_node = e->toNode();
+            to_node->addInputEdge(e);
+            from_node->addOutputEdge(e);
         }
     }
 
@@ -395,56 +397,57 @@ namespace Graph{
 
         if(changeNode){
             if(fromNode){
-                Edge *edge = &createEdge(fromNode, changeNode);
+                Edge *edge = createEdge(fromNode, changeNode);
                 edge->init(node_map);
                 changeNode->addInputEdge(edge);
                // fromNode->getOutputEdges().clear();
                 fromNode->addOutputEdge(edge);
             }
             if(toNode){
-                Edge *outEdge = &createEdge(changeNode, toNode);
+                Edge *outEdge = createEdge(changeNode, toNode);
                 outEdge->init(node_map);
                 changeNode->addOutputEdge(outEdge);
             }
         }
     }
 
-    void Graph::addSubGraph2(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode )
+    void Graph::addSubGraph2(SubGraph &subGraph, bool delteOriginalEdges, NodePtr fromNode, NodePtr toNode )
     {
+  
         node_map.erase("0");
-        std::cout << subGraph.toString() << std::endl;
+        transformSubGraph(subGraph);
         Node *lastNode = subGraph.lastNode();
         Node *firstNode = subGraph.firstNode();
         Node *firstNode_t = transFormedNodePtr(firstNode);
-       
-        if(fromNode){
-            Edge *edge = &createEdge(fromNode->getID(), firstNode->getID());
-            edge->init(node_map);
-            fromNode->addOutputEdge(edge);
-            firstNode->addInputEdge(edge);
-        }
-        std::cout << firstNode->toString() << std::endl;
+        Node *lastNode_t = transFormedNodePtr(lastNode);
         if(firstNode){
             std::string fromId = firstNode->getID();
-            for(Edge* e : firstNode->getOutputEdges()){
-                if(e){
-                    std::string toId = e->getTargetIdentifier();
-                    Node* tn = createNode(toId);
-                    Edge *e = &createEdge(fromId, toId);
-                    e->init(node_map);
-                    firstNode_t->addOutputEdge(e);
-                    tn->addInputEdge(e);
-                    std::cout << e->toString() << std::endl;
-
-                }
-            }
+            transformNodeRecursive(firstNode);
         }
-
+        if(fromNode){
+            std::cout << fromNode->toString(true) << std::endl;
+            Edge *edge = createEdge(fromNode->getID(), firstNode->getID());
+            edge->init(node_map);
+            if(delteOriginalEdges)
+                fromNode->getOutputEdges().clear();
+            std::cout << fromNode->toString(true) << std::endl;
+            std::cout << fromNode->toString() << std::endl;
+            fromNode->addOutputEdge(edge);
+            firstNode_t->addInputEdge(edge);
+        }
         if(toNode){
-            Edge *outEdge = &createEdge(lastNode, toNode);
-            outEdge->init(node_map);
-            lastNode->addOutputEdge(outEdge);
-        }    
+            Edge *edge = createEdge(lastNode->getID(), toNode->getID());
+            edge->init(node_map);
+            lastNode_t->addOutputEdge(edge);
+            if(delteOriginalEdges)
+                toNode->getInputEdges().clear();
+            toNode->addInputEdge(edge);
+            
+        }
+        std::cout << firstNode->toString() << std::endl;
+        
+
+       
     }
 
     void Graph::insertSubGraph(SubGraph &subGraph, NodePtr fromNode, NodePtr toNode)
@@ -453,25 +456,23 @@ namespace Graph{
         transformSubGraph(subGraph);
         
         node_map.erase("0");
-#if 0        
-        Node *lastNode = transFormedNodePtr(std::prev(subGraph.getNodeMap().end())->second);
-        Node *firstNode = transFormedNodePtr(subGraph.getNodeMap().begin()->second);
-#else
-        Node *lastNode = getNodeById(std::prev(subGraph.getNodeMap().end())->first);
-        Node *firstNode = getNodeById(subGraph.getNodeMap().begin()->first);
-#endif
+
+        Node *lastNode = subGraph.lastNode();
+        Node* lastNode_t = transFormedNodePtr(lastNode);
+        Node *firstNode = subGraph.firstNode();
+        Node* firstNode_t = transFormedNodePtr(firstNode);
+
         if(fromNode){
-            Edge *fromEdge = &createEdge(fromNode->getID(), firstNode->getID());
-            fromEdge->init(node_map);
-            fromNode->getOutputEdges().clear();
-            fromNode->addOutputEdge(fromEdge);
-            firstNode->addInputEdge(fromEdge);
+            Edge *edge = createEdge(fromNode->getID(), firstNode->getID());
+            edge->init(node_map);
+            fromNode->addOutputEdge(edge);
+            firstNode_t->addInputEdge(edge);
         }
         if(toNode){
-            Edge *toEdge = &createEdge(lastNode->getID(), toNode->getID());
-            toEdge->init(node_map);
-            toNode->addInputEdge(toEdge);
-            lastNode->addOutputEdge(toEdge);
+            Edge *edge = createEdge(lastNode->getID(), toNode->getID());
+            edge->init(node_map);
+            lastNode_t->addOutputEdge(edge);
+            toNode->addInputEdge(edge); 
         }
     }
 
@@ -524,7 +525,21 @@ namespace Graph{
             eraseNode(n);
         }
     }
-
+    void Graph::transformNodeRecursive(NodePtr node)
+    {
+        if(node){
+            Node* tNode = transFormedNodePtr(node);
+            for(Edge* e: node->getInputEdges()){
+                Edge *te = createEdge(e->getSourceIdentifier(), e->getTargetIdentifier());
+                tNode->addInputEdge(te);
+            }
+            for(Edge* e: node->getOutputEdges()){
+                 Edge *te = createEdge(e->getSourceIdentifier(), e->getTargetIdentifier());
+                 tNode->addOutputEdge(te);
+                 transformNodeRecursive(e->toNode());
+            }
+        }
+    }
 
     Node* Graph::transFormedNodePtr(Node *nodePtr)
     {
@@ -548,13 +563,13 @@ namespace Graph{
   
             if(n){
                 for(Edge *e : n->getInputEdges()){
-                    Edge *e2 = &createEdge(e->fromNode()->getID(), e->toNode()->getID());
+                    Edge *e2 = createEdge(e->fromNode()->getID(), e->toNode()->getID());
                     e2->init(node_map);
                     e->toNode()->addInputEdge(e2);
                     e->fromNode()->addOutputEdge(e2);
                 }    
                 for(Edge *e : n->getOutputEdges()){
-                    Edge *e2 = &createEdge(e->fromNode()->getID(), e->toNode()->getID());
+                    Edge *e2 = createEdge(e->fromNode()->getID(), e->toNode()->getID());
                     e2->init(node_map);
                     e->toNode()->addInputEdge(e2);
                     e->fromNode()->addOutputEdge(e2);

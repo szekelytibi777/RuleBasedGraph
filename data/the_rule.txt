@@ -1,2 +1,4 @@
-add:{b:0}{t:r,s,q}
-#insert:{a:b}{q:z;z:r}
+add:{b:0}{t:r,x,q,s;x:z,w;w:q}
+add:{a:b}{m:n}
+#insert:{b:d}{q:z}
+#add:{b:d}{q:z}
