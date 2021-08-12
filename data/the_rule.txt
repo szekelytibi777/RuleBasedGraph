@@ -1,4 +1,7 @@
 add:{b:0}{t:r,x,q,s;x:z,w;w:q}
 add:{a:b}{m:n}
-#insert:{b:d}{q:z}
-#add:{b:d}{q:z}
+add:{0:a}{o:p}
+insert:{o:p}{1:2}
+add:{2:0}{3:4,5,6}
+delete:{m:n}
+delete:{t:r,x,q,s;x:z,w;w:q}
