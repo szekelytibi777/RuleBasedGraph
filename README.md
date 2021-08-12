@@ -47,23 +47,28 @@ This application uses graphwiz next to x terminal for visual representation:
 add subgraph to the graph:
 modifier subgraph can be started from an existing node in the graph
 or can be ends on an allready existing node
-
-**add** :{<existing_node_started_from>:<existing_node_ends_with>}{<modifier_subgraph>}
+```
+add{<existing_node_started_from>:<existing_node_ends_with>}{<modifier_subgraph>}
+```
 
 ## insert
 insert subgraph between connected nodes (node1 and node2)
-
-**insert**:{<node1_id>:<node2_id>}{<subgraph descriptor>}
+```
+insert:{<node1_id>:<node2_id>}{<subgraph descriptor>}
+```
 
 ## delete
 delete subgraph from the graph
 
-**delete**:{<descriptor_of_original_subgraph_to_delete>}
+```
+delete:{<descriptor_of_original_subgraph_to_delete>}
+```
 
 ##  edge
 connect two nodes in the graph
-
-**edge**:{<from_node_id>:<to_node_id>}
+```
+edge:{<from_node_id>:<to_node_id>}
+```
 
 
 
